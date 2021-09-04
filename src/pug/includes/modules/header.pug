@@ -1,0 +1,36 @@
+-
+   let menuItems = [
+      {title: 'Принципы', to: 'principe'},
+      {title: 'Продукты и решения', to: 'products'},
+      {title: 'Кейсы', to: 'cases'},
+      {title: 'Цифры', to: 'numbers'},
+      {title: 'Вендоры', to: 'vendors'},
+      {title: 'Отзывы', to: 'reviews'},
+      {title: 'Контакты', to: 'contacts'},
+   ]
+
+header.header
+   .wrapper
+      .header__topline.topline
+         .topline__logo
+            .topline__brand
+               span EXA
+               | Systems
+            div Порядочность.
+            div Профессионализм.
+            div Ответственность.
+
+         .topline__list
+            - for(let i=1; i<menuItems.length; i++)
+               -let {title, to} = menuItems[i]
+               .topline__item #{title}
+            .topline__burger
+
+         .topline__contacts
+            a(href="tel:+74955404708") +7 (495) 540-47-08
+            .topline__callback.butthx Обратный звонок
+
+
+      .header__hero.hero
+
+

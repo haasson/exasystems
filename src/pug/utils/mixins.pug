@@ -1,0 +1,8 @@
+mixin svg(name, classList)
+   svg(class=`icon ${classList}`)
+      use(xlink:href=`assets/svg-sprite/icons.svg#${name}`)
+
+mixin btn(span1, span2, classList, link)
+   a(class=`btn ${classList}` href=`link`)= span1
+      span.btn-marked= span2
+      +svg('arrow', 'btn-arrow')
