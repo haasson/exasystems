@@ -1,0 +1,44 @@
+.features
+  &__title
+    margin-bottom: 50px
+    font-size: 20px
+    line-height: 1.2
+    font-family: $secondary-font
+    font-weight: 600
+  &__item
+    position: relative
+    margin-left: 27px
+    margin-bottom: 11px
+    line-height: 1.7
+    &:before
+      position: absolute
+      content: ""
+      z-index: 1
+      display: inline-block
+      top: 9px
+      left: -27px
+      width: 7px
+      height: 7px
+      border-radius: 50%
+      box-shadow: 0 0 16px rgba(103, 182, 255, 0.63)
+      background-color: #0eadff
+    &:after
+      content: ""
+      position: absolute
+      left: -24px
+      bottom: -21px
+      width: 1px
+      height: calc(100% + 10px)
+      background-color: #847dcf
+    &:last-child
+      margin-bottom: 0
+      &:after
+        height: 45px
+        bottom: -39px
+
+
+@media (max-width: 768px)
+  .features
+    &__title
+      margin-bottom: 20px
+

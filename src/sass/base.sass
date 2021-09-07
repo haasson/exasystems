@@ -3,6 +3,9 @@
 div, a
   outline: none
 
+html, body
+  height: 100%
+
 body
   position: relative
   min-width: 320px
@@ -19,7 +22,7 @@ body
   box-sizing: border-box
 
 .wrapper
-  width: calc(100% - 160px)
+  width: calc(100% - 60px)
   max-width: $wrapper
   margin: 0 auto
 
@@ -50,12 +53,11 @@ ul, ol
   padding: 0
   list-style: none
 
+button
+  border: none
+
 .nowrap
   white-space: nowrap
-
-.icon
-  width: 20px
-  height: 20px
 
 .hide
   display: none !important
@@ -63,8 +65,11 @@ ul, ol
 .slick-slide
   outline: none
 
-.visibility-hidden
-  visibility: hidden
+.hidden
+  visibility: hidden !important
+
+.visible
+  visibility: visible !important
 
 .rel
   position: relative
@@ -116,3 +121,47 @@ input:focus:-ms-input-placeholder,
 textarea:focus:-ms-input-placeholder
   color: transparent
 
+/*======================== MEDIA QUERIES ===============================*/
+@media (max-width: 2140px)
+  .test
+    text-decoration: none
+@media (max-width: 1799px)
+  .test
+    text-decoration: none
+@media (max-width: 1550px)
+  .test
+    text-decoration: none
+@media (max-width: 1440px)
+  .test
+    text-decoration: none
+@media (max-width: 1367px)
+  .test
+    text-decoration: none
+@media (max-width: 1280px)
+  .test
+    text-decoration: none
+@media (max-width: 1200px)
+  .test
+    text-decoration: none
+@media (max-width: 1160px)
+  .test
+    text-decoration: none
+@media (max-width: 1080px)
+  .test
+    text-decoration: none
+@media (max-width: 992px)
+  .test
+    text-decoration: none
+@media (max-width: 768px)
+  .wrapper
+    width: calc(100% - 30px)
+@media (max-width: 568px)
+  .test
+    text-decoration: none
+@media (max-width: 480px)
+  .wrapper
+    width: calc(100% - 20px)
+
+@media (max-width: 420px)
+  .test
+    text-decoration: none

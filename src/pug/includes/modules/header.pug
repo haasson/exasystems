@@ -9,28 +9,63 @@
       {title: 'Контакты', to: 'contacts'},
    ]
 
-header.header
+-
+   let headerFeatures = [
+      'проектирование / аудит серверной инфраструктуры',
+      'подбор вендора',
+      'оптимизация сметы',
+      'наличие 100 % позиций',
+      'запуск в эксплуатацию',
+      'информационная безопасность',
+      'поддержка'
+   ]
+
+-
+   let pageTypes = {
+      server: {
+         title: 'Надежный поставщик профессиональных серверных решений',
+         img: 'hero-1'
+      },
+      print: 'Принтеры'
+   }
+
+header.header(class=type)
+   .header__bg-wrap
+      .header__bg(style=`background-image: url('assets/img/1header/${pageTypes[type].img}.png')`)
    .wrapper
       .header__topline.topline
-         .topline__logo
+         a.topline__logo(href="#")
             .topline__brand
                span EXA
                | Systems
-            div Порядочность.
-            div Профессионализм.
-            div Ответственность.
+            .topline__slogan
+               div Порядочность.
+               div Профессионализм.
+               div Ответственность.
 
-         .topline__list
-            - for(let i=1; i<menuItems.length; i++)
-               -let {title, to} = menuItems[i]
-               .topline__item #{title}
-            .topline__burger
+         ul.topline__menu.j-menu
+            each item in menuItems
+               -let {title, to} = item
+               li.topline__item #{title}
+         .topline__burger.j-menu-switcher
+            div
 
          .topline__contacts
-            a(href="tel:+74955404708") +7 (495) 540-47-08
-            .topline__callback.butthx Обратный звонок
+            .topline__phone
+               +svg('phone', 'topline__icon topline__icon_phone')
+               a(href="tel:+74955404708") +7 (495) 540-47-08
+            span.topline__callback.butthx Обратный звонок
 
 
       .header__hero.hero
+         .hero__title #{pageTypes[type].title}
+         .hero__content
+            .hero__features.features.features_blue
+               .features__title Берем ответственность за полный цикл
+               ul.features__list
+                  each feature in headerFeatures
+                     li.features__item #{feature}
+
+            button.hero__btn.btn.btn_arrow.butthx Отправить запрос на расчет стоимости
 
 

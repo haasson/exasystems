@@ -1,1 +1,1 @@
-// import '../svg/arrow.svg'
+import '../svg/phone.svg'

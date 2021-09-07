@@ -1,0 +1,29 @@
+-
+  let equipment = [
+    {
+       name: "server",
+      title: 'Серверы',
+      brands: ['Lenovo', 'Dell', 'HP', 'Supermicro'],
+      img: ""
+    },
+    {
+      name: "server_parts",
+      title: 'Серверы',
+      brands: ['Lenovo', 'Dell', 'HP', 'Supermicro'],
+      img: ""
+    },
+  ]
+
+.equip
+  .wrapper
+    .equip__inner
+      h2.equip__title.section-title Оборудование
+      ul.equip__list
+         each item, i in equipment
+           li.equip__item(class=`${i > 3 ? 'equip__item_small' : ''}` style=`background-image: url('assets/img/3equip/${i+1}.png')`)
+             h3.equip__name #{item.title}
+             .equip__content
+               ul.equip__brands
+                  each brand in item.brands
+                    li.equip__brand #{brand}
+               button.equip__btn.btn.butthx Скачать прайс
