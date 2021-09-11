@@ -1,1 +1,69 @@
-span 111
+-
+  let productSlider = [
+    {
+      title: "Службы единого каталога и базовые информационные сервисы",
+      tags: [
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+      ]
+    },
+    {
+      title: "TEST",
+      tags: [
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+      ]
+    },
+    {
+      title: "TEST",
+      tags: [
+        {text: "test", color: "purple"},
+        {text: "test", color: "orange"},
+        {text: "test", color: "green"},
+      ]
+    },
+    {
+      title: "TEST",
+      tags: [
+        {text: "test", color: "purple"},
+        {text: "tesrert", color: "gray"},
+        {text: "testwer", color: "blue"},
+      ]
+    },
+    {
+      title: "TEST",
+      tags: [
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+        {text: "test", color: "purple"},
+      ]
+    },
+  ]
+
+
+.products.products-wrap__products
+  .wrapper
+    .products__inner
+      .products__container
+        .products__title.section-title Продукты и решения
+        .products__subtitle Полный цикл работ по построению надежной IT-архитектуры. Под ключ.
+        .products__slider.hide
+          each slide, i in productSlider
+            div
+              .products__slide
+                img.products__img(src=`assets/img/4products/${i + 1}.png`)
+                .products__content
+                  p.products__name #{slide.title}
+                  ul.products__tags
+                    each tag in slide.tags
+                       li.products__tag(class=`products__tag_${tag.color}`) #{tag.text}
+        .products__line
+          .products__arrows
+            +svg('quotes', 'products__icon products__icon_quote')
+

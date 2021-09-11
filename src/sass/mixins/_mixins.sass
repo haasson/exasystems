@@ -9,13 +9,12 @@
 		@else
 			src: url('#{$file-path}.woff') format('woff')
 
-@mixin pseudo
-	position: absolute
-	display: block
-	content: ''
-
 @mixin overlay
 	width: 100%
 	height: 100%
 	left: 0
 	top: 0
+
+@mixin polygon($anglePosition, $edge)
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{$edge}px), #{$anglePosition}% 100%, 0 calc(98% - #{$edge}px))
+

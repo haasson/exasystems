@@ -1,0 +1,97 @@
+.products
+  $padding: 120px
+  &__inner
+    width: calc(100% + 300px)
+    min-height: 600px
+    margin-left: -150px
+    filter: drop-shadow(0.419px 5.985px 25.5px rgba(56, 65, 78, 0.09))
+    overflow: hidden
+    padding: 80px 30px 67px
+    box-sizing: border-box
+    background-color: $white
+
+  &__slider
+    padding: 20px 0
+  &__slide
+    height: 300px
+    margin: 0 6px
+    filter: drop-shadow(0.419px 5.985px 25.5px rgba(56, 65, 78, 0.09))
+    background-color: $white
+
+  &__title,
+  &__subtitle
+    padding-left: $padding
+  &__title
+    margin-bottom: 14px
+  &__subtitle
+    margin-bottom: 18px
+    font-weight: 600
+
+  &__content
+    padding: 0 31px
+    font-weight: 600
+    line-height: 1.7
+  &__tags
+    display: flex
+    flex-wrap: wrap
+    margin-top: 11px
+  &__tag
+    margin-bottom: 4px
+    margin-right: 3px
+    padding: 0 9px
+    border-radius: 2px
+    line-height: 20px
+    color: $white
+    font-weight: 300
+    &_purple
+      background-color: #574fb8
+    &_orange
+      background-color: #ff7f00
+    &_gray
+      background-color: #6a6a6a
+    &_blue
+      background-color: #118cff
+    &_green
+      background-color: #24cdbb
+
+  &__line
+    position: relative
+    margin-top: 45px
+    height: 2px
+    background-color: #e6e7ec
+  &__arrows
+    position: absolute
+    display: flex
+    top: -10px
+    left: 40px
+    padding: 6px 11px
+    box-sizing: border-box
+    border-radius: 11px
+    filter: drop-shadow(0.419px 5.985px 12px rgba(56, 65, 78, 0.19))
+    background-color: $white
+  &__icon
+    &_quote
+      width: 28px
+      height: 10px
+
+  .slick-list
+    overflow: visible
+
+/*======================== MEDIA QUERIES ===============================*/
+
+@media (max-width: 1550px)
+  $padding: 0
+  .products
+    &__inner
+      width: 100%
+      margin: 0
+      padding: 60px 60px 60px 40px
+    &__title,
+    &__subtitle
+      padding-left: $padding
+
+
+@media (max-width: 568px)
+  .products
+    &__inner
+      padding: 30px

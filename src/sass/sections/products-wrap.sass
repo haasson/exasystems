@@ -2,7 +2,23 @@
 @import "../blocks/selection"
 
 .products-wrap
-  padding-top: 105px
-  background-color: lightgreen
+  padding: 105px 0 330px
+  background-color: #31b3a5
+  background-image: linear-gradient(to right, rgba(0, 0, 1, 0.21) 0%, rgba(255, 255, 255, 0.21) 100%)
 
+  &__products
+    margin-bottom: 95px
 
+@media (max-width: 1080px)
+  .products-wrap
+    padding-top: 50px
+
+@media (max-width: 992px)
+  .products-wrap
+    padding-bottom: 130px
+    &__products
+      margin-bottom: 35px
+
+@media (max-width: 768px)
+  .products-wrap
+    padding-bottom: 45px
