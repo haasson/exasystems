@@ -1,0 +1,129 @@
+-
+  let projectsData = [
+    {
+      id: 1,
+      title: "Проектирование и монтаж СКС, СКУД, ЭОМ в новом офисе Open Broker",
+      logo: true,
+      location: 'БЦ Silver City, <br> г. Москва',
+      info: {
+        numbers: [
+          {
+            name: 'Площадь:',
+            value: '3500 м<sup>2</sup>'
+          },
+          {
+            name: 'Количество портов:',
+            value: '1200 шт.'
+          }
+        ],
+        lists: [
+          {
+            name: 'Особенности',
+            list: [
+              'сжатые сроки и ограниченный бюджет',
+              'отсутствие проекта, необходимость вести работы параллельно с созданием проекта',
+              'отсутствие исполнительной документации по существующим разделам СКС и ЭОМ',
+              'необходимость частичного сохранения существующей сети ЭОМ',
+              'восстановление исполнительной документации по существующим разделам СКС и ЭОМ'
+            ]
+          }
+        ]
+      },
+      photos: [1,2,3,4]
+    },
+    {
+      id: 2,
+      title: "Проектирование и строительство центра oбработки данных на 500 кВт, 50 стоек",
+      location: 'г. Коломна',
+      info: {
+        lists: [
+          {
+            name: 'Материалы и оборудование:',
+            list: ['Для выполнения работ выбраны стойки ЦМО серии ПРОФ и КОЛОКЕЙШН, кондиционеры - Stulz, ИБП – APC (Easy UPS).']
+          },
+          {
+            name: 'Результат:',
+            list: ['Ввод в эксплуатацию в октябре 2020 года.']
+          },
+        ]
+      },
+      photos: [1,2,3]
+    },
+    {
+      id: 3,
+      title: "Ведущий поставщик строительной химии и декора для отделки и ремонта",
+      location: 'г. Москва',
+      info: {
+        lists: [
+          {
+            name: 'Задача:',
+            list: ['Срочно подготовить к работе новый офис']
+          },
+          {
+            name: 'Результат:',
+            list: ['Заказчик принял работы без замечаний через 5 календарных дней после передачи ключей от офиса.']
+          },
+        ]
+      },
+      photos: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+    },
+    {
+      id: 4,
+      title: "Посмотрите как мы осуществили монтаж СКС в Москве - в обучающем центре \"Ростех\"",
+      video: 'https://www.youtube.com/embed/vcqWpQT1NCQ'
+    },
+  ]
+
+
+.projects.polygon-block_down-left
+  .wrapper
+    .projects__inner
+      h2.projects__title.section-title Успешно реализованные проекты
+      .projects__slider-wrap
+        +svg('arrow', 'projects__arrow next-slide projects__icon projects__icon_arrow')
+        +svg('arrow', 'projects__arrow prev-slide projects__icon projects__icon_arrow projects__icon_arrow-reverse')
+        .projects__slider.hide
+           each slide, i in projectsData
+             .projects__slide(class=`projects__slide_${slide.id}`)
+
+               .projects__header
+                 .projects__slide-title #{slide.title}
+                 if (slide.logo)
+                   img.projects__logo(src=`assets/img/6projects/${i + 1}/logo.png`)
+                 if (slide.location)
+                   .projects__location
+                     +svg('location', 'projects__icon projects__icon_location')
+                     .projects__address !{slide.location}
+
+               if (slide.info)
+                 .projects__info
+                   if (slide.info.numbers)
+                     .projects__numbers
+                        each number in slide.info.numbers
+                          .projects__number
+                            h4.projects__name #{number.name}
+                            span.projects__value !{number.value}
+                   if (slide.info.lists)
+                      each list in slide.info.lists
+                        .projects__list-wrap
+                          h4.projects__name #{list.name}
+                          ul.projects__list
+                             each item in list.list
+                               .projects__item
+                                 +svg('check', 'projects__icon projects__icon_check')
+                                 p.projects__text #{item}
+
+               .projects__gallery
+                  if (slide.photos)
+                    .projects__gallery-slider
+                      each photo in slide.photos
+                        .projects__thumbnail-wrap
+                          .projects__thumbnail-holder
+                            img.projects__thumbnail(src=`assets/img/6projects/${i + 1}/${photo}.jpg`)
+                  if (slide.video)
+                    .projects__video.rel.rel_16-9
+                      iframe.rel-child(src=slide.video title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+
+      .projects__fake-block.projects__fake-block_1
+      .projects__fake-block.projects__fake-block_2
