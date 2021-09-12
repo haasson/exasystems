@@ -1,5 +1,13 @@
 .numbers
-  padding-top: 110px
+  position: relative
+  padding: 110px 0 60px
+  &__bg
+    position: absolute
+    bottom: 0
+    z-index: -1
+    width: 100%
+    height: 200px
+    background-color: $gray-bg
   &__title
     margin-bottom: 14px
   &__content
@@ -79,6 +87,8 @@
 
 @media screen and (max-width: 768px)
   .numbers
+    &__bg
+      display: none
     &__content
       flex-direction: column
       align-items: center
@@ -94,7 +104,7 @@
 
 @media screen and (max-width: 480px)
   .numbers
-    padding-top: 50px
+    padding: 50px 0
     &__info
       flex-direction: column
     &__item

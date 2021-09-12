@@ -54,7 +54,7 @@ function sliderProducts() {
             }
          },
          {
-            breakpoint: 568,
+            breakpoint: 510,
             settings: {
                centerMode: false,
                initialSlide: 0,

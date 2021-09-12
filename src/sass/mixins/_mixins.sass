@@ -15,6 +15,44 @@
 	left: 0
 	top: 0
 
-@mixin polygon($anglePosition, $edge)
-	clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{$edge}px), #{$anglePosition}% 100%, 0 calc(98% - #{$edge}px))
+@mixin polygon($anglePosition)
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - 200px), #{$anglePosition}% 100%, 0 calc(98% - 200px))
 
+	@media (max-width: 2140px)
+		clip-path: polygon(0 0, 100% 0, 100% calc(100% - 165px), #{$anglePosition}% 100%, 0 calc(98% - 165x))
+
+	@media (max-width: 1799px)
+		clip-path: polygon(0 0, 100% 0, 100% calc(100% - 150px), #{$anglePosition}% 100%, 0 calc(98% - 150px))
+
+	@media (max-width: 1550px)
+		clip-path: polygon(0 0, 100% 0, 100% calc(100% - 130px), #{$anglePosition}% 100%, 0 calc(98% - 130px))
+
+	@media (max-width: 1440px)
+		clip-path: polygon(0 0, 100% 0, 100% calc(100% - 115px), #{$anglePosition}% 100%, 0 calc(98% - 115px))
+
+	@media (max-width: 1280px)
+		clip-path: polygon(0 0, 100% 0, 100% calc(100% - 105px), #{$anglePosition}% 100%, 0 calc(98% - 105px))
+
+	@media (max-width: 768px)
+		clip-path: none
+
+@mixin polygonUp($anglePosition)
+	clip-path: polygon(0 100%, 100% 100%, 100% 200px, #{$anglePosition}% 0, 0 200px)
+
+	@media (max-width: 2140px)
+		clip-path: polygon(0 100%, 100% 100%, 100% 165px, #{$anglePosition}% 0, 0 165x)
+
+	@media (max-width: 1799px)
+		clip-path: polygon(0 100%, 100% 100%, 100% 150px, #{$anglePosition}% 0, 0 150px)
+
+	@media (max-width: 1550px)
+		clip-path: polygon(0 100%, 100% 100%, 100% 130px, #{$anglePosition}% 0, 0 130px)
+
+	@media (max-width: 1440px)
+		clip-path: polygon(0 100%, 100% 100%, 100% 115px, #{$anglePosition}% 0, 0 115px)
+
+	@media (max-width: 1280px)
+		clip-path: polygon(0 100%, 100% 100%, 100% 105px, #{$anglePosition}% 0, 0 105px)
+
+	@media (max-width: 768px)
+		clip-path: none

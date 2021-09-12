@@ -24,14 +24,13 @@
    let pageTypes = {
       server: {
          title: 'Надежный поставщик профессиональных серверных решений',
-         img: 'hero-1'
       },
       print: 'Принтеры'
    }
 
 header.header.polygon-block_down-left(class=type)
    .header__bg-wrap
-      .header__bg(style=`background-image: url('assets/img/1header/${pageTypes[type].img}.png')`)
+      .header__bg(style=`background-image: url('assets/img/1header/hero-${type}.png')`)
    .wrapper
       .header__topline.topline
          a.topline__logo(href="#")

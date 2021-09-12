@@ -28,38 +28,42 @@
 
 .polygon-block
    &_down-left
-      +polygon(35, 200)
+      +polygon(35)
+   &_down-right
+      +polygon(65)
+   &_up-right
+      +polygonUp(72)
 
 /*======================== MEDIA QUERIES ===============================*/
-@media (max-width: 2140px)
-   .polygon-block
-      &_down-left
-         +polygon(35, 165)
-
-@media (max-width: 1799px)
-   .polygon-block
-      &_down-left
-         +polygon(35, 150)
-
-@media (max-width: 1550px)
-   .polygon-block
-      &_down-left
-         +polygon(35, 130)
-
-@media (max-width: 1440px)
-   .polygon-block
-      &_down-left
-         +polygon(35, 115)
-
-@media (max-width: 1280px)
-   .polygon-block
-      &_down-left
-         +polygon(35, 105)
-
-@media (max-width: 768px)
-   .polygon-block
-      &_down-left
-         clip-path: none
+//@media (max-width: 2140px)
+//   .polygon-block
+//      &_down-left
+//         +polygon(35, 165)
+//
+//@media (max-width: 1799px)
+//   .polygon-block
+//      &_down-left
+//         +polygon(35, 150)
+//
+//@media (max-width: 1550px)
+//   .polygon-block
+//      &_down-left
+//         +polygon(35, 130)
+//
+//@media (max-width: 1440px)
+//   .polygon-block
+//      &_down-left
+//         +polygon(35, 115)
+//
+//@media (max-width: 1280px)
+//   .polygon-block
+//      &_down-left
+//         +polygon(35, 105)
+//
+//@media (max-width: 768px)
+//   .polygon-block
+//      &_down-left
+//         clip-path: none
 
 @media (max-width: 568px)
    .section-title
