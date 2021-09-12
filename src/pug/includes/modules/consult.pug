@@ -1,0 +1,29 @@
+-
+  let consultInfo = [
+    'Два высших образования: техническое и юридическое',
+    'В IT – 12 лет',
+    'Прошел профессиональный путь от менеджера по продажам до руководителя отдела продаж в системном интеграторе',
+    'Реализованные проекты – Мортон, ПИК, ГК Основа, Инград, Моспроект, Моспромпроект, Донстрой, 3data, Альфабанк, ГК Соллерс, РЖД, Валентафарм',
+    'Женат, 2 детей. 18 лет профессионально занимался баскетболом.Интересы – ЗОЖ, бильярд, теннис, горные лыжи'
+  ]
+
+.consult
+  .wrapper
+    .consult__inner
+      .consult__contact
+        h2.consult__title.section-title Прямая с связь с инженером-консультантом
+        p.consult__subtitle Быстрый и компетентный ответ нашего эксперта:
+        button.consult__btn.btn.btn_blue.btn_arrow Связаться
+
+      .consult__content
+        img.consult__img(src="assets/img/10consult/photo.jpg")
+        .consult__info
+          p.consult__text.bold Ефаненков Анатолий Анатольевич, 39 лет
+          p.consult__text Директор по продажам, сооснователь
+          ul.consult__list
+            each item in consultInfo
+              li.consult__item
+                +svg('list-arrow', 'consult__icon')
+                p.consult__text #{item}
+
+
