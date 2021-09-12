@@ -53,7 +53,7 @@
       .products__container
         .products__title.section-title Продукты и решения
         .products__subtitle Полный цикл работ по построению надежной IT-архитектуры. Под ключ.
-        .products__slider.hide
+        .products__slider.slider.hide
           each slide, i in productSlider
             div
               .products__slide
@@ -64,6 +64,5 @@
                     each tag in slide.tags
                        li.products__tag(class=`products__tag_${tag.color}`) #{tag.text}
         .products__line
-          .products__arrows
-            +svg('quotes', 'products__icon products__icon_quote')
+          +sliderLine()
 

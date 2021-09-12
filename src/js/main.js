@@ -5,7 +5,8 @@ window.addEventListener('load', function () {
    burgerHandler()
    sliderProducts()
    sliderProjects()
-   console.log(slick)
+   vendorsSlider()
+   sliderControlsHandler()
 })
 
 function burgerHandler() {
@@ -22,6 +23,7 @@ function sliderProducts() {
    sliderEl.on('init', function(){
       sliderEl.removeClass("hide")
    });
+
    sliderEl.slick({
       arrows: false,
       centerMode: true,
@@ -73,7 +75,6 @@ function sliderProjects() {
       } else if (e.target.classList.contains('next-slide')) {
          sliderEl.slick('slickNext');
       }
-
    })
 
    sliderEl.on('init', function(){
@@ -95,9 +96,6 @@ function sliderProjects() {
       slidesToShow: 4,
       arrows: false,
       focusOnSelect: true,
-      // centerMode: true,
-      // centerPadding: '60px',
-      // variableWidth: true
       responsive: [
          {
             breakpoint: 568,
@@ -124,9 +122,6 @@ function sliderProjects() {
       slidesToShow: 3,
       arrows: false,
       focusOnSelect: true,
-      // centerMode: true,
-      // centerPadding: '60px',
-      // variableWidth: true,
       responsive: [
          {
             breakpoint: 480,
@@ -146,9 +141,6 @@ function sliderProjects() {
       slidesToShow: 4,
       arrows: false,
       focusOnSelect: true,
-      // centerMode: true,
-      // centerPadding: '60px',
-      // variableWidth: true,
       responsive: [
          {
             breakpoint: 992,
@@ -165,5 +157,42 @@ function sliderProjects() {
             }
          },
       ]
+   })
+}
+
+function vendorsSlider() {
+   const sliderEl = $('.vendors__slider');
+   sliderEl.on('init', function(){
+      sliderEl.removeClass("hide")
+   });
+   sliderEl.slick({
+      slidesToShow: 4,
+      arrows: false,
+      focusOnSelect: true,
+      responsive: [
+         {
+            breakpoint: 768,
+            settings: {
+               slidesToShow: 3,
+            }
+         },
+         {
+            breakpoint: 480,
+            settings: {
+               slidesToShow: 2,
+            }
+         },
+      ]
+   })
+}
+
+function sliderControlsHandler() {
+   $('.slider-line__arrows').on('click', (e) => {
+      let slider = $(e.target).closest('.wrapper').find('.slider')
+      if (e.target.classList.contains('slider-line__prev')) {
+         slider.slick('slickPrev');
+      } else if (e.target.classList.contains('slider-line__next')) {
+         slider.slick('slickNext');
+      }
    })
 }
