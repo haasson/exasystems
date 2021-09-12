@@ -1,0 +1,88 @@
+.quote
+  padding: 163px 0 115px
+  &__content
+    display: flex
+    align-items: flex-end
+  &__slogan
+    position: relative
+    max-width: 730px
+  &__slogan-text
+    font-size: 44px
+    line-height: 1.25
+    font-weight: 600
+    font-family: $secondary-font
+  &__symbol
+    position: absolute
+    top: 0
+    left: 0
+    transform: translate(-55%, -35%)
+  &__img
+    position: relative
+    display: flex
+    align-items: flex-end
+    left: -21px
+    bottom: 12px
+    &:before
+      position: relative
+      content: ""
+      display: inline-block
+      bottom: 1px
+      left: 3px
+      width: 153px
+      height: 8px
+      background-color: $text-color
+  &__text
+    &.bold
+      font-weight: 600
+
+  &__person
+    display: flex
+    align-items: center
+    margin-top: 15px
+  &__info
+    margin-left: 16px
+
+@media (max-width: 1160px)
+  .quote
+    padding: 80px 0 65px
+    &__content
+      justify-content: space-between
+    &__slogan-text
+      font-size: 38px
+    &__symbol
+      transform: translateY(-35%)
+    &__img
+      position: static
+      margin-left: 30px
+      width: 250px
+      flex-shrink: 0
+      &:before
+        display: none
+
+@media (max-width: 992px)
+  .quote
+    &__slogan-text
+      font-size: 32px
+
+@media (max-width: 768px)
+  .quote
+    padding: 70px 0 50px
+    &__symbol
+      width: 100px
+    &__slogan-text
+      font-size: 26px
+    &__img
+      width: 180px
+
+@media (max-width: 568px)
+  .quote
+    &__slogan-text
+      font-size: 22px
+    &__img
+      width: 100px
+
+@media (max-width: 480px)
+  .quote
+    padding: 50px 0 35px
+    &__img
+      display: none
