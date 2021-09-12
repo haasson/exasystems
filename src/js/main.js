@@ -6,6 +6,7 @@ window.addEventListener('load', function () {
    sliderProducts()
    sliderProjects()
    vendorsSlider()
+   reviewsSlider()
    sliderControlsHandler()
 })
 
@@ -183,6 +184,19 @@ function vendorsSlider() {
             }
          },
       ]
+   })
+}
+
+function reviewsSlider() {
+   const sliderEl = $('.reviews__slider');
+   sliderEl.on('init', function(){
+      sliderEl.removeClass("hide")
+   });
+   sliderEl.slick({
+      arrows: false,
+      slidesToShow: 1,
+      variableWidth: true,
+      infinite: false
    })
 }
 
