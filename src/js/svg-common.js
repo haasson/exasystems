@@ -1,4 +1,5 @@
 import '../svg/arrow.svg'
+import '../svg/arrow-right.svg'
 import '../svg/phone.svg'
 import '../svg/quotes.svg'
 import '../svg/location.svg'
