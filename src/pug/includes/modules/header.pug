@@ -1,12 +1,12 @@
 -
    let menuItems = [
-      {title: 'Принципы', to: 'principe'},
-      {title: 'Продукты и решения', to: 'products'},
-      {title: 'Кейсы', to: 'cases'},
+      {title: 'Принципы', to: 'garant'},
+      {title: 'Продукты и решения', to: 'products-wrap'},
+      {title: 'Кейсы', to: 'projects'},
       {title: 'Цифры', to: 'numbers'},
       {title: 'Вендоры', to: 'vendors'},
       {title: 'Отзывы', to: 'reviews'},
-      {title: 'Контакты', to: 'contacts'},
+      {title: 'Контакты', to: 'map'},
    ]
 
 -
@@ -25,12 +25,20 @@
       server: {
          title: 'Надежный поставщик профессиональных серверных решений',
       },
-      print: 'Принтеры'
+      network: {
+         title: 'Надежный поставщик профессионального сетевого оборудования'
+      },
+      storage: {
+         title: 'Надежный поставщик систем хранения данных'
+      },
+      print: {
+         title: 'Надежный поставщик профессионального печатного оборудования'
+      },
    }
 
-header.header.polygon-block_down-left(class=type)
+header.header.multiclass.polygon-block_down-left(class=pageType)
    .header__bg-wrap
-      .header__bg(style=`background-image: url('assets/img/1header/hero-${type}.png')`)
+      .header__bg(style=`background-image: url('assets/img/1header/hero-${pageType}.png')`)
    .wrapper
       .header__topline.topline
          a.topline__logo(href="#")
@@ -45,7 +53,7 @@ header.header.polygon-block_down-left(class=type)
          ul.topline__menu.j-menu
             each item in menuItems
                -let {title, to} = item
-               li.topline__item #{title}
+               li.topline__item(data-link=to) #{title}
          .topline__burger.j-menu-switcher
             div
 
@@ -53,11 +61,11 @@ header.header.polygon-block_down-left(class=type)
             .topline__phone
                +svg('phone', 'topline__icon topline__icon_phone')
                a(href="tel:+74955404708") +7 (495) 540-47-08
-            span.topline__callback.butthx Обратный звонок
+            span.topline__callback.modal-link-callback Обратный звонок
 
 
       .header__hero.hero
-         .hero__title #{pageTypes[type].title}
+         .hero__title #{pageTypes[pageType].title}
          .hero__content
             .hero__features.features.features_blue
                .features__title Берем ответственность за полный цикл
@@ -65,6 +73,6 @@ header.header.polygon-block_down-left(class=type)
                   each feature in headerFeatures
                      li.features__item #{feature}
 
-            button.hero__btn.btn.btn_arrow.butthx Отправить запрос на расчет стоимости
+            button.hero__btn.btn.btn_arrow.modal-link-full Отправить запрос на расчет стоимости
 
 

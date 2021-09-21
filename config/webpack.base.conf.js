@@ -15,7 +15,7 @@ const PATHS = {
 
 const PAGES_DIR = `${PATHS.src}/pug/pages/`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(filename => filename.endsWith('.pug'))
-
+console.log(PAGES)
 let conf = {
    externals: {
       paths: PATHS

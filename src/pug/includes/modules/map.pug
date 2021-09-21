@@ -1,0 +1,59 @@
+.map.polygon-block_up-right
+  .wrapper.map-relative
+    .map__inner
+      .map__box
+        .map__title.section-title Приезжайте
+        .map__nav
+          .map__name.active(data-tab="1")
+            span В офис
+          .map__name(data-tab="2")
+            span На склад
+
+        .map__tab(data-tab-content="1")
+          .map__subtitle Обсудить проект или просто на чашку кофе
+          .map__address
+            img(src='assets/img/12map/adress.png')
+            .map__info
+              p Москва, ул. 50 лет Октября, дом 4, офис 104 «А»
+              a.map__email(type="email" href="mailto:info@exasystems.ru") info@exasystems.ru
+
+        .map__tab.hide(data-tab-content="2")
+          .map__address
+            img(src='assets/img/12map/adress.png')
+            p Москва, Авиамоторная улица, 8с1
+
+
+        .map__tel.topline__phone
+          +svg('phone', 'topline__icon topline__icon_phone')
+          a(href="tel:+74955404708") +7 (495) 540-47-08
+        span.map__callback.topline__callback.modal-link-callback Обратный звонок
+
+  .footer
+    .wrapper
+      .footer__items.topline
+        a.topline__logo(href="#")
+          .topline__brand
+            span EXA
+            | Systems
+          .topline__slogan
+            div Порядочность.
+            div Профессионализм.
+            div Ответственность.
+        .topline__contacts
+          .topline__phone
+            +svg('phone', 'topline__icon topline__icon_phone')
+            a(href="tel:+74955404708") +7 (495) 540-47-08
+          span.topline__callback.modal-link-callback Обратный звонок
+
+
+
+
+
+
+
+
+
+
+
+
+  #map.map__item

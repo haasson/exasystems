@@ -1,29 +1,58 @@
 -
-  let equipment = [
-    {
-       name: "server",
+  let equipment = {
+    'server': {
       title: 'Серверы',
       brands: ['Lenovo', 'Dell', 'HP', 'Supermicro'],
-      img: ""
     },
-    {
-      name: "server_parts",
-      title: 'Серверы',
-      brands: ['Lenovo', 'Dell', 'HP', 'Supermicro'],
-      img: ""
+    'server-parts': {
+      title: 'Комплектующие для серверов',
+      brands: ['Процессоры', 'Блоки питания', 'Вентиляторы', 'Дисковые корзины', 'Жесткие диски и SDD', 'Контроллеры', 'Серверные платформы', 'и вся номенклатура серверных комплектующих'],
     },
-  ]
+    'network': {
+      title: 'Сетевое оборудование',
+      brands: ['TP-Link', 'Dlink', 'Extreme Networks', 'Microtik', 'Fortinet', 'Cisco', 'Juniper', 'Huawei'],
+    },
+    'print': {
+      title: 'Печатное оборудование',
+      brands: ['Canon', 'Kyocera', 'Xerox', 'Ricoh', 'HP', 'Brother'],
+    },
+    'storage': {
+      title: 'Системы хранения данных',
+      brands: ['Dell EMC', 'IBM', 'Lenovo', 'HP', 'Netup', 'Huawei', 'Qnap', 'Fujitsu'],
+    },
+    'protect': {
+      title: 'Оборудование для защиты питания',
+      brands: ['APC', 'eaton', 'vertiv', 'ippon'],
+    },
+    'boxes': {
+      title: 'Серверные шкафы и стойки',
+      brands: ['APC', 'ЦМО', 'Hyperline', 'TLK', 'Cabeus', 'NTSS'],
+    },
+  }
 
-.equip
+-
+  let positions = {
+    server: ['server', 'server-parts', 'network', 'print', 'storage', 'protect', 'boxes'],
+    network: ['network', 'server', 'server-parts', 'print', 'storage', 'protect', 'boxes'],
+    print: ['print', 'network', 'server', 'server-parts', 'storage', 'protect', 'boxes'],
+    storage: ['storage', 'server', 'server-parts', 'network', 'print', 'protect', 'boxes']
+  }
+
+
+.equip(class=pageType)
   .wrapper
     .equip__inner
       h2.equip__title.section-title Оборудование
       ul.equip__list
-         each item, i in equipment
-           li.equip__item(class=`${i > 3 ? 'equip__item_small' : ''}` style=`background-image: url('assets/img/3equip/${i+1}.png')`)
-             h3.equip__name #{item.title}
+         each item, i in positions[pageType]
+           - let obj = equipment[item]
+           li.equip__item(class=`${item}` style=`background-image: url('assets/img/3equip/${i < 4 ? item : item + '-small'}.png')`)
+             h3.equip__name #{obj.title}
              .equip__content
                ul.equip__brands
-                  each brand in item.brands
+                  each brand in obj.brands
                     li.equip__brand #{brand}
-               button.equip__btn.btn.butthx Скачать прайс
+               button.equip__btn.btn.modal-link-price Скачать прайс
+  // hack for getting type variable
+  +svg("arrow", "hide")
+

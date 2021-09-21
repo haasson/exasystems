@@ -7,7 +7,8 @@
    color: $white
    background-color: $purple
    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.21) 0%, rgba(0, 0, 1, 0.21) 100%)
-
+   &.header-fixed
+      clip-path: none
    &__bg-wrap
       position: absolute
       height: 100%
@@ -17,8 +18,6 @@
       overflow: hidden
    &__bg
       position: absolute
-      left: 40%
-      bottom: -100px
       width: 100%
       height: 100%
       z-index: -1
@@ -29,32 +28,85 @@
    &__topline
       margin-bottom: 50px
 
-@media (max-width: 1799px)
-   .header
-      &__bg
-         left: 35%
 
-@media (max-width: 1280px)
-   .header
-      &__bg
-         left: 28%
+   &.server
+      padding-bottom: 134px
+      .header
+         &__bg
+            left: calc(50% - 260px)
+            bottom: -100px
+
+   &.print
+      padding-bottom: 200px
+      .header
+         &__bg
+            left: calc(50% - 590px)
+            bottom: -130px
+
+   &.network
+      padding-bottom: 130px
+      .header
+         &__bg
+            left: calc(50% - 70px)
+            bottom: 60px
+
+   &.storage
+      padding-bottom: 130px
+      .header
+         &__bg
+            left: calc(50% - 70px)
+            bottom: -280px
+
 
 @media (max-width: 1080px)
    .header
-      &__bg
-         background-size: 80%
+      &.server
+         .header
+            &__bg
+               left: calc(50% - 210px)
+               background-size: 80%
+
+      &.print
+         padding-bottom: 100px
+         .header
+            &__bg
+               left: calc(50% - 470px)
+               bottom: -30px
+               background-size: 50%
+
+      &.network
+         padding-bottom: 100px
+         .header
+            &__bg
+               left: calc(50% - 100px)
+               bottom: 0
+               background-size: 80%
+
+@media (max-width: 992px)
+   .header
+      &.print
+         .header
+            &__bg
+               left: calc(50% - 450px)
+      &.storage
+         .header
+            &__bg
+               left: calc(50% - 40px)
+               bottom: -150px
+               background-size: 50%
 
 @media (max-width: 768px)
-   .header
+   .header.multiclass
       padding-bottom: 50px
       &__bg
          display: none
 
+
 @media (max-width: 480px)
-   .header
+   .header.multiclass
       padding: 25px 0
 
 @media (max-width: 480px)
-   .header
+   .header.multiclass
       &__topline
          margin-bottom: 30px

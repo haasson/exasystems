@@ -1,4 +1,6 @@
 .hero
+  display: flex
+  flex-direction: column
   &__title
     font-size: 50px
     line-height: 1.1
@@ -11,6 +13,34 @@
   &__features
     margin-top: 46px
 
+  .print &
+    .hero
+      &__title
+        max-width: 590px
+      &__content
+        flex-direction: column
+        justify-content: flex-end
+        margin-top: -150px
+        margin-left: auto
+      &__btn
+        order: -1
+      &__features
+        margin-top: 56px
+
+  .network &
+    .hero
+      &__title
+        max-width: 600px
+      &__btn
+        margin-top: -150px
+
+  .storage &
+    .hero
+      &__title
+        max-width: 600px
+      &__btn
+        margin-top: -100px
+
 
 @import "../blocks/features"
 
@@ -20,6 +50,24 @@
     &__title
       font-size: 40px
 
+    .print &
+      .hero
+        &__content
+          margin-top: -120px
+
+    .network &
+      .hero
+        &__btn
+          margin-top: -120px
+
+
+@media (max-width: 1080px)
+  .hero
+    .print &
+      .hero
+        &__content
+          margin-top: -90px
+
 @media (max-width: 992px)
   .hero
     &__title
@@ -27,6 +75,18 @@
     &__btn
       max-width: 220px
       padding: 12px 25px 12px 20px
+    .print &
+      .hero
+        &__content
+          margin-top: 0
+    .network &
+      .hero
+        &__btn
+          margin-top: -100px
+    .storage &
+      .hero
+        &__btn
+          margin-top: -70px
 
 @media (max-width: 768px)
   .hero
@@ -37,14 +97,33 @@
     &__features
       margin-top: 15px
       margin-right: 15px
+    .multiclass &
+      .hero
+        &__title
+          max-width: 100%
+        &__content
+          flex-direction: row
+          justify-content: space-between
+          margin-top: 30px
+          margin-left: 0
+        &__btn
+          order: 1
+          margin: 0
+        &__features
+          margin-top: 0
+
+
+
 
 @media (max-width: 568px)
   .hero
-    &__content
-      flex-direction: column
-    &__features
-      order: 2
-      margin-top: 15px
+    .multiclass &
+      .hero
+        &__content
+          flex-direction: column
+        &__features
+          order: 2
+          margin-top: 15px
 
 @media (max-width: 420px)
   .hero

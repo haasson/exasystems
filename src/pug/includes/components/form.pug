@@ -1,15 +1,16 @@
 -
   let formTypes = {
-    selection: {
-      name: "Заявка на расчет стоимости"
-    }
+    full: "Заявка на расчет стоимости",
+    selection: "Заявка на расчет стоимости",
+    callback: 'Заявка на обратный звонок',
+    price: 'Запрос прайс-листа',
   }
 
 mixin form(props)
   - let {classList= '', type} = props
 
-  form.form(id=`form-${type}` class=classList enctype="multipart/form-data" method="post" onsubmit="send(e, 'include/send2.php')")
-    input(type="hidden" name="nameForm" value=formTypes[type].name)
+  form.form(id=`form-${type}` class=`${type === 'full' ? 'with-file' : ''}` enctype="multipart/form-data" method="post")
+    input(type="hidden" name="nameForm" value=formTypes[type])
     .form__name.form-field
       label.form__label(for=`${type}-name`) Имя, фамилия
       input(type="text" placeholder="Александр Петров" name="name_f" id=`${type}-name`)
@@ -20,16 +21,18 @@ mixin form(props)
       .form__number.form-field.form-field_half
         label.form__label(for=`${type}-email`) E-mail
         input(type="text" placeholder="info@mail.ru" name="mail_f" id=`${type}-email`)
-    .form__message.form-field
-      label.form__label(for=`${type}-message`) Комментарий к задаче
-      textarea(name="message_f" cols="30" rows="10" placeholder="Ваш вопрос" id=`${type}-message`)
+    if (type === 'full' || type === 'selection')
+      .form__message.form-field
+        label.form__label(for=`${type}-message`) Комментарий к задаче
+        textarea(name="message_f" cols="30" rows="10" placeholder="Ваш вопрос" id=`${type}-message`)
     .form__footer
-      .form__attach
-        input.form__file(form=`form-${type}` type="file" name="myfile[]" multiple id=`${type}-file`)
-        label.form__label.form__label_file(for=`${type}-file`) Прикрепите спецификацию к задаче
-        .form__file-info
-          .form__file-name
-          .form__file-send.hide Загрузка файла
-          progress.form__progress.hide(value="0" max="100")
+      if (type === 'full' || type === 'selection')
+        .form__attach
+          input.form__file(form=`form-${type}` type="file" name="myfile[]" multiple id=`${type}-file`)
+          label.form__label.form__label_file(for=`${type}-file`) Прикрепите спецификацию к задаче
+          .form__file-info
+            .form__file-name
+            .form__file-send.hide Загрузка файла
+            progress.form__progress.hide(value="0" max="100")
 
       button.form__btn.btn.btn_blue.btn_arrow Отправить

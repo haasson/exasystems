@@ -1,0 +1,48 @@
+.modal-bg
+   width: 100%
+   height: 100%
+   position: fixed
+   top: 0
+   left: 0
+   z-index: 999
+   background-color: rgba(70, 64, 170, 0.27058823529411763)
+   box-sizing: border-box
+   display: none
+
+.modal-content
+   position: relative
+   max-width: 560px
+   margin: 130px auto
+   padding: 0 20px
+
+   .close
+      position: absolute
+      right: 30px
+      top: 10px
+      z-index: 1
+      width: 15px
+      height: 15px
+      cursor: pointer
+   .modal-close
+      width: 15px
+      height: 15px
+      fill: $gray
+
+.modal-ok
+   .modal-content
+      h2
+         background-color: $white
+         padding: 45px
+         box-sizing: border-box
+         font-size: 24px
+
+@media (max-width: 420px)
+   .modal-content
+      .close
+         right: 24px
+         top: 6px
+      .modal-close
+         width: 12px
+         height: 12px
+
+

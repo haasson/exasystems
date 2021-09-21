@@ -53,6 +53,27 @@
       border-bottom-color: transparent
 
 
+  .header-fixed &
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 2
+    width: 100%
+    align-items: center
+    padding: 10px 20px
+    box-sizing: border-box
+    background-color: $purple
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.21) 0%, rgba(0, 0, 1, 0.21) 100%)
+    .topline
+      &__burger,
+      &__menu
+        margin-top: 0
+      &__slogan,
+      &__callback
+        display: none
+
+
+
 @media (max-width: 1160px)
   @mixin burger-line
     position: absolute
@@ -87,6 +108,7 @@
       height: 20px
       flex-shrink: 0
       margin: 11px 25px 0 auto
+      cursor: pointer
       div
         +burger-line()
         top: 50%
