@@ -3,6 +3,22 @@ include ../utils/mixins
 include ../includes/components/form
 include ../includes/components/slider-line
 
+-
+   let pagesList = {
+      server: {
+         name: 'Серверное оборудование'
+      },
+      print: {
+         name: 'Печатное оборудование'
+      },
+      network: {
+         name: 'Сетевое оборудование'
+      },
+      storage: {
+         name: 'Системы хранения'
+      },
+   }
+
 
 block variables
 
@@ -28,7 +44,7 @@ html(lang="ru")
       link(rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png")
       link(rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png")
       <!--    TODO-->
-      <!--  link(rel="manifest" href="manifest.json") -->
+      link(rel="manifest" href="manifest.json")
       meta(name="msapplication-TileColor" content="#ffffff")
       meta(name="msapplication-TileImage" content="ms-icon-144x144.png")
       meta(name="theme-color" content="#ffffff")

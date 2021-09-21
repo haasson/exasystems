@@ -11,6 +11,7 @@ mixin form(props)
 
   form.form(id=`form-${type}` class=`${type === 'full' ? 'with-file' : ''}` enctype="multipart/form-data" method="post")
     input(type="hidden" name="nameForm" value=formTypes[type])
+    input(type="hidden" name="namePage" value=pagesList[pageType].name)
     .form__name.form-field
       label.form__label(for=`${type}-name`) Имя, фамилия
       input(type="text" placeholder="Александр Петров" name="name_f" id=`${type}-name`)

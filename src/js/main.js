@@ -27,9 +27,6 @@ window.addEventListener('load', function () {
 
 function scrollToAnchor(behavior = 'smooth') {
    let links = document.querySelectorAll('.topline__item');
-   // let sections = document.querySelectorAll('.section');
-   // let header = document.querySelector('.header');
-   // let headerHeight = parseInt(window.getComputedStyle(header).height)
 
    links.forEach((item, i) => {
       item.addEventListener('click', function (e) {
@@ -38,7 +35,7 @@ function scrollToAnchor(behavior = 'smooth') {
          let section = document.querySelector(`.${item.dataset.link}`).querySelector('.section-title')
          window.scrollTo({
             top: getCoords(section).top - 70,
-            behavior: behavior
+            behavior
          });
       });
    })
@@ -292,11 +289,9 @@ function modalHandler() {
 
 $('form').on('submit', send)
 let inputFile = document.querySelectorAll('.form__file')
-console.log(inputFile)
 inputFile.forEach(input => {
    input.addEventListener('input', () => {
       let slash = input.value.lastIndexOf("fakepath")
-      console.log(slash, input.value.substring(slash + 9))
       $(input).closest("form").find('.form__file-name').html(input.value.substring(slash + 9));
    })
 })
@@ -329,7 +324,7 @@ function send(event) {
             alert('error - ' + xhr.status);
          },
          complete: function complete() {
-            console.log(this.data);
+            // console.log(this.data);
          }
       });
    }
@@ -352,7 +347,7 @@ function send(event) {
             console.log('success');
             $(".modal-bg").fadeOut(300);
             $(".modal-ok").fadeIn(300);
-            console.log(this.data);
+            // console.log(this.data);
             // dataLayer.push({ 'event': 'formsend', 'form_type': 'programm__form' });
          },
          // Custom XMLHttpRequest
