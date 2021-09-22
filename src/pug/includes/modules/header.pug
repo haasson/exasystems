@@ -74,8 +74,10 @@ header.header.multiclass.polygon-block_down-left(class=pageType)
 
          .topline__contacts
             .topline__phone
-               +svg('phone', 'topline__icon topline__icon_phone')
                a(href="tel:+74955404708") +7 (495) 540-47-08
+               .topline__svg.modal-link-callback
+                  .topline__tip Обратный звонок
+                  +svg('phone', 'topline__icon topline__icon_phone')
             a.topline__email(href="mailto:info@exasystems.ru")
                span info@exasystems.ru
                +svg('envelope', 'topline__icon topline__icon_envelope')

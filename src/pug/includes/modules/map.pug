@@ -23,10 +23,10 @@
             p Москва, Авиамоторная улица, 8с1
 
 
-        .map__tel.topline__phone
-          +svg('phone', 'topline__icon topline__icon_phone')
+        .map__phone
+          +svg('phone', 'map__icon map__icon_phone')
           a(href="tel:+74955404708") +7 (495) 540-47-08
-        span.map__callback.topline__callback.modal-link-callback Обратный звонок
+        span.map__callback.modal-link-callback Обратный звонок
 
   .footer
     .wrapper
@@ -41,8 +41,10 @@
             div Ответственность.
         .topline__contacts
           .topline__phone
-            +svg('phone', 'topline__icon topline__icon_phone')
             a(href="tel:+74955404708") +7 (495) 540-47-08
+            .topline__svg.modal-link-callback
+              .topline__tip Обратный звонок
+              +svg('phone', 'topline__icon topline__icon_phone')
           a.topline__email(href="mailto:info@exasystems.ru")
             span info@exasystems.ru
             +svg('envelope', 'topline__icon topline__icon_envelope')

@@ -36,8 +36,7 @@
       border: 1px solid $white
       & span
         border: none
-  //&__subtitle
-  //  height: 82px
+
   &__address
     display: flex
     font-weight: bold
@@ -56,9 +55,26 @@
     font-weight: bold
     color: $white
     text-decoration: none
+  &__phone
+    display: flex
+    align-items: center
+    font-size: 20px
+    font-family: $secondary-font
+    font-weight: 600
+    line-height: 2
   &__callback
-    margin-left: 20px
+    margin-left: 25px
     cursor: pointer
+    border-bottom: 1px solid rgba($white, .5)
+    transition: .2s
+    &:hover
+      border-bottom-color: transparent
+  &__icon
+    flex-shrink: 0
+    &_phone
+      width: 13px
+      height: 17px
+      margin-right: 12px
 
   &__item
     position: absolute
@@ -97,4 +113,9 @@
     &__item
       height: 500px
       position: static
+
+@media (max-width: 420px)
+  .map
+    &__box
+      padding: 30px 20px
 
