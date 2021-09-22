@@ -40,17 +40,26 @@
     font-family: $secondary-font
     font-weight: 600
     line-height: 2
+  &__email
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    span
+      border-bottom: 1px solid rgba($white, .5)
+      transition: .2s
+      &:hover
+        border-bottom-color: transparent
   &__icon
     flex-shrink: 0
     &_phone
       width: 10px
       height: 16px
       margin-right: 10px
-  &__callback
-    border-bottom: 1px solid rgba($white, .5)
-    transition: .2s
-    &:hover
-      border-bottom-color: transparent
+    &_envelope
+      width: 19px
+      height: 15px
+      margin-left: 11px
+      fill: $white
 
 
   .header-fixed &
@@ -68,9 +77,14 @@
       &__burger,
       &__menu
         margin-top: 0
-      &__slogan,
-      &__callback
+      &__slogan
         display: none
+      &__contacts
+        display: flex
+      &__email
+        margin-bottom: 2px
+        span
+          display: none
 
 
 
@@ -157,9 +171,16 @@
     &__icon
       &_phone
         margin-right: 6px
+      &_envelope
+        margin-left: 6px
 
-@media (max-width: 320px)
+    .header-fixed &
+      padding: 10px
+
+@media (max-width: 340px)
   .topline
     &__burger
+      width: 20px
+      height: 18px
       margin: 6px auto 0
 
