@@ -1,0 +1,156 @@
+-
+  let projectsDataSKS = [
+    {
+      id: 1,
+      title: "Проектирование и монтаж СКС, СКУД, ЭОМ в новом офисе Open Broker",
+      logo: true,
+      location: 'БЦ Silver City, <br> г. Москва',
+      info: {
+        numbers: [
+          {
+            name: 'Площадь:',
+            value: '3500 м<sup>2</sup>'
+          },
+          {
+            name: 'Количество портов:',
+            value: '1200 шт.'
+          }
+        ],
+        lists: [
+          {
+            name: 'Особенности',
+            list: [
+              'сжатые сроки и ограниченный бюджет',
+              'отсутствие проекта, необходимость вести работы параллельно с созданием проекта',
+              'отсутствие исполнительной документации по существующим разделам СКС и ЭОМ',
+              'необходимость частичного сохранения существующей сети ЭОМ',
+              'восстановление исполнительной документации по существующим разделам СКС и ЭОМ'
+            ]
+          }
+        ]
+      },
+      photos: [1,2,3,4],
+
+    },
+    {
+      id: 5,
+      title: "Салон-магазин текстильных материалов",
+      time: '1 день',
+      info: {
+        numbers: [
+          {
+            name: 'рабочих места',
+            value: 3
+          },
+          {
+            name: 'портов',
+            value: 6
+          },
+          {
+            name: 'видеокамер',
+            value: 6
+          },
+        ],
+        description: 'Смонтировали систему наблюдения с удаленным доступом и архивом на 1,5 месяца, а также сеть СКС для работы небельшого офиса, магазина или салона.',
+        lists: [
+          {
+            name: 'Использовали:',
+            list: [
+              'Патч - панель;',
+              'Камеры и регистраторы HIKVISION;',
+              'Шкаф для оборудования 9 юнитов;',
+              'Бесперебойник.'
+            ]
+          }
+        ]
+      },
+      photos: [1, 2, 3, 4,5,6,7,8,9,10],
+      fullPhoto: true
+    },
+    {
+      id: 6,
+      title: "Офисы компании ОблСтройИнвест",
+      time: '1 день',
+      info: {
+        numbers: [
+          {
+            name: 'рабочих мест',
+            value: 12
+          },
+          {
+            name: 'порта',
+            value: 24
+          },
+        ],
+        description: 'Компания сняла дополнительное помещение на этаже, т.к. офис удален от основного серверного шкафа компании. Чтобы снизить цену монтажа СКС в офисе, сделали локальную СКС в двухкомнатном помещении с отдельным шкафом, далее соединили отдельным оптическим кабелем с основной серверной. За счет чего удалось <b>сэкономить до 1500 м кабеля.</b>',
+      },
+      photos: [1, 2, 3, 4,5],
+      fullPhoto: true
+    },
+  ]
+
+
+.projects.polygon-block_down-right
+  .wrapper
+    .projects__inner
+      h2.projects__title.section-title Свежие проекты команды EXASystem
+      .projects__slider-wrap
+        +svg('arrow', 'projects__arrow next-slide projects__icon projects__icon_arrow')
+        +svg('arrow', 'projects__arrow prev-slide projects__icon projects__icon_arrow projects__icon_arrow-reverse')
+        .projects__slider.hide
+          each slide, i in projectsDataSKS
+           .projects__slide(class=`projects__slide_${slide.id}`)
+
+             .projects__header
+               .projects__slide-title #{slide.title}
+               if (slide.logo)
+                 img.projects__logo(src=`assets/img/6projects/${i + 1}/logo.png`)
+               if (slide.location)
+                 .projects__location
+                   +svg('location', 'projects__icon projects__icon_location')
+                   .projects__address !{slide.location}
+               if (slide.time)
+                 .projects__time
+                   +svg('time', 'projects__icon projects__icon_time')
+                   span !{slide.time}
+
+             .projects__content
+
+               if (slide.info)
+                 .projects__info
+                   if (slide.info.numbers)
+                     .projects__numbers
+                        each number in slide.info.numbers
+                          .projects__number
+                            h4.projects__name #{number.name}
+                            span.projects__value !{number.value}
+
+                   if (slide.info.description)
+                    p.projects__description !{slide.info.description}
+
+                   if (slide.info.lists)
+                      each list in slide.info.lists
+                        .projects__list-wrap
+                          h4.projects__name #{list.name}
+                          ul.projects__list
+                             each item in list.list
+                               .projects__item
+                                 +svg('check', 'projects__icon projects__icon_check')
+                                 p.projects__text #{item}
+
+               .projects__gallery
+                 if (slide.photos)
+                   if (slide.fullPhoto)
+                     img.projects__photo(src=`assets/img/6projects/${slide.id}/1.jpg`)
+                   .projects__gallery-slider
+                      each photo in slide.photos
+                        .projects__thumbnail-wrap
+                          .projects__thumbnail-holder
+                            img.projects__thumbnail(src=`assets/img/6projects/${slide.id}/${photo}.jpg`)
+                 if (slide.video)
+                   .projects__video.rel.rel_16-9
+                     iframe.rel-child(src=slide.video title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+
+      .projects__fake-block.projects__fake-block_1
+      .projects__fake-block.projects__fake-block_2

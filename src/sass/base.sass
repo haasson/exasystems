@@ -23,6 +23,15 @@ body
   //justify-content: space-between
   box-sizing: border-box
 
+  opacity: 1
+  transform: none
+  transition: opacity 1s, transform .5s
+  &.loading
+    opacity: 0
+    transform: translateY(15px)
+  &.header-fixed
+    margin-top: 79px
+
 .wrapper
   width: calc(100% - 60px)
   max-width: $wrapper
@@ -72,6 +81,12 @@ button
 
 .visible
   visibility: visible !important
+
+.relative
+  position: relative
+
+iframe
+  border: none
 
 .rel
   position: relative
@@ -123,6 +138,45 @@ textarea:focus:-moz-placeholder
 input:focus:-ms-input-placeholder,
 textarea:focus:-ms-input-placeholder
   color: transparent
+
+input[type="radio"]
+  display: none
+  &:checked
+    &+label
+      &:before
+        border-color: $blue
+      &:after
+        opacity: 1
+
+  &+label
+    position: relative
+    display: flex
+    align-items: center
+    padding-left: 42px
+    min-height: 28px
+    font-size: 16px
+    font-weight: 600
+    &::before
+      position: absolute
+      content: ""
+      left: 0
+      top: 0
+      width: 24px
+      height: 24px
+      border: 2px solid $blue
+      border-radius: 50%
+    &::after
+      position: absolute
+      content: ""
+      left: 7px
+      top: 7px
+      width: 14px
+      height: 14px
+      opacity: 0
+      background-color: $blue
+      border-radius: 50%
+      transition: opacity .3s
+
 
 /*======================== MEDIA QUERIES ===============================*/
 @media (max-width: 2140px)

@@ -5,29 +5,57 @@ require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
-// Переменные, которые отправляет пользователь
-$namePage = $_POST['namePage'];
-$nameForm = $_POST['nameForm'];
-$name = $_POST['name_f'];
-$email = $_POST['mail_f'];
-$phone = $_POST['phone_f'];
-$message = $_POST['message_f'];
-$file = $_FILES['myfile'];
-
-// Формирование самого письма
-$title = "EXASystems";
-$body = "
-<h2>$nameForm</h2>
-<b>Страница:</b> $namePage<br>
-<b>Имя:</b> $name<br>
-<b>Почта:</b> $email<br><br>
-<b>Номер:</b><br>$phone<br>
-<b>Сообщение:</b><br>$message<br>
-";
+require __DIR__ . '/compoundMsg.php';
 
 // Настройки PHPMailer
 $mail = new PHPMailer\PHPMailer\PHPMailer();
 try {
+    // Перебираем имена полей и возвращает массив с теми, что есть в запросе
+    // это позволяет использовать код более универсально для разных форм
+      function CheckValue($values) {
+        foreach ($values as $val) {
+          if (isset($_POST[$val])) {
+            $req[$val] = htmlspecialchars($_POST[$val]);
+          }
+        }
+        return $req;
+      }
+
+      // массив со списком имен полей, в данном случае для моего последнего проекта
+      $inputs = CheckValue(array(
+        'namePage',
+        'nameForm',
+        'name_f',
+        'mail_f',
+        'phone_f',
+        'message_f',
+        'myfile',
+        'messenger',
+        'workers',
+
+        'q-workplaces',
+        'q-ports',
+        'q-project',
+        'q-estimate',
+
+        'calc-info-1',
+        'calc-info-2',
+        'camera-1',
+        'camera-2',
+        'camera-3',
+        'camera-4',
+        'camera-5',
+        'camera-6',
+        'camera-7',
+        'camera-8',
+        'cameras-price',
+        'cameras-count',
+      ));
+
+      $title = "EXASystems";
+      $body = getMsg($inputs);
+      $file = $_FILES['myfile'];
+
     $mail->IsMail();
     $mail->CharSet = "UTF-8";
     $mail->From = 'b2b@exasystems.ru';

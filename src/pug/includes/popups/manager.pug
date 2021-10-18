@@ -1,0 +1,44 @@
+-
+  let managesList = [
+    {
+      text: 'Расскажу про компанию, оборудование и материалы, с которыми работаем'
+    },
+    {
+      text: 'Уточню ваши задачи и основные потребности'
+    },
+    {
+      text: 'Рассчитаю стоимость и сроки монтажа СКС в нескольких вариантах'
+    },
+  ]
+
+
+
+.modal-bg.modal-manager
+  .modal-content
+    .close
+      +svg('close', 'modal-close')
+    .modal-manager__inner
+      .modal-manager__content
+        .modal-manager__left
+          .modal-manager__top
+            .modal-manager__title Свяжусь с Вами в течение 30 минут и&nbsp;отвечу на все вопросы
+            .modal-manager__comment
+              ul.modal-manager__list
+                each manage in managesList
+                   li.modal-manager__item
+                      +svg(`check`, 'modal-manager__icon_check')
+                      p.modal-manager__item-text !{manage.text}
+          .modal-manager__subtitle
+            p.modal-manager__name Кирилл Мартынюк
+            p.modal-manager__speciality Руководитель направления СКС в EXASystem
+          form#form-manager.modal-manager__form
+            +form2({type: 'manager'})
+          //.modal-manager__messengers
+          //  span либо напишите нам в мессенджеры:
+          //  +svg('whatsapp', 'modal-manager__icon_whatsapp')
+          //  +svg('telegram', 'modal-manager__icon_telegram')
+        .modal-manager__right
+
+
+
+    //+form({type: 'price'})

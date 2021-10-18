@@ -1,0 +1,23 @@
+.modal-bg.modal-price-calc
+  .modal-content
+    .close
+      +svg('close', 'modal-close')
+
+    h2.modal-price-calc__title.section-title Стоимость комплекса видеонаблюдения для реализации программы «Безопасный регион»
+    .modal-price-calc__result
+      .modal-price-calc__count
+        p.modal-price-calc__label Количество камер:
+        p.modal-price-calc__value
+          span.cameras-count
+          span  шт.
+      .modal-price-calc__price
+        p.modal-price-calc__label Сумма с НДС:
+        p.modal-price-calc__value
+          span.cameras-price
+          span
+
+
+    .calc-price
+
+    p.modal-price-calc__subtitle Для получения подробного КП оправьте заявку:
+    +form({type: 'price-calc'})

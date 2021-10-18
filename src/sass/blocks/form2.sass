@@ -1,0 +1,136 @@
+.form2
+  &__content
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+
+  &__field,
+  &__btn
+    width: 100%
+
+  &__field
+    &.policy
+      span
+        color: $blue
+        font-weight: 600
+
+  &__label
+    display: block
+    margin-bottom: 12px
+    font-size: 14px
+
+  &__input
+    width: 100%
+    padding: 12px
+    box-sizing: border-box
+    background: $input-bg
+    box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.15)
+
+#form-header
+  .form2
+    &__field
+      width: calc(50% - 11px)
+      &.email,
+      &.phone
+        margin-bottom: 43px
+    &__content
+      margin-bottom: 40px
+
+#form-quiz
+  .form2
+    &__field
+      &.messenger,
+      &.phone
+        margin-bottom: 30px
+
+#form-offer
+  .form2
+    &__field
+      width: calc(50% - 11px)
+      &.email,
+      &.phone
+        margin-bottom: 43px
+
+#form-mount
+  .form2
+    &__field
+      &.messenger,
+      &.phone,
+      &.range
+        margin-bottom: 30px
+
+#form-manager
+  .form2
+    &__field
+      width: calc(50% - 11px)
+      &.messenger,
+      &.phone
+        margin-bottom: 43px
+
+#form-price-big
+  .form2
+    &__field
+      width: calc(50% - 11px)
+      &.email,
+      &.phone
+        margin-bottom: 30px
+      &.policy
+        width: 100%
+        margin-bottom: 15px
+
+
+@media (max-width: 992px)
+  #form-header
+    .form2
+      &__content
+        margin-bottom: 30px
+
+  #form-price-big
+    .form2
+      &__field
+        width: 100%
+
+  #form-manager
+    .form2
+      &__field.messenger,
+      &__field.phone
+        margin-bottom: 20px
+      &__field.policy,
+      &__field.submit
+        width: 100%
+
+
+@media (max-width: 768px)
+  #form-header
+    .form2
+      &__content
+        display: block
+      &__field
+        width: 100%
+      &__field.email
+        margin-bottom: 15px
+
+
+@media (max-width: 568px)
+  #form-offer
+    .form2
+      &__field
+        width: 100%
+        &.email,
+        &.phone
+          margin-bottom: 30px
+
+@media (max-width: 480px)
+  #form-manager
+    .form2
+      &__field
+        width: 100%
+
+@media (max-width: 420px)
+  #form-offer
+    .form2
+      &__field
+        &.email
+          margin-bottom: 20px
+
+

@@ -39,6 +39,61 @@
           justify-content: center
         &__slide-title
           font-size: 18px
+    &_5,
+    &_6
+      .projects
+        &__header
+          flex-wrap: nowrap
+        &__slide-title
+          flex-grow: 1
+        &__time
+          display: flex
+          align-items: center
+          margin-left: 15px
+          font-size: 26px
+          font-weight: 400
+          white-space: nowrap
+
+        &__content
+          display: flex
+        &__info
+          display: block
+          flex-grow: 1
+          margin-right: 10px
+        &__numbers
+          display: flex
+          margin-bottom: 20px
+        &__number
+          display: flex
+          align-items: center
+          margin: 0 30px 0 0
+          &:last-child
+            margin: 0
+        &__name
+          display: inline-block
+          order: 2
+          margin-left: 7px
+
+        &__description
+          font-size: 14px
+          line-height: 1.4
+          margin-bottom: 45px
+
+        &__gallery
+          max-width: 398px
+          flex-shrink: 0
+        &__photo
+          width: calc(100% - 8px)
+          height: 310px
+          object-fit: cover
+          margin: 0 4px 8px
+        &__thumbnail
+          height: 56px
+          width: 70px
+
+          &-holder
+            margin: 0 4px
+
 
   &__header
     display: flex
@@ -69,6 +124,7 @@
       right: 0
       fill: $dark-blue
       transform: translateY(-50%)
+      cursor: pointer
       &-reverse
         left: 0
         right: auto
@@ -86,6 +142,10 @@
       margin-right: 11px
       margin-top: 5px
       fill: $dark-blue
+    &_time
+      width: 41px
+      height: 41px
+      margin-right: 10px
 
   &__info
     display: flex
@@ -159,10 +219,13 @@
       align-items: center
       flex-wrap: wrap
       flex-direction: row
-    &__number
-      margin: 0
-      &:first-child
-        margin-right: 60px
+    &__slide
+      &_1
+        .projects
+          &__number
+            margin: 0
+            &:first-child
+              margin-right: 60px
     &__list-wrap
       margin-top: 15px
 
@@ -185,12 +248,28 @@
     &__value
       font-size: 28px
 
+    &__slide
+      &_5,
+      &_6
+        .projects
+          &__content
+            display: block
+
 
 @media screen and (max-width: 480px)
   .projects
     &__slide
       padding-left: 20px
       padding-right: 20px
+      &_5,
+      &_6
+        .projects
+          &__time
+            font-size: 18px
+          &__icon
+            &_time
+              width: 25px
+              height: 25px
     &__logo
       width: 123px
     &__value

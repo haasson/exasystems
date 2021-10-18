@@ -1,0 +1,97 @@
+-
+  let quizData = [
+    {
+      name: 'workplaces',
+      title: 'Сколько рабочих мест в вашем офисе?',
+      shortTitle: 'Сколько рабочих мест?',
+      answers: ['До 10', '10-25', '25-50', '50-100', 'Свыше 100']
+    },
+    {
+      name: 'ports',
+      title: 'Сколько портов Вам нужно для одного рабочего места?',
+      shortTitle: 'Сколько портов?',
+      answers: ['1 порт', '2 порта', 'другое']
+    },
+    {
+      name: 'project',
+      title: 'У Вас есть проект?',
+      shortTitle: 'У Вас есть проект?',
+      answers: ['Да, есть', 'Проекта нет']
+    },
+    {
+      name: 'estimate',
+      title: 'У Вас есть смета от другой компании?',
+      shortTitle: 'У вас есть смета?',
+      answers: ['Да, есть', 'Нет']
+    },
+  ]
+
+-
+  let quizFeatures = [
+    {title: 'Прайс-лист', text: 'на все услуги', linkText: 'Скачать', modal: 'price-big'},
+    {title: 'Консультацию', text: 'директора', linkText: 'Получить', link: 'manager'},
+    {title: '3 варианта сметы', text: 'со скидкой до 15%', linkText: 'Получить', link: 'offer'},
+  ]
+
+.quiz.polygon-block_down-right
+  .wrapper
+    form#form-quiz.quiz__form
+      .quiz_main
+        .quiz__title.section-title Рассчитайте предварительную цену и сроки монтажа,
+        .quiz__subtitle.section-subtitle ответив на 4 вопроса
+
+        .quiz__content
+          .quiz__main
+            .quiz__navbar
+              each question, i in quizData
+                .quiz__tab.quiz_progress-step
+                  .quiz__tab-index
+                    span <span>Вопрос</span> !{i+1} из !{quizData.length}
+                  .quiz__tab-title !{question.shortTitle}
+                  .quiz__tab-success
+                    +svg('check', 'quiz__tab-icon')
+
+            .quiz__questions
+              ul.quiz__qustions-list
+                each question, i in quizData
+                  li.quiz__question.quiz_question
+                    h3.quiz__question-title !{question.title}
+                    ul.quiz__answers
+                      each answer, k in question.answers
+                        li.quiz__answer
+                          - let isChecked = k === 0
+                          input(type="radio" name=`q-${question.name}` value=answer checked=isChecked id=`quiz_q${i+1}_a${k+1}`)
+                          label(for=`quiz_q${i+1}_a${k+1}`) !{answer}
+
+            span.quiz__btn.btn.btn_orange.quiz_btn-next Дальше
+
+          .quiz__features
+            .quiz__features-title После рассчета <br> Вы получите:
+            .quiz__features-content
+               each feature, i in quizFeatures
+                 .quiz__feature
+                   +svg(`quiz-feature-icon-${i + 1}`, 'quiz__feature-icon')
+                   .quiz__feature-content
+                     p.quiz__feature-title !{feature.title}
+                     p.quiz__feature-text !{feature.text}
+                     if (feature.link)
+                      span.quiz__feature-link(data-link=feature.link) !{feature.linkText}
+                     if (feature.modal)
+                      span.quiz__feature-link(data-modal=feature.modal) !{feature.linkText}
+
+      .quiz__final.quiz_final
+        .quiz__final-inner
+          .quiz__final-images
+            img.quiz__final-img1(src="assets/img/13quiz/quiz-inner-bg1.png")
+            img.quiz__final-img2(src="assets/img/13quiz/quiz-inner-bg2.png")
+          .quiz__final-content
+            p.quiz__final-subtitle По нашему опыту
+            h3.quiz__final-title средняя стоимость работ на вашем объекте составит:
+            p.quiz__final-price 15 000 - 50 000 руб.
+            p.quiz__final-text Точная стоимость зависит от производителя материалов, способа прокладки, высоты помещений и материала стен.
+            .quiz__final-estimate
+              +svg(`quiz-feature-icon-1`, 'quiz__final-icon')
+              p.quiz__final-text В течение 1 часа мы отправим Вам 3-4 варианта сметы в рамках рассчитанной стоимости. Также <span> Вы получите скидку до 15% на каждый из вариантов
+            .quiz__final-form
+              h3.quiz__final-form-title Куда прислать варианты сметы с персональной скидкой 15%?
+              +form2({type: 'quiz'})

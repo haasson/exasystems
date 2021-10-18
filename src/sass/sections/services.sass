@@ -1,0 +1,77 @@
+.services
+  padding: 65px 0 100px
+  &__title
+    text-align: center
+    margin-bottom: 70px
+  &__list
+    display: flex
+    justify-content: space-between
+  &__inner
+    display: flex
+    justify-content: space-between
+  &__item
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    text-align: center
+    padding: 42px 40px 30px
+    width: calc(33% - 10px)
+    height: 361px
+    box-sizing: border-box
+    background-size: contain
+    &.connections
+      background: url("../img/common/connections.png") no-repeat bottom center, $purple-gradient
+    &.CCTV
+      background: url("../img/common/CCTV.png") no-repeat bottom 30px center, $purple-gradient
+    &.control
+      background: url("../img/common/control.png") no-repeat bottom 8px center, $purple-gradient
+    &-text
+      font-size: 18px
+      font-weight: 700
+      color: $white
+
+@media (max-width: 992px)
+  .services
+    &__title
+      margin-bottom: 50px
+    &__list
+      flex-wrap: wrap
+      justify-content: center
+    &__item
+      width: calc(50% - 10px)
+      margin: 0 10px 10px 0
+      &:nth-child(2)
+        margin-right: 0
+      &:last-child
+        margin-bottom: 0
+        margin-right: 0
+
+@media (max-width: 768px)
+  .services
+    padding-top: 50px
+    &__item
+      &.CCTV
+        background-size: contain
+
+@media (max-width: 568px)
+  .services
+    &__item
+      padding: 20px 20px
+      margin-right: 0
+      width: calc(100% - 10px)
+      height: 310px
+      &.CCTV
+        background-size: auto
+
+@media (max-width: 480px)
+  .services
+    &__title
+      margin-bottom: 30px
+    &__item
+      height: 280px
+      &-text
+        font-size: 16px
+      &.control
+        background-position: bottom center
+

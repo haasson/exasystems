@@ -3,15 +3,15 @@ import $ from "jquery";
 function fixHeader() {
    window.onscroll = function () {
       if (window.pageYOffset > 800) {
-         $(".header").addClass("header-fixed");
+         $("body").addClass("header-fixed");
       } else {
-         $(".header").removeClass("header-fixed");
+         $("body").removeClass("header-fixed");
       }
    };
 }
 
 function scrollToAnchor(behavior = 'smooth') {
-   let links = document.querySelectorAll('.topline__item');
+   let links = document.querySelectorAll('[data-link]');
 
    links.forEach((item, i) => {
       item.addEventListener('click', function (e) {
@@ -19,7 +19,7 @@ function scrollToAnchor(behavior = 'smooth') {
 
          let section = document.querySelector(`.${item.dataset.link}`).querySelector('.section-title')
          window.scrollTo({
-            top: getCoords(section).top - 70,
+            top: getCoords(section).top - 80,
             behavior
          });
       });

@@ -28,6 +28,13 @@
            ...headerFeatures
          ]
       },
+      'calculator-page': {
+         title: 'Надежный поставщик профессиональных серверных решений',
+         features: [
+            'проектирование / аудит IT-инфраструктуры',
+            ...headerFeatures
+         ]
+      },
       network: {
          title: 'Надежный поставщик профессионального сетевого оборудования',
          features: [
@@ -51,47 +58,48 @@
       },
    }
 
-header.header.multiclass.polygon-block_down-left(class=pageType)
-   .header__bg-wrap
-      .header__bg(style=`background-image: url('assets/img/1header/hero-${pageType}.png')`)
-   .wrapper
-      .header__topline.topline
-         a.topline__logo(href="#")
-            .topline__brand
-               span EXA
-               | Systems
-            .topline__slogan
-               div Порядочность.
-               div Профессионализм.
-               div Ответственность.
+header.header.multiclass(class=pageType)
+   .header__polygon.polygon-block_down-left
+      .header__bg-wrap
+         .header__bg(style=`background-image: url('assets/img/1header/hero-${pageType}.png')`)
+      .wrapper
+         .header__topline.topline
+            a.topline__logo(href="#")
+               .topline__brand
+                  span EXA
+                  | Systems
+               .topline__slogan
+                  div Порядочность.
+                  div Профессионализм.
+                  div Ответственность.
 
-         ul.topline__menu.j-menu
-            each item in menuItems
-               -let {title, to} = item
-               li.topline__item(data-link=to) #{title}
-         .topline__burger.j-menu-switcher
-            div
+            ul.topline__menu.j-menu
+               each item in menuItems
+                  -let {title, to} = item
+                  li.topline__item(data-link=to) #{title}
+            .topline__burger.j-menu-switcher
+               div
 
-         .topline__contacts
-            .topline__phone
-               a(href="tel:+74955404708") +7 (495) 540-47-08
-               .topline__svg.modal-link-callback
-                  .topline__tip Обратный звонок
-                  +svg('phone', 'topline__icon topline__icon_phone')
-            a.topline__email(href="mailto:info@exasystems.ru")
-               span info@exasystems.ru
-               +svg('envelope', 'topline__icon topline__icon_envelope')
+            .topline__contacts
+               .topline__phone
+                  a(href="tel:+74955404708") +7 (495) 540-47-08
+                  .topline__svg(data-modal="callback")
+                     .topline__tip Обратный звонок
+                     +svg('phone', 'topline__icon topline__icon_phone')
+               a.topline__email(href="mailto:info@exasystems.ru")
+                  span info@exasystems.ru
+                  +svg('envelope', 'topline__icon topline__icon_envelope')
 
 
-      .header__hero.hero
-         .hero__title #{pageTypes[pageType].title}
-         .hero__content
-            .hero__features.features.features_blue
-               .features__title Берем ответственность за полный цикл
-               ul.features__list
-                  each feature in pageTypes[pageType].features
-                     li.features__item #{feature}
+         .header__hero.hero
+            .hero__title #{pageTypes[pageType].title}
+            .hero__content
+               .hero__features.features.features_blue
+                  .features__title Берем ответственность за полный цикл
+                  ul.features__list
+                     each feature in pageTypes[pageType].features
+                        li.features__item #{feature}
 
-            button.hero__btn.btn.btn_arrow.modal-link-full Отправить запрос на расчет стоимости
+               button.hero__btn.btn.btn_arrow(data-modal="full") Отправить запрос на расчет стоимости
 
 

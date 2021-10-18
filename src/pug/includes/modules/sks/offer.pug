@@ -1,0 +1,36 @@
+-
+   let offerFeatures = [
+     {
+       title: 'Варианты организации',
+       text: 'рабочего места'
+     },
+     {
+       title: '3 варианта сметы',
+       text: 'со скидкой до 15%'
+     },
+     {
+       title: 'Точные сроки',
+       text: 'на монтаж СКС'
+     },
+   ]
+
+.offer
+  .wrapper
+    h2.offer__title.section-title Получите коммерческое предложение
+    .offer__subtitle.section-subtitle которое включает:
+    .offer__inner
+      .offer__left
+        .offer__content
+          ul.offer__list
+             each feature, i in offerFeatures
+               li.offer__item
+                 +svg(`offer-feature${i + 1}`, 'offer__item-img')
+                 .offer__item-content
+                   .offer__item-title !{feature.title}
+                   .offer__item-text !{feature.text}
+      .offer__right
+        img.offer__img(src="assets/img/14offer/offer-bg1.png")
+        .offer__form
+          .offer__form-title Куда прислать предложение?
+          form#form-offer.offer__form-data
+            +form2({type: 'offer'})

@@ -1,0 +1,129 @@
+.modal-manager
+  .modal-content
+    max-width: 1110px
+    padding: 0 0
+  &__content
+    display: flex
+    justify-content: flex-end
+  &__left
+    position: relative
+  &__right
+    width: 36%
+    flex-shrink: 0
+    background: url(../img/common/manager.jpg) center 0 no-repeat
+    background-size: cover
+  &__top
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    width: calc(100% + 60px)
+    margin-bottom: 35px
+  &__title
+    max-width: 330px
+    padding: 37px 36px 0 48px
+
+    font-family: "Jost", serif
+    font-size: 34px
+    font-weight: 600
+    line-height: 1.2
+
+  &__form
+    padding: 0 43px 25px
+
+  &__comment
+    background: $purple-gradient
+    padding: 22px 30px 25px 24px
+    z-index: 2
+  &__item
+    display: flex
+    margin-bottom: 20px
+    align-items: flex-start
+    &:last-child
+      margin-bottom: 0
+    &-text
+      font-size: 14px
+      font-weight: 400
+      color: $white
+      max-width: 267px
+  &__icon
+    &_check
+      flex-shrink: 0
+      width: 12px
+      height: 10px
+      fill: $blue
+      margin-right: 6px
+      margin-top: 4px
+    &_whatsapp
+      width: 34px
+      height: 34px
+      margin-left: 10px
+    &_telegram
+      width: 30px
+      height: 30px
+      margin-left: 10px
+  &__subtitle
+    position: absolute
+    width: 201px
+    height: 95px
+    right: 0
+    bottom: 26px
+    background: $white
+    z-index: 2
+    text-align: center
+    padding: 20px 24px
+    box-sizing: border-box
+    transform: translateX(100%)
+  &__name
+    font-size: 14px
+    font-weight: 700
+    line-height: 1.4
+  &__speciality
+    font-size: 12px
+    font-weight: 400
+    line-height: 1.4
+  &__img
+    position: relative
+  &__messengers
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    padding: 0 43px
+
+@media (max-width: 992px)
+  .modal-manager
+    &__title
+      max-width: 235px
+      padding: 25px 25px 0 25px
+      font-size: 28px
+
+@media (max-width: 768px)
+  .modal-manager
+    &__inner
+      padding: 35px
+    &__top
+      flex-direction: column
+      align-items: center
+      width: 100%
+    &__title
+      max-width: 100%
+      margin-bottom: 20px
+      padding: 0
+      text-align: center
+    &__comment
+      max-width: 500px
+    &__item
+      &-text
+        max-width: 100%
+    &__subtitle
+      display: none
+    &__form
+      padding: 0
+    &__right
+      display: none
+
+@media (max-width: 420px)
+  .modal-manager
+    &__inner
+      padding: 30px 20px 20px
+    &__title
+      font-size: 20px

@@ -1,0 +1,66 @@
+-
+  let camerasList = [
+    {
+      type: 'ММС',
+      name: 'камера для видеонаблюдения в местах массового скопления людей'
+    },
+    {
+      type: 'ГРЗ',
+      name: 'камера для регистрации государственных регистрационных знаков'
+    },
+    {
+      type: 'ПВН',
+      name: 'камера подъездного видеонаблюдения'
+    },
+    {
+      type: 'ВВН',
+      name: 'камера внутреннего видеонаблюдения'
+    },
+    {
+      type: 'МКДН',
+      name: 'многоабонентский домофон со встроенной видеокамерой'
+    },
+    {
+      type: 'ТВН',
+      name: 'камера видеонаблюдения для распознавание лиц на транспорте'
+    },
+    {
+      type: 'ТГРЗ',
+      name: 'камера для регистрации государственных регистрационных знаков на транспорте'
+    },
+    {
+      type: 'ТСВН',
+      name: 'камера салонного видеонаблюдения на транспорте'
+    },
+  ]
+
+.calculator
+  .wrapper
+    form#form-calculator.prevent.calculator__inner
+      input.calculator-hidden-price(type="hidden" name="cameras-price")
+      input.calculator-hidden-count(type="hidden" name="cameras-count")
+
+      h2.calculator__title.section-title Калькулятор программно-технического комплекса видеонаблюдения «Безопасный регион»
+      p.calculator__subtitle Введите количество камер каждого типа:
+      ul.calculator__list
+        each camera, i in camerasList
+          li.calculator__item
+            .calculator__index Тип !{i + 1}
+            .calculator__type !{camera.type}
+            .calculator__name !{camera.name}
+
+            .calculator__select
+              input(type="text" name=`camera-${i+1}` id=`${type}-email`)
+
+      .calculator__line
+        div
+          input.calculator__checkbox(type="checkbox" name="calc-info-1" id=`is-mkd` value="Объект МКД")
+          label.calculator__label(for=`is-mkd`) Объект МКД (многоквартирный дом)
+        div
+          input.calculator__checkbox(type="checkbox" name="calc-info-2" id=`need-license` value="Требуется лицензия Netris")
+          label.calculator__label(for=`need-license`) Требуется лицензия Netris
+        button.btn.btn_blue.btn_arrow.calculator__btn(type="submit" data-modal="price-calc") Рассчитать
+
+      .calculator__footer
+        +svg('pdf', 'calculator__icon')
+        p Данная конфигурация программно-технического комплекса соответствует требованиям РАСПОРЯЖЕНИЯ 11-134/РВ от 20.10.2020 Министерства государственного управления, информационных технологий и связи московской области.

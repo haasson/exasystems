@@ -1,0 +1,93 @@
+-
+  let menuItems = [
+    {
+      name: 'Скачать прайс-лист',
+      link: 'header'
+    },
+    {
+      name: 'Рассчитать на сайте',
+      link: 'quiz'
+    },
+    {
+      name: 'Коммерческое предложение',
+      link: 'offer'
+    }
+  ]
+
+-
+  let features = [
+    { title: 'Скорость: 25 раб. мест в день',
+      text: 'Работаем ночью. 80% объектов сдаем раньше срока. Гарантия сроков по договору'},
+    {
+      title: 'Гарантия неизменной сметы',
+      text: 'Если не укладываемся в смету - платим из своего кармана. Без посредников и скрытых платежей.'
+    },
+    {
+      title: 'Уложимся в ваш бюджет',
+      text: 'За счет замены материалов, брендов оборудования и скидок от поставщиков.'
+    },
+    {
+      title: 'Работают российские <span class="nowrap">IT-специалисты</span>',
+      text: 'С опытом прокладки СКС/ЛВС от 10 лет. <br> По стандартам ГОСТ, TIA, ISO и ПУЭ'
+    },
+  ]
+
+header.header.multiclass.sks
+  .header__polygon.polygon-block_down-left
+    .wrapper
+      .header__topline.topline
+        a.topline__logo(href="#")
+          .topline__brand
+            span EXA
+            | Systems
+          .topline__slogan
+            div Монтаж СКС в Москве и области <br> с 2016 года
+
+        ul.topline__menu.j-menu
+           each item in menuItems
+              li.topline__item(data-link=item.link) #{item.name}
+        .topline__burger.j-menu-switcher
+          div
+
+        .topline__contacts
+          .topline__phone
+            a(href="tel:+79031869450") +7 903 186-94-50
+            .topline__svg(data-modal="callback")
+              .topline__tip Обратный звонок
+              +svg('phone', 'topline__icon topline__icon_phone')
+          a.topline__email(href="mailto:info@exasystems.ru")
+            span info@exasystems.ru
+            +svg('envelope', 'topline__icon topline__icon_envelope')
+
+
+      .header__hero.hero
+        .hero__title.hero__title-sks
+          span Монтаж СКС в Москве
+          span.nowrap  точно в срок или раньше
+        .hero__content
+          ul.hero__list
+             each feature, i in features
+               li.hero__item
+                 +svg(`header-feature${i+1}-sks`, 'hero__item-img')
+                 .hero__item-content
+                   .hero__item-title !{feature.title}
+                   .hero__item-text !{feature.text}
+  .wrapper.relative
+    .header__form
+      .header__form-top
+        .header__form-head
+          .header__form-title.section-title СКАЧАЙТЕ <span class="nowrap"> ПРАЙС-ЛИСТ </span>
+          .header__form-subtitle на монтаж сетей СКС с персональной скидкой 15%
+        .header__form-update Обновлен <span class="price-date">24.09.2021</span>
+
+      form#form-header.header__form-data
+        +form2({type: 'header'})
+
+      .header__partners
+        span Последние заказчики:
+        .header__partners-logo
+          img.header__partners__img(src="assets/img/1header/header-partners-1.png")
+          img.header__partners__img(src="assets/img/1header/header-partners-2.png")
+          img.header__partners__img(src="assets/img/1header/header-partners-3.png")
+          img.header__partners__img(src="assets/img/1header/header-partners-4.png")
+

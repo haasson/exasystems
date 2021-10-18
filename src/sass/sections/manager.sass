@@ -1,0 +1,191 @@
+.manager
+  padding-bottom: 58px
+  &__inner
+    display: flex
+    justify-content: space-between
+    position: relative
+  &__left
+    max-width: 663px
+  &__title
+    margin-bottom: 50px
+  &__item
+    display: flex
+    align-items: center
+    margin-bottom: 44px
+    &:last-child
+      margin-bottom: 58px
+    &-img
+      width: 70px
+      height: 70px
+      flex-shrink: 0
+      margin-right: 22px
+    &-text
+      max-width: 527px
+      font-size: 18px
+      font-weight: 700
+      line-height: 1.4
+      span
+        font-weight: 400
+  &__question
+    font-weight: 700
+    text-decoration: underline
+    color: $blue
+    cursor: pointer
+  &__bg
+    position: absolute
+    content: ''
+    width: 560px
+    height: 560px
+    background-color: $gray-manager
+    border-radius: 50%
+    top: 0
+    right: -132px
+    z-index: -1
+    &-letter
+      position: absolute
+      content: ''
+      width: 75px
+      height: 55px
+      flex-shrink: 0
+      top: 47px
+      left: 450px
+    &-comment
+      position: absolute
+      content: ''
+      width: 129px
+      height: 77px
+      flex-shrink: 0
+      top: 431px
+      left: -24px
+  &__right
+    position: relative
+  &__img
+    margin: 0 auto
+  &__tel
+    position: absolute
+    content: ''
+    width: 252px
+    height: 430px
+    background-color: $text-color
+    border-radius: 4px
+    top: 36px
+    left: 50%
+    transform: translate(-50%)
+    text-align: center
+    &-title
+      font-size: 14px
+      font-weight: 700
+      color: $white
+      margin: 6px 0 7px
+    &-white
+      background-color: $gray-manager
+      border-radius: 4px
+      align-items: center
+      padding: 25px 20px 20px
+    &-img
+      margin: 0 auto 12px
+    &-specialist
+      font-size: 12px
+      font-weight: 400
+      margin-top: 6px
+      margin-bottom: 24px
+      color: $gray
+    &-text
+      font-size: 12px
+      font-weight: 400
+      margin-bottom: 22px
+      position: relative
+      border: 1px solid rgba(129, 129, 129, 0.2)
+      border-radius: 4px
+      padding: 15px 15px
+      &::before
+        position: absolute
+        content: ''
+        width: 10px
+        height: 10px
+        top: -2px
+        left: 50%
+        transform: rotate(45deg) translate(-50%)
+        background-color: $gray-manager
+        border-top:  1px solid rgba(129, 129, 129, 0.2)
+        border-left:  1px solid rgba(129, 129, 129, 0.2)
+    &-icons
+      display: flex
+      margin: 15px 0 0px
+    &-link
+      display: flex
+      align-items: center
+      margin-right: 19px
+      &:last-child
+        margin-right: 0
+      p
+        font-size: 12px
+        font-weight: 400
+    &-icon
+      margin-right: 5px
+      width: 35px
+      height: 35px
+      flex-shrink: 0
+
+@media (max-width: 1280px)
+  .manager
+    &__bg
+      display: none
+
+@media (max-width: 1080px)
+  .manager
+    &__left
+      max-width: 600px
+
+@media (max-width: 992px)
+  .manager
+    &__left
+      max-width: 410px
+    &__item
+      &-img
+        width: 50px
+      &-text
+        font-size: 14px
+
+@media (max-width: 768px)
+  .manager
+    &__inner
+      flex-direction: column
+    &__left
+      max-width: 100%
+      margin-bottom: 50px
+    &__item
+      margin-bottom: 30px
+      &:last-child
+        margin-bottom: 50px
+      &-text
+        font-size: 18px
+
+@media (max-width: 568px)
+  .manager
+    &__title
+      margin-bottom: 30px
+    &__item
+      align-items: flex-start
+      &:last-child
+        margin-bottom: 30px
+      &-img
+        width: 40px
+        height: 50px
+      &-text
+        font-size: 16px
+
+@media (max-width: 480px)
+  .manager
+    &__item
+      &:last-child
+        margin-bottom: 25px
+      &-text
+        font-size: 14px
+
+
+
+
+
+
+

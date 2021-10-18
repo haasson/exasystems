@@ -33,6 +33,7 @@
 -
   let positions = {
     server: ['server', 'server-parts', 'network', 'print', 'storage', 'protect', 'boxes'],
+    'calculator-page': ['server', 'server-parts', 'network', 'print', 'storage', 'protect', 'boxes'],
     network: ['network', 'server', 'server-parts', 'print', 'storage', 'protect', 'boxes'],
     print: ['print', 'network', 'server', 'server-parts', 'storage', 'protect', 'boxes'],
     storage: ['storage', 'server', 'server-parts', 'network', 'print', 'protect', 'boxes']
@@ -52,7 +53,7 @@
                ul.equip__brands
                   each brand in obj.brands
                     li.equip__brand #{brand}
-               button.equip__btn.btn.modal-link-full Запрос цен
+               button.equip__btn.btn(data-modal="full") Запрос цен
   // hack for getting type variable
   +svg("arrow", "hide")
 

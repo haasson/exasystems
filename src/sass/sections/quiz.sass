@@ -1,0 +1,305 @@
+.quiz
+  padding: 28px 0 400px
+  background-color: $gray-bg
+  &__title
+    text-align: center
+    margin-bottom: 33px
+  &__subtitle
+    text-align: center
+    margin-bottom: 52px
+  &__content
+    display: flex
+    padding: 20px
+    padding-right: 84px
+    background: $purple-gradient
+    box-shadow: 10px 10px 35px rgba(178, 176, 199, 0.25)
+
+  &__main
+    flex-grow: 1
+    background-color: $white
+  &__navbar
+    display: flex
+    justify-content: space-between
+  &__tab
+    position: relative
+    flex-shrink: 0
+    width: calc(25% - 1px)
+    padding: 13px 18px
+    box-sizing: border-box
+    background-color: $input-bg
+    &-index
+      margin-bottom: 3px
+      color: $gray
+      text-transform: uppercase
+      font-size: 14px
+      font-weight: 600
+    &-title
+      max-width: 145px
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+      opacity: .5
+      font-family: $secondary-font
+    &-success
+      display: none
+      justify-content: center
+      align-items: center
+      position: absolute
+      right: 13px
+      top: 13px
+      width: 18px
+      height: 18px
+      border-radius: 50%
+      background:  linear-gradient(271.32deg, #2AA898 -12.13%, #39C0B4 79.47%)
+    &-icon
+      width: 12px
+      height: 10px
+      fill: $white
+    &.current
+      background-color: $white
+
+      .quiz__tab-title
+        display: none
+      .quiz__tab-index
+        color: $blue
+    &.done
+      background-color: $success
+      .quiz__tab-success
+        display: flex
+
+
+  &__questions
+    padding: 34px 44px 50px
+    box-sizing: border-box
+    height: 280px
+
+  &__question
+    &-title
+      margin-bottom: 35px
+      font-size: 34px
+      line-height: 1.1
+      font-weight: 600
+      font-family: $secondary-font
+
+  &__answers
+    display: flex
+    flex-direction: column
+    align-content: flex-start
+    flex-wrap: wrap
+    max-height: 140px
+  &__answer
+    margin-bottom: 24px
+    margin-right: 70px
+
+  &__btn
+    display: inline-block
+    margin: 0 34px 45px
+    width: 165px
+
+
+  &__features
+    flex-shrink: 0
+    margin-left: 51px
+    margin-top: 10px
+    color: $white
+    &-title
+      font-size: 24px
+      font-weight: 600
+      line-height: 1.4
+      margin-bottom: 30px
+  &__feature
+    display: flex
+    margin-bottom: 46px
+    line-height: 1.6
+    align-items: center
+    &:last-child
+      margin-bottom: 0
+    &-icon
+      width: 48px
+      height: 50px
+      flex-shrink: 0
+      margin-right: 15px
+    &-title
+      font-size: 18px
+      font-weight: 600
+    &-link
+      color: $blue
+      cursor: pointer
+
+
+  &__final
+    &-inner
+      display: flex
+      justify-content: space-between
+      align-items: flex-end
+    &-images
+      position: relative
+      display: flex
+      justify-content: flex-end
+      align-items: flex-end
+    &-img2
+      position: absolute
+      right: 0
+      bottom: -13px
+
+    &-content
+      max-width: 442px
+      margin-left: 35px
+    &-subtitle
+      margin-bottom: 12px
+      font-size: 18px
+      line-height: 1.4
+      font-weight: 600
+    &-title
+      font-size: 30px
+      line-height: 1.4
+      font-weight: 600
+      text-transform: uppercase
+    &-price
+      font-size: 46px
+      line-height: 1.4
+      font-family: $secondary-font
+      color: $blue
+      margin-bottom: 20px
+    &-text
+      font-size: 14px
+      margin-bottom: 30px
+      span
+        font-weight: 600
+    &-estimate
+      display: flex
+    &-icon
+      width: 44px
+      height: 43px
+      flex-shrink: 0
+      margin-right: 22px
+
+    &-form
+      padding: 32px 38px 35px
+      background: $purple-gradient
+      color: $white
+    &-form-title
+      margin-bottom: 30px
+      font-size: 18px
+      line-height: 1.4
+      font-weight: 600
+
+@media (max-width: 1080px)
+  .quiz
+    &__content
+      display: block
+      padding-right: 20px
+      text-align: center
+    &__features
+      margin-left: 0
+      margin-top: 20px
+      &-title
+        br
+          display: none
+      &-content
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+    &__final
+      &-images
+        flex-grow: 1
+        justify-content: center
+      &-img1
+        display: none
+      &-img2
+        position: static
+
+@media (max-width: 992px)
+  .quiz
+    padding: 28px 0 130px
+
+@media (max-width: 768px)
+  .quiz
+    padding: 28px 0 90px
+    &__subtitle
+      margin-bottom: 30px
+    &__tab
+      &-title
+        display: none
+      &-index
+        span
+          span
+            display: none
+    &__questions
+      height: 260px
+    &__question
+      &-title
+        font-size: 30px
+    &__feature
+      margin-bottom: 20px
+      &-icon
+        width: 38px
+      &-title
+        font-size: 15px
+    &__final
+      &-images
+        display: none
+      &-inner
+        justify-content: center
+      &-content
+        margin-left: 0
+
+@media (max-width: 568px)
+  .quiz
+    padding: 28px 0 50px
+    &__title
+      margin-bottom: 25px
+    &__content
+      padding: 10px 10px 20px
+    &__tab
+      &.done
+        .quiz__tab-success
+          display: none
+    &__questions
+      padding: 34px 15px 20px
+    &__question
+      &-title
+        font-size: 25px
+    &__answer
+      margin-right: 15px
+    &__features
+      &-title
+        margin-bottom: 25px
+      &-content
+        flex-direction: column
+    &__feature
+      align-items: flex-start
+      &-content
+        text-align: left
+    &__final
+      &-price
+        font-size: 40px
+
+@media (max-width: 420px)
+  .quiz
+    &__main
+      align-items: center
+    &__questions
+      height: 210px
+    &__answers
+      flex-direction: row
+      align-content: space-around
+    &__tab
+      padding: 13px 5px
+    &__btn
+      margin: 80px auto 45px
+    &__feature
+      margin-bottom: 10px
+      &-icon
+        width: 34px
+    &__final
+      &-title
+        font-size: 25px
+      &-price
+        font-size: 31px
+      &-text
+        margin-bottom: 20px
+      &-form
+        padding: 32px 25px 35px
+
+

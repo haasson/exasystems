@@ -1,9 +1,4 @@
 .form
-  max-width: 560px
-  padding: 60px 53px 48px 48px
-  box-sizing: border-box
-  background-color: $white
-  filter: drop-shadow(2.093px 29.927px 29.5px rgba(0, 111, 96, 0.57))
 
   &__label
     display: block
@@ -53,6 +48,8 @@
   &__btn
     width: 45%
     margin-left: auto
+    .modal-price-calc &
+      width: 100%
 
   input,
   textarea
@@ -73,8 +70,6 @@
 
 @media (max-width: 768px)
   .form
-    padding: 40px 35px 30px
-
     &__footer
       flex-direction: column
       align-items: flex-start
@@ -86,7 +81,6 @@
 
 @media (max-width: 420px)
   .form
-    padding: 25px 20px
     input,
     textarea
       font-size: 14px

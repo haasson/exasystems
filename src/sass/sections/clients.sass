@@ -1,0 +1,65 @@
+.clients
+  padding-top: 65px
+  background-color: $gray-manager
+  &__title
+    margin-bottom: 11px
+  &__subtitle
+    margin-bottom: 29px
+  &__list
+    display: flex
+    justify-content: flex-start
+    flex-wrap: wrap
+  &__item
+    background-color: $white
+    box-shadow: 4px 4px 11px rgba(0, 0, 0, 0.05)
+    width: calc(25% - 10px)
+    height: 182px
+    margin-bottom: 18px
+    margin-right: 10px
+    border-radius: 10px
+    padding: 20px 17px
+    box-sizing: border-box
+    &-text
+      font-family: $secondary-font
+      font-size: 18px
+      color: #BBBBBC
+      max-width: 170px
+  &__item201
+    background-color: $gray-manager
+    box-shadow: none
+    &-text
+      margin-top: 73px
+      font-family: $secondary-font
+      font-size: 18px
+      color: $blue
+  &__images
+    height: 50px
+    margin-bottom: 20px
+
+@media (max-width: 992px)
+  .clients
+    &__images
+      margin-bottom: 10px
+
+@media (max-width: 768px)
+  .clients
+    padding-top: 50px
+    &__item
+      width: calc(33% - 10px)
+
+@media (max-width: 568px)
+  .clients
+    &__item
+      width: calc(50% - 10px)
+
+@media (max-width: 360px)
+  .clients
+    &__item
+      width: calc(100% - 10px)
+      &:last-child
+        height: 90px
+    &__item201
+      &-text
+        margin-top: 20px
+
+

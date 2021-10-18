@@ -1,0 +1,29 @@
+.mount
+  .wrapper
+    .mount__inner
+      .mount__sks
+        .mount__left
+          h2.mount__title.section-title Монтаж СКС <span class="nowrap">от 1 дня<span>
+          .mount__subtitle.section-subtitle с материальной гарантией сроков по договору
+          .mount__content
+            .mount__item
+              .mount__item-percent 80%
+              .mount__item-content
+                p.mount__item-text объектов сдаем раньше срока, <span class="nowrap">при необходимости</span> работаем ночью
+            .mount__item
+              +svg(`header-feature1-sks`, 'mount__item-img')
+              .mount__item-content
+                p.mount__item-text <span class="one">1 день</span> <br class="one">нам нужен, чтобы смонтировать сети <span class="nowrap"><br>СКС в офисе</span> до 25 рабочих мест
+        .mount__right
+
+          form#form-mount.mount__form
+            .mount__form-header
+              h3.mount__form-title Сколько у Вас рабочих мест?
+              .mount__form-count.range-count 10
+            +form2({type: 'mount'})
+
+      .mount__videos
+        .mount__videos-subtitle Посмотрите как мы осуществили монтаж СКС в Москве - <br> <span> в обучающем центре Ростех
+        .mount__video.rel.rel_16-9
+
+          iframe.rel-child(src='https://www.youtube.com/embed/vcqWpQT1NCQ' title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)

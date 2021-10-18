@@ -1,0 +1,27 @@
+-
+  let servicesList = [
+    {
+      name: 'connections',
+      text: 'Волоконно-оптические линии&nbsp;связи'
+    },
+    {
+      name: 'CCTV',
+      text: 'Видеонаблюдение'
+    },
+    {
+      name: 'control',
+      text: 'Системы контроля и управления доступом'
+    },
+  ]
+
+
+.services
+  .wrapper
+    h2.services__title.section-title Чем мы еще можем помочь
+    .services__inner
+      ul.services__list
+         each service in servicesList
+           li.services__item(class=service.name)
+             p.services__item-text !{service.text}
+
+

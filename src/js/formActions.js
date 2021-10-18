@@ -1,4 +1,7 @@
 import $ from "jquery";
+import calcPrice from "./calculator";
+
+let savedFormName = ''
 
 export default function formsInit() {
    $('form').on('submit', send)
@@ -11,9 +14,42 @@ export default function formsInit() {
    })
 }
 
+async function getCurrencyRate() {
+   let res = await fetch('https://freecurrencyapi.net/api/v2/latest?apikey=0e7b2580-2a4e-11ec-b0e0-b70a23d9c949&base_currency=USD')
+   let result = await res.json()
+   return result.data.RUB
+}
+
+async function renderCamerasPrice(form) {
+   const {price, count} = calcPrice($(form))
+   document.querySelector('.cameras-price').innerHTML = ''
+
+   document.querySelector('.cameras-count').innerHTML = count
+   document.querySelector('.calculator-hidden-count').value = count
+
+   const rate = await getCurrencyRate()
+   const priceRub = price ? `${parseInt(price * +rate)} руб.` : 'Автоматический расчёт невозможен'
+   document.querySelector('.cameras-price').innerHTML = priceRub
+   document.querySelector('.calculator-hidden-price').value = priceRub
+}
+
 function send(event) {
    event.preventDefault ? event.preventDefault() : (event.returnValue = false);
    let form = event.target
+   let formData
+   if (form.classList.contains("prevent")) {
+      renderCamerasPrice(form)
+      savedFormName = $(form).attr('id')
+      return
+   }
+
+   if (savedFormName) {
+      formData = $(` #${savedFormName}, #${$(form).attr('id')}`).serialize()
+      savedFormName = ''
+   } else {
+      formData = $(form).serialize()
+   }
+
    if (form.classList.contains("with-file")) {
       ajaxWithFile()
    } else {
@@ -25,7 +61,7 @@ function send(event) {
          url: 'include/send2.php',
          method: 'POST',
 
-         data: decodeURI($(form).serialize()),
+         data: decodeURI(formData),
          success: function success(data) {
             console.log('success');
             $(".modal-bg").fadeOut(300);
@@ -37,7 +73,7 @@ function send(event) {
             alert('error - ' + xhr.status);
          },
          complete: function complete() {
-            // console.log(this.data);
+            console.log(this.data);
          }
       });
    }

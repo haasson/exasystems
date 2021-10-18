@@ -1,0 +1,104 @@
+-
+  let formTypes2 = {
+    header: {
+      name: 'Запрос прайс-листа из шапки',
+      elements: ['email', 'phone', 'policy', 'btn'],
+      labels: {
+        email: 'Куда прислать прайс?',
+        phone: 'За каким номером закрепить скидку?',
+        btn: 'Скачать прайс-лист со скидкой'
+      }
+    },
+    quiz: {
+      name: 'Запрос сметы из квиза',
+      elements: ['messenger', 'phone', 'btn'],
+      labels: {
+        btn: 'Получить варианты сметы'
+      }
+    },
+    offer: {
+      name: 'Запрос коммерческого предложения',
+      elements: ['email', 'phone', 'policy', 'btn'],
+      labels: {
+        email: 'Введите e-mail',
+        phone: 'Номер телефона для связи',
+        btn: 'Получить предложение'
+      }
+    },
+    mount: {
+      name: 'Запрос расчета сроков монтажа СКС',
+      elements: ['range', 'messenger', 'phone', 'btn'],
+      labels: {
+        messenger: 'Куда прислать расчет?',
+        phone: 'Номер телефона для связи',
+        btn: 'Рассчитать сроки монтажа СКС'
+      }
+    },
+    manager: {
+      name: 'Запрос звонка менеджера',
+      elements: ['messenger', 'phone', 'policy', 'btn'],
+      labels: {
+        messenger: 'Как Вам удобнее связаться',
+        phone: 'Номер телефона для связи',
+        btn: 'Получить консультацию'
+      }
+    },
+    price: {
+      name: 'Запрос прайс-листа из блока с квизом',
+      elements: ['email', 'phone', 'policy', 'btn'],
+      labels: {
+        email: 'Куда прислать прайс?',
+        phone: 'За каким номером закрепить скидку?',
+        btn: 'Скачать прайс-лист со скидкой'
+      }
+    },
+  }
+
+- let messengers = ['Whatsapp', 'Telegram', 'Viber']
+
+mixin form2(props)
+  - let {type} = props
+  - let form = formTypes2[type]
+
+  //form.form(id=`form-${type}` enctype="multipart/form-data" method="post")
+  input(type="hidden" name="nameForm" value=form.name)
+  input(type="hidden" name="namePage" value=pagesList[pageType].name)
+
+  .form2__content
+    each field in form.elements
+      if (field === 'email')
+        .form2__field.email
+          if (form.labels[field])
+            label.form2__label(for=`${type}-email`) !{form.labels[field]}
+          input.form2__input(type="text" placeholder="pochta@mail.ru" name="mail_f" id=`${type}-email`)
+      else if (field === 'phone')
+        .form2__field.phone
+          if (form.labels[field])
+            label.form2__label(for=`${type}-phone`) !{form.labels[field]}
+          input.form2__input(type="text" placeholder="+7 (999) 999-99-99" name="phone_f" id=`${type}-phone`)
+
+      else if (field === 'messenger')
+        .form2__field.messenger
+          if (form.labels[field])
+            label.form2__label(for=`${type}-messenger`) !{form.labels[field]}
+          select.select2.form2__select(name=`messenger` id=`${type}-messenger`)
+            each option in messengers
+              option(value=option.toLowerCase()) #{option}
+
+      else if (field === 'range')
+        .form2__field.range
+          input.form2__range.hide(type="range" name="workers" min=1 max=100 value=10 step=1)
+          .form2__fake-range.fake-range
+
+
+      else if (field === 'policy')
+        .form2__field.policy
+          input.form2__checkbox(type="checkbox" checked name="policy_f" id=`${type}-policy`)
+          label.form2__label(for=`${type}-policy`) Согласен с <span data-modal="policy"> Политикой конфиденциальности сайта
+
+
+      else if (field === 'btn')
+        .form2__field.submit
+          button.form2__btn.btn.btn_orange.btn_arrow !{form.labels[field]}
+
+

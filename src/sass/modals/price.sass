@@ -1,0 +1,98 @@
+.modal-price-big
+  .modal-content
+    max-width: 994px
+    padding: 0
+
+  &__inner
+    display: flex
+
+
+  &__form
+    flex-grow: 1
+    padding: 37px 33px 50px
+    box-sizing: border-box
+
+    &-top
+      display: flex
+      justify-content: space-between
+      margin-bottom: 36px
+      align-items: flex-start
+    &-title
+      font-family: $secondary-font
+      font-size: 34px
+      font-weight: 600
+      line-height: 1.1
+      margin-bottom: 8px
+    &-subtitle
+      font-size: 16px
+      font-weight: 600
+      line-height: 1.4
+    &-update
+      max-width: 87px
+      color: $orange
+      border: 1px solid $orange
+      padding: 14px 11px
+      text-align: center
+      font-weight: 400
+
+
+  &__features
+    flex-shrink: 0
+    width: 360px
+    padding: 35px
+    box-sizing: border-box
+    background: $purple-gradient
+    color: $white
+    &-title
+      margin-bottom: 40px
+      font-size: 16px
+      font-weight: 600
+      line-height: 1.4
+
+  &__feature
+    display: flex
+    align-items: center
+    margin-bottom: 40px
+    &:last-child
+      margin-bottom: 0
+    &-icon
+      width: 50px
+      height: 50px
+      margin-right: 18px
+    &-title
+      font-size: 16px
+      font-weight: 600
+      margin-bottom: 5px
+
+@media (max-width: 992px)
+  .modal-price-big
+    &__features
+      width: 305px
+      padding: 35px 20px
+    &__form
+      padding: 35px
+      &-top
+        margin-bottom: 30px
+      &-title
+        font-size: 30px
+
+@media (max-width: 768px)
+  .modal-price-big
+    &__features
+      display: none
+    &__form
+      &-title
+        font-size: 24px
+      &-subtitle
+        font-size: 14px
+      &-top
+        margin-bottom: 15px
+
+@media (max-width: 568px)
+  .modal-price-big
+    &__form
+      padding: 30px 20px
+      &-title
+        font-size: 20px
+      &-update
+        padding: 8px 3px

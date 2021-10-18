@@ -1,6 +1,7 @@
 include ../utils/mixins
 //- Included components
 include ../includes/components/form
+include ../includes/components/form2
 include ../includes/components/slider-line
 
 -
@@ -19,6 +20,9 @@ include ../includes/components/slider-line
       },
       sks: {
          name: 'Монтаж СКС'
+      },
+      'calculator-page': {
+         name: 'Комплекс видеонаблюдения'
       }
    }
 
@@ -45,7 +49,7 @@ html(lang="ru")
       link(rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png")
       link(rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png")
       link(rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png")
-      <!--    TODO-->
+
       link(rel="manifest" href="manifest.json")
       meta(name="msapplication-TileColor" content="#ffffff")
       meta(name="msapplication-TileImage" content="ms-icon-144x144.png")
@@ -66,7 +70,7 @@ html(lang="ru")
       block head
 
 
-   body
+   body.loading(class=pageType style="opacity: 0")
       <!-- Google Tag Manager (noscript) -->
       noscript
          iframe

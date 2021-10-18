@@ -1,0 +1,47 @@
+-
+   let managerFeatures = [
+     {
+       text: 'Вы получите бессрочную гарантию на работу сетей, <span> поэтому в наших интересах с первого раза сделать все без ошибок, чтобы потом не тратить время на их исправления.'
+     },
+     {
+       text: 'Как опытные IT-специалисты мы знаем все особенности работы оборудования в офисе <span> (компьютеров, принтеров, средств связи) и тонкости работы кабельных сетей.'
+     },
+     {
+       text: 'Работаем согласно стандартам ГОСТ, TIA, ISO, ПУЭ. <br> <span>Тестируем сети у вас в офисе перед сдачей работ. '
+     },
+   ]
+
+.manager
+  .wrapper
+    .manager__inner
+      .manager__left
+        .manager__title.section-title Доверьте нам монтаж СКС и ЛВС сетей и Вы забудете о простоях в работе офиса и сетевых проблемах
+        .manager__content
+          ul.manager__list
+             each feature, i in managerFeatures
+               li.manager__item
+                 +svg(`manager-feature${i + 1}`, 'manager__item-img')
+                 .manager__item-content
+                   .manager__item-text !{feature.text}
+          span.manager__question(data-modal="manager") Задайте вопрос напрямую руководителю
+
+      .manager__right
+        img.manager__img(src="assets/img/15manager/manager-tel.png")
+        .manager__tel
+          .manager__tel-title Задайте вопрос напрямую:
+          .manager__tel-white
+            img.manager__tel-img(src="assets/img/15manager/manager-photo.png")
+            h3.manager__tel-name Кирилл Мартынюк
+            p.manager__tel-specialist Руководитель направления <br> СКС в EXASystems
+            p.manager__tel-text Свяжусь с Вами <br> в течение  30 минут <br> и отвечу на все вопросы.
+            button.btn.btn__orange(data-modal="manager") Получить консультацию
+            .manager__tel-icons
+              a.manager__tel-link(href="https://api.whatsapp.com/send?phone=79150575656")
+                +svg(`manager-wa`, 'manager__tel-icon')
+                p Whatsapp
+              a.manager__tel-link(href="")
+                +svg(`manager-telegram`, 'manager__tel-icon')
+                p Telegram
+      .manager__bg
+        +svg(`manager-letter`, 'manager__bg-letter')
+        +svg(`manager-comment`, 'manager__bg-comment')

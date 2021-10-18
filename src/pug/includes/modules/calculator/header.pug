@@ -1,0 +1,45 @@
+-
+  let menuItems = [
+    {title: 'Принципы', to: 'garant'},
+    {title: 'Продукты и решения', to: 'products-wrap'},
+    {title: 'Кейсы', to: 'projects'},
+    {title: 'Цифры', to: 'numbers'},
+    {title: 'Вендоры', to: 'vendors'},
+    {title: 'Отзывы', to: 'reviews'},
+    {title: 'Контакты', to: 'map'},
+  ]
+
+
+header.header.multiclass(class=pageType)
+  .header__polygon.polygon-block_down-left
+    .wrapper
+      .header__topline.topline
+        a.topline__logo(href="#")
+          .topline__brand
+            span EXA
+            | Systems
+          .topline__slogan
+            div Порядочность.
+            div Профессионализм.
+            div Ответственность.
+
+        ul.topline__menu.j-menu
+           each item in menuItems
+              -let {title, to} = item
+              li.topline__item(data-link=to) #{title}
+        .topline__burger.j-menu-switcher
+          div
+
+        .topline__contacts
+          .topline__phone
+            a(href="tel:+74955404708") +7 (495) 540-47-08
+            .topline__svg(data-modal="callback")
+              .topline__tip Обратный звонок
+              +svg('phone', 'topline__icon topline__icon_phone')
+          a.topline__email(href="mailto:info@exasystems.ru")
+            span info@exasystems.ru
+            +svg('envelope', 'topline__icon topline__icon_envelope')
+
+
+      .header__hero.hero
+        .hero__title Надежный поставщик профессиональных серверных решений

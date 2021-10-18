@@ -4,12 +4,13 @@
     selection: "Заявка на расчет стоимости",
     callback: 'Заявка на обратный звонок',
     price: 'Запрос прайс-листа',
+    'price-calc': 'Запрос стоимости комплекса видеонаблюдения'
   }
 
 mixin form(props)
   - let {classList= '', type} = props
 
-  form.form(id=`form-${type}` class=`${type === 'full' ? 'with-file' : ''}` enctype="multipart/form-data" method="post")
+  form.form(id=`form-${type}` class=`${(type === 'full' || type === 'selection') ? 'with-file' : ''}` enctype="multipart/form-data" method="post")
     input(type="hidden" name="nameForm" value=formTypes[type])
     input(type="hidden" name="namePage" value=pagesList[pageType].name)
     .form__name.form-field
@@ -22,7 +23,7 @@ mixin form(props)
       .form__number.form-field.form-field_half
         label.form__label(for=`${type}-email`) E-mail
         input(type="text" placeholder="info@mail.ru" name="mail_f" id=`${type}-email`)
-    if (type === 'full' || type === 'selection')
+    if (type === 'full' || type === 'selection' || type === "price-calc")
       .form__message.form-field
         label.form__label(for=`${type}-message`) Комментарий к задаче
         textarea(name="message_f" cols="30" rows="10" placeholder="Ваш вопрос" id=`${type}-message`)
@@ -36,4 +37,8 @@ mixin form(props)
             .form__file-send.hide Загрузка файла
             progress.form__progress.hide(value="0" max="100")
 
-      button.form__btn.btn.btn_blue.btn_arrow Отправить
+      button.form__btn.btn.btn_blue.btn_arrow
+        if (type === 'price-calc')
+          span Получить коммерческое предложение
+        else
+          span Отправить

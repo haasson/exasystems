@@ -1,0 +1,37 @@
+.modal-price-calc
+  .modal-content
+    max-width: 600px
+  &__title
+    margin-bottom: 33px
+  &__result
+    display: flex
+    margin-bottom: 40px
+    padding-top: 11px
+    border-top: 1px solid #eee
+    > div
+      width: 50%
+  &__label
+    margin-bottom: 14px
+    font-size: 12px
+    color: $gray
+  &__value
+    font-size: 34px
+    font-family: $secondary-font
+  &__subtitle
+    margin-bottom: 25px
+    font-size: 18px
+    font-weight: 600
+
+@media (max-width: 568px)
+  .modal-price-calc
+    &__value
+      font-size: 24px
+    &__subtitle
+      font-size: 14px
+
+@media (max-width: 420px)
+  .modal-price-calc
+    &__value
+      font-size: 22px
+    &__subtitle
+      font-size: 13px

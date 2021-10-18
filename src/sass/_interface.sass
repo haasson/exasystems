@@ -1,8 +1,16 @@
-.section
-   &-title
-      font-size: 30px
-      font-weight: 600
-      font-family: $secondary-font
+.section-title
+   font-size: 30px
+   font-weight: 600
+   font-family: $secondary-font
+   .sks &
+      font-size: 33px
+      line-height: 1.1
+      text-transform: uppercase
+
+.section-subtitle
+   font-size: 18px
+   line-height: 1.2
+   font-weight: 600
 
 .text-gray
    color: $gray
@@ -24,7 +32,7 @@
          background-color: darken($dark-blue, 4%)
    &_arrow
       padding-right: 36px
-      clip-path: polygon(96% 0, 100% 50%, 96% 100%, 0 100%, 0 0)
+      clip-path: polygon(calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 0 0)
 
 .polygon-block
    &_down-left
@@ -34,38 +42,157 @@
    &_up-right
       +polygonUp(72)
 
+input[type='checkbox']
+   display: none
+   &:checked
+      &+label
+         &:before
+            border-color: $blue
+            background-color: $blue
+         &:after
+            opacity: 1
+
+   &+label
+      position: relative
+      display: block
+      padding-left: 29px
+      min-height: 28px
+      &::before
+         position: absolute
+         content: ""
+         left: 0
+         top: 0px
+         width: 20px
+         height: 20px
+         border: 1px solid $blue
+         background-color: $white
+      &::after
+         position: absolute
+         content: ""
+         left: 8px
+         top: 2px
+         width: 5px
+         height: 12px
+         opacity: 0
+         border-right: 2px solid $text-color
+         border-bottom: 2px solid $text-color
+         transform: rotate(45deg)
+
+
+//  SELECT2
+.select2-container
+   position: relative
+   width: 100% !important
+   font-size: 14px
+   color: $text-color !important
+
+   text-align: left
+   &::before
+      position: absolute
+      content: ''
+      right: 10px
+      top: 50%
+      z-index: 1
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 4px 4px 0 4px
+      border-color: $text-color transparent transparent transparent
+      transform: translateY(-50%)
+   .select-option
+      display: flex
+      align-items: center
+      img
+         width: 24px
+         height: 24px
+         margin-right: 15px
+   .select2-selection
+      &--single
+         height: 40px
+         border: none !important
+         border-radius: 0 !important
+         padding: 0 12px
+         outline: none
+         background-color: $input-bg
+         box-shadow: inset 1px 1px 0px rgba(0,0,0,.15)
+      &__rendered
+         width: 100%
+         padding: 0 !important
+         //padding-left: 30px !important
+         line-height: 40px !important
+      &__placeholder
+         color: $placeholder-color !important
+      &__arrow
+         display: none
+   &--default
+      &__arrow
+         display: none
+   &--open
+      &::before
+         transform: translateY(-50%) scaleY(-1)
+      &.select2-container--above
+         .select2-selection
+            border-top-left-radius: 0 !important
+            border-top-right-radius: 0 !important
+      &.select2-container--below
+         .select2-selection
+            border-bottom-left-radius: 0 !important
+            border-bottom-right-radius: 0 !important
+
+
+//  NOUISLIDER
+
+body .noUi-target
+   height: 1px
+   margin: 10px 0
+   padding: 0 28px
+   background-color: rgba($white, .5)
+   border: none
+   box-shadow: none
+body .noUi-target
+   &.noUi-horizontal
+      .noUi-handle
+         top: 0
+         right: 0
+         width: 55px
+         height: 28px
+         background: $white
+         border-radius: 22px
+         border: none
+         box-shadow: none
+         cursor: pointer
+         transform: translate(50%,-50%)
+         &::after,
+         &::before
+            left: auto
+            top: 50%
+            width: 6px
+            height: 6px
+            background-color: transparent
+            border-bottom: 2px solid $text-color
+            border-right: 2px solid $text-color
+         &::after
+            left: 12px
+            transform: translateY(-50%) rotate(135deg)
+         &::before
+            right: 12px
+            transform: translateY(-50%) rotate(-45deg)
+
 /*======================== MEDIA QUERIES ===============================*/
-//@media (max-width: 2140px)
-//   .polygon-block
-//      &_down-left
-//         +polygon(35, 165)
-//
-//@media (max-width: 1799px)
-//   .polygon-block
-//      &_down-left
-//         +polygon(35, 150)
-//
-//@media (max-width: 1550px)
-//   .polygon-block
-//      &_down-left
-//         +polygon(35, 130)
-//
-//@media (max-width: 1440px)
-//   .polygon-block
-//      &_down-left
-//         +polygon(35, 115)
-//
-//@media (max-width: 1280px)
-//   .polygon-block
-//      &_down-left
-//         +polygon(35, 105)
-//
-//@media (max-width: 768px)
-//   .polygon-block
-//      &_down-left
-//         clip-path: none
+
+@media (max-width: 992px)
+   .section-title
+      .sks &
+         font-size: 30px
 
 @media (max-width: 568px)
    .section-title
       font-size: 25px
+      .sks &
+         font-size: 26px
+
+@media (max-width: 480px)
+   .section-title
+      .sks &
+         font-size: 20px
 

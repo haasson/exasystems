@@ -1,22 +1,24 @@
 import $ from "jquery";
 
 export default function initModals() {
-   $(".modal-link-full").click(function () {
-      $(".modal-full").fadeIn(300);
-   });
-   $(".modal-link-price").click(function () {
-      $(".modal-price").fadeIn(300);
-   });
-   $(".modal-link-callback").click(function () {
-      $(".modal-callback").fadeIn(300);
+   $("[data-modal]").click(function (e) {
+      e.preventDefault()
+      $(`.modal-${this.dataset.modal}`).fadeIn(300);
    });
 
    $(".modal-bg").on('click', (e) => {
-      if (e.target.closest('form')) {
+      if (e.target.closest('.modal-content')) {
          return
       }
-      $(".modal-bg").fadeOut(300);
-      $("progress.file-progress").addClass("hide")
-      $(".file-send").addClass("hide")
+      closeModal()
    })
+   $(".modal-bg .close").on('click', () => {
+      closeModal()
+   })
+}
+
+function closeModal() {
+   $(".modal-bg").fadeOut(300);
+   $("progress.file-progress").addClass("hide")
+   $(".file-send").addClass("hide")
 }

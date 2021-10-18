@@ -17,7 +17,7 @@ export default function sliderProjects() {
       window.dispatchEvent(new Event('resize'));
    });
    sliderEl.slick({
-      infinite: true,
+      infinite: false,
       slidesToShow: 1,
       adaptiveHeight: true,
       arrows: false,
@@ -89,6 +89,51 @@ export default function sliderProjects() {
             settings: {
                centerMode: true,
                slidesToShow: 1,
+            }
+         },
+      ]
+   })
+
+   const galleryEl_5 = $('.projects__slide_5 .projects__gallery-slider');
+   const imageEl5 = $('.projects__slide_5 .projects__photo')
+   galleryEl_5.on('init', function(){
+      galleryEl_5.removeClass("hide")
+   });
+   galleryEl_5.on('beforeChange', function(e, slider, prevSlide, currentSlide){
+      imageEl5[0].setAttribute('src', `assets/img/6projects/5/${currentSlide + 1}.jpg`)
+   });
+   galleryEl_5.slick({
+      slidesToShow: 5,
+      arrows: false,
+      focusOnSelect: true,
+      responsive: [
+         {
+            breakpoint: 420,
+            settings: {
+               slidesToShow: 4,
+            }
+         },
+      ]
+   })
+
+   const galleryEl_6 = $('.projects__slide_6 .projects__gallery-slider');
+   const imageEl6 = $('.projects__slide_6 .projects__photo')
+   galleryEl_6.on('init', function(){
+      galleryEl_6.removeClass("hide")
+   });
+   galleryEl_6.on('beforeChange', function(e, slider, prevSlide, currentSlide){
+      console.log(imageEl6)
+      imageEl6[0].setAttribute('src', `assets/img/6projects/6/${currentSlide + 1}.jpg`)
+   });
+   galleryEl_6.slick({
+      slidesToShow: 5,
+      arrows: false,
+      focusOnSelect: true,
+      responsive: [
+         {
+            breakpoint: 420,
+            settings: {
+               slidesToShow: 4,
             }
          },
       ]

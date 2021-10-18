@@ -1,0 +1,48 @@
+-
+   let clientsList = [
+     {
+       name: 'komus',
+       text: 'Сеть канцелярских магазинов'
+     },
+     {
+       name: 'rosteh',
+       text: 'Образовательное учреждение - Академия Ростеха'
+     },
+     {
+       name: 'osnova',
+       text: 'Строительная и инвестиционная компания'
+     },
+     {
+       name: 'ingrad',
+       text: 'Строительная и инвестиционная компания'
+     },
+     {
+       name: 'milk',
+       text: 'Производитель молочной продукции'
+     },
+     {
+       name: 'amania',
+       text: 'Семейный парк развлечений'
+     },
+     {
+       name: 'intaim',
+       text: 'Клиника планирования семьи'
+     },
+   ]
+
+
+.clients
+  .wrapper
+    h2.clients__title.section-title УЖЕ 208 клиентов
+    .clients__subtitle.section-subtitle доверили нам монтаж СКС и остались довольны
+    .clients__inner
+      ul.clients__list
+        each client in clientsList
+          li.clients__item
+            .clients__images
+              img.clients__img(src=`assets/img/common/${client.name}.png`)
+            p.clients__item-text !{client.text}
+        .clients__item.clients__item201
+          p.clients__item201-text и еще 201 довольных клиентов
+
+

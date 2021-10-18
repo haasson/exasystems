@@ -1,0 +1,34 @@
+-
+  let priceFeatures = [
+    {title: 'Варианты организации', text: 'рабочего места'},
+    {title: '3 варианта сметы', text: 'со скидкой до 15%'},
+    {title: 'Точные сроки', text: 'на монтаж СКС'},
+  ]
+
+
+.modal-bg.modal-price-big
+  .modal-content
+    .close
+      +svg('close', 'modal-close')
+
+    .modal-price-big__inner
+      .modal-price-big__form
+        .modal-price-big__form-top
+          .modal-price-big__form-head
+            .modal-price-big__form-title СКАЧАЙТЕ <span class="nowrap"> ПРАЙС-ЛИСТ </span>
+            .modal-price-big__form-subtitle на монтаж сетей СКС с персональной скидкой 15%
+          .modal-price-big__form-update Обновлен <span class="price-date">24.09.2021</span>
+
+        form#form-price-big.modal-price-big__form-data
+          +form2({type: 'price'})
+
+      .modal-price-big__features
+        .modal-price-big__features-title Также Вы получите коммерческое предложение, которое включает:
+        .modal-price-big__features-content
+           each feature, i in priceFeatures
+             .modal-price-big__feature
+               +svg(`price-feature-icon-${i + 1}`, 'modal-price-big__feature-icon')
+               .modal-price-big__feature-content
+                 p.modal-price-big__feature-title !{feature.title}
+                 p.modal-price-big__feature-text !{feature.text}
+

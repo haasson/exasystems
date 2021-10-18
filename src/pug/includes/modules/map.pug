@@ -26,7 +26,7 @@
         .map__phone
           +svg('phone', 'map__icon map__icon_phone')
           a(href="tel:+74955404708") +7 (495) 540-47-08
-        span.map__callback.modal-link-callback Обратный звонок
+        span.map__callback(data-modal="callback") Обратный звонок
 
   .footer
     .wrapper
@@ -42,7 +42,7 @@
         .topline__contacts
           .topline__phone
             a(href="tel:+74955404708") +7 (495) 540-47-08
-            .topline__svg.modal-link-callback
+            .topline__svg(data-modal="callback")
               .topline__tip Обратный звонок
               +svg('phone', 'topline__icon topline__icon_phone')
           a.topline__email(href="mailto:info@exasystems.ru")

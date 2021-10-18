@@ -1,0 +1,163 @@
+.mount
+  padding: 50px 0 97px
+  &__sks
+    display: flex
+    justify-content: space-between
+    margin-bottom: 25px
+  &__left
+    max-width: 480px
+    margin-right: 30px
+  &__title
+    font-size: 34px
+    font-weight: 600
+    line-height: 1.5
+    text-transform: uppercase
+    margin-bottom: 6px
+  &__subtitle
+    margin-bottom: 50px
+  &__item
+    display: flex
+    align-items: center
+    margin-bottom: 47px
+    &:last-child
+      margin-bottom: 0
+    &-percent
+      font-family: "Jost", serif
+      font-size: 70px
+      line-height: 1.5
+      color: $blue
+      margin-right: 17px
+    &-content
+      display: block
+    &-text
+      font-size: 18px
+      font-weight: 400
+      line-height: 1.4
+      width: 320px
+      span
+        &.one
+          font-family: "Jost", serif
+          font-size: 34px
+          line-height: 1.5
+    &-img
+      width: 74px
+      height: 73px
+      flex-shrink: 0
+      margin-right: 15px
+  &__form
+    background: $green-gradient
+    max-width: 420px
+    padding: 35px 40px 45px
+    box-sizing: border-box
+    color: $white
+    &-header
+      display: flex
+      justify-content: space-between
+      align-items: center
+      margin-bottom: 30px
+    &-title
+      font-size: 18px
+      font-weight: 600
+    &-count
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 58px
+      height: 40px
+      background: #EBF3F8
+      box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.15)
+      font-size: 16px
+      font-weight: 600
+      color: $text-color
+
+  &__videos-subtitle
+    font-size: 18px
+    font-weight: 700
+    line-height: 1.4
+    margin-bottom: 25px
+    span
+      font-weight: 400
+
+@media (max-width: 992px)
+  .mount
+    &__title
+      font-size: 27px
+    &__subtitle
+      margin-bottom: 30px
+    &__item
+      &-percent
+        font-size: 50px
+      &-text
+        font-size: 15px
+        width: 258px
+        span
+          &.one
+            font-size: 30px
+      &-img
+        width: 50px
+    &__form
+      padding: 25px 21px
+      &-count
+        width: 45px
+
+@media (max-width: 768px)
+  .mount
+    &__sks
+      flex-direction: column
+    &__left
+      max-width: 100%
+      margin-right: 0
+      margin-bottom: 30px
+    &__content
+      display: flex
+      justify-content: space-between
+      align-items: flex-start
+    &__item
+      margin-bottom: 15px
+      margin-right: 20px
+      width: 48%
+      align-items: flex-start
+      &:last-child
+        margin-right: 0
+      &-percent
+        font-size: 45px
+        line-height: 1
+      &-img
+        width: 45px
+        height: 50px
+      &-text
+        font-size: 14px
+        line-height: 1.2
+        width: 100%
+        span
+          &.one
+            font-size: 18px
+        br
+          &.one
+            display: none
+    &__right
+      margin: 0 auto
+    &__form
+      &-header
+        margin-bottom: 25px
+
+@media (max-width: 568px)
+  .mount
+    padding: 0 0 50px
+    &__content
+      flex-direction: column
+    &__item
+      width: 100%
+      &-percent
+        font-size: 30px
+      &-img
+        width: 40px
+    &__form
+      padding: 15px 15px
+      &-header
+        margin-bottom: 20px
+
+
+
+
+
