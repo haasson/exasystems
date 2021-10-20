@@ -65,6 +65,21 @@ function getRus($val) {
     case 'cameras-count': return 'Всего камер';
     case 'cameras-price': return 'Общая стоимость';
 
+    case 'archiveSize': return 'Размер архива';
+    case 'processorPrice': return 'Стоимость процессора';
+    case 'motherboardPrice': return 'Стоимость материнской платы';
+    case 'boxPrice': return 'Стоимость корпуса';
+    case 'radiatorPrice': return 'Стоимость радиатора';
+    case 'memoryPrice': return 'Стоимость памяти';
+    case 'ssdPrice': return 'Стоимость ССД';
+    case 'diskCount': return 'Количество дисков';
+    case 'disksPrice': return 'Стоимость дисков';
+    case 'controllerPrice': return 'Стоимость контроллера';
+    case 'consumablePrice': return 'Стоимость расходников';
+    case 'licensePrice': return 'Стоимость лицензии';
+
+
+
 
 
     default: return $val;

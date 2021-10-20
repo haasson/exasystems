@@ -145,30 +145,42 @@ export default ([formData]) => {
    (needNetris ? totalCameras * prices.license : 0)
 
 
-   if (isPossibleCalc) {
-      console.table({
-         'Количество камер': totalCameras,
-         'Размер архива': archiveSize,
-         'Стоимость процессора': prices.processors[processor],
-         'Стоимость материнской платы': prices.motherboard[motherboard],
-         'Стоимость корпуса': prices.box[box],
-         'Стоимость радиатора': prices.radiator,
-         'Стоимость памяти': prices.memory * memory,
-         'Стоимость ССД': prices.ssd[ssd],
-         'Количество дисков': diskCount,
-         'Стоимость дисков': prices.disk[diskType] * diskCount,
-         'Стоимость контроллера': prices.controller,
-         'Стоимость расходников': prices.consumable,
-         'Стоимость лицензии': needNetris ? totalCameras * prices.license : 'без лицензии',
-         'ОБЩАЯ СТОИМОСТЬ': totalPrice
-      })
-   } else {
-      console.log('Автоматический расчёт невозможен')
-   }
+   // if (isPossibleCalc) {
+   //    console.table({
+   //       'Количество камер': totalCameras,
+   //       'Размер архива': archiveSize,
+   //       'Стоимость процессора': prices.processors[processor],
+   //       'Стоимость материнской платы': prices.motherboard[motherboard],
+   //       'Стоимость корпуса': prices.box[box],
+   //       'Стоимость радиатора': prices.radiator,
+   //       'Стоимость памяти': prices.memory * memory,
+   //       'Стоимость ССД': prices.ssd[ssd],
+   //       'Количество дисков': diskCount,
+   //       'Стоимость дисков': prices.disk[diskType] * diskCount,
+   //       'Стоимость контроллера': prices.controller,
+   //       'Стоимость расходников': prices.consumable,
+   //       'Стоимость лицензии': needNetris ? totalCameras * prices.license : 'без лицензии',
+   //       'ОБЩАЯ СТОИМОСТЬ': totalPrice
+   //    })
+   // } else {
+   //    console.log('Автоматический расчёт невозможен')
+   // }
 
    return {
       price: isPossibleCalc ? totalPrice : false,
-      count: totalCameras
+      count: totalCameras,
+      archiveSize,
+      processorPrice: prices.processors[processor],
+      motherboardPrice: prices.motherboard[motherboard],
+      boxPrice: prices.box[box],
+      radiatorPrice: prices.radiator,
+      memoryPrice: prices.memory * memory,
+      ssdPrice: prices.ssd[ssd],
+      diskCount,
+      disksPrice: prices.disk[diskType] * diskCount,
+      controllerPrice: prices.controller,
+      consumablePrice: prices.consumable,
+      licensePrice: needNetris ? totalCameras * prices.license : 0,
    }
 }
 

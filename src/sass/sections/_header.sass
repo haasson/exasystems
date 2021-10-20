@@ -12,6 +12,33 @@
    .header-fixed &
       .header__polygon
          clip-path: none
+
+         .header__topline
+            position: fixed
+            top: 0
+            left: 0
+            z-index: 5
+            width: 100%
+            align-items: center
+            padding: 10px 20px
+            box-sizing: border-box
+            background-color: $purple
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.21) 0%, rgba(0, 0, 1, 0.21) 100%)
+            .topline
+               &__burger,
+               &__menu
+                  margin-top: 0
+               &__slogan
+                  display: none
+               &__contacts
+                  display: flex
+                  flex-direction: column
+               &__email
+                  margin-bottom: 2px
+   //span
+   //  display: none
+
+
    &__bg-wrap
       position: absolute
       height: 100%

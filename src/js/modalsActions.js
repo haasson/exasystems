@@ -2,7 +2,7 @@ import $ from "jquery";
 
 export default function initModals() {
    $("[data-modal]").click(function (e) {
-      e.preventDefault()
+      if (e.target.type !== 'submit') e.preventDefault()
       $(`.modal-${this.dataset.modal}`).fadeIn(300);
    });
 

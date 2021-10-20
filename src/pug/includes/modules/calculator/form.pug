@@ -40,6 +40,19 @@
       input.calculator-hidden-price(type="hidden" name="cameras-price")
       input.calculator-hidden-count(type="hidden" name="cameras-count")
 
+      input(type="hidden" name="archiveSize")
+      input(type="hidden" name="processorPrice")
+      input(type="hidden" name="motherboardPrice")
+      input(type="hidden" name="boxPrice")
+      input(type="hidden" name="radiatorPrice")
+      input(type="hidden" name="memoryPrice")
+      input(type="hidden" name="ssdPrice")
+      input(type="hidden" name="diskCount")
+      input(type="hidden" name="disksPrice")
+      input(type="hidden" name="controllerPrice")
+      input(type="hidden" name="consumablePrice")
+      input(type="hidden" name="licensePrice")
+
       h2.calculator__title.section-title Калькулятор программно-технического комплекса видеонаблюдения «Безопасный регион»
       p.calculator__subtitle Введите количество камер каждого типа:
       ul.calculator__list
@@ -50,7 +63,7 @@
             .calculator__name !{camera.name}
 
             .calculator__select
-              input(type="text" name=`camera-${i+1}` id=`${type}-email`)
+              input(type="text" name=`camera-${i+1}`)
 
       .calculator__line
         div

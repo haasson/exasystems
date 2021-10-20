@@ -50,6 +50,19 @@ try {
         'camera-8',
         'cameras-price',
         'cameras-count',
+
+        'archiveSize',
+        'processorPrice',
+        'motherboardPrice',
+        'boxPrice',
+        'radiatorPrice',
+        'memoryPrice',
+        'ssdPrice',
+        'diskCount',
+        'disksPrice',
+        'controllerPrice',
+        'consumablePrice',
+        'licensePrice',
       ));
 
       $title = "EXASystems";

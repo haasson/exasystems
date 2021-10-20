@@ -15,8 +15,8 @@ window.addEventListener('load', function () {
    tabsInit()
 
    initSliders()
-   initModals()
    formsInit()
+   initModals()
    selectsInit()
    rangeInit()
 
@@ -31,6 +31,7 @@ window.addEventListener('load', function () {
       new Quiz()
    }
 
+   mapsInit()
 
    document.body.style.opacity  = 1
    document.body.classList.remove('loading')
@@ -81,4 +82,38 @@ function dateHandler() {
    const date = `${('0' + (new Date(today).getDate() - 1)).slice(-2)}.${('0' + (new Date(today).getMonth() + 1)).slice(-2)}.${new Date(today).getFullYear()}`
 
    priceElements.forEach(el => el.innerHTML = date)
+}
+
+function mapsInit() {
+   console.log(ymaps)
+   ymaps.ready(function () {
+      console.log('here')
+      let map = new ymaps.Map("map", {
+         center: [55.654642387785984, 37.41653095681084],
+         zoom: 11,
+         behaviors: ['drag'],
+         controls: ['zoomControl'],
+      }, {
+         zoomControlPosition: { left: 10, top: 250 },
+      })
+      if (document.documentElement.clientWidth <= 1300) {
+         map.setCenter([55.654642387785984, 37.41653095681084])
+      }
+      if (document.documentElement.clientWidth <= 992) {
+         map.setCenter([55.654642387785984, 37.41653095681084])
+         map.behaviors.disable('drag')
+         map.behaviors.enable('multiTouch')
+      }
+      let Placemark = new ymaps.Placemark([55.654642387785984, 37.41653095681084], {
+         hintContent: 'Технология'
+      }, {
+         iconLayout: 'default#image',
+         iconImageHref: 'assets/img/12map/marker.png',
+         iconImageSize: [79, 96],
+         iconImageOffset: [-40, -96]
+
+      });
+      console.log(Placemark)
+      map.geoObjects.add(Placemark);
+   });
 }

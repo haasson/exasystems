@@ -21,24 +21,41 @@ async function getCurrencyRate() {
 }
 
 async function renderCamerasPrice(form) {
-   const {price, count} = calcPrice($(form))
+   const data = calcPrice($(form))
+   const rate = await getCurrencyRate()
    document.querySelector('.cameras-price').innerHTML = ''
 
-   document.querySelector('.cameras-count').innerHTML = count
-   document.querySelector('.calculator-hidden-count').value = count
+   document.querySelector('.cameras-count').innerHTML = data.count
+   document.querySelector('.calculator-hidden-count').value = data.count
+   document.querySelector('[name=archiveSize]').value = (data.archiveSize).toFixed(2)
+   document.querySelector('[name=processorPrice]').value = (data.processorPrice * rate).toFixed(2)
+   document.querySelector('[name=motherboardPrice]').value = (data.motherboardPrice * rate).toFixed(2)
+   document.querySelector('[name=boxPrice]').value = (data.boxPrice * rate).toFixed(2)
+   document.querySelector('[name=radiatorPrice]').value = (data.radiatorPrice * rate).toFixed(2)
+   document.querySelector('[name=memoryPrice]').value = (data.memoryPrice * rate).toFixed(2)
+   document.querySelector('[name=ssdPrice]').value = (data.ssdPrice * rate).toFixed(2)
+   document.querySelector('[name=diskCount]').value = data.diskCount
+   document.querySelector('[name=disksPrice]').value = (data.disksPrice * rate).toFixed(2)
+   document.querySelector('[name=controllerPrice]').value = (data.controllerPrice * rate).toFixed(2)
+   document.querySelector('[name=consumablePrice]').value = (data.consumablePrice * rate).toFixed(2)
+   document.querySelector('[name=licensePrice]').value = (data.licensePrice * rate).toFixed(2)
 
-   const rate = await getCurrencyRate()
-   const priceRub = price ? `${parseInt(price * +rate)} руб.` : 'Автоматический расчёт невозможен'
+
+   const priceRub = data.price ? `${parseInt(data.price * +rate)} руб.` : 'Автоматический расчёт невозможен'
+   console.log(priceRub)
    document.querySelector('.cameras-price').innerHTML = priceRub
    document.querySelector('.calculator-hidden-price').value = priceRub
 }
 
 function send(event) {
+   console.log('send')
    event.preventDefault ? event.preventDefault() : (event.returnValue = false);
    let form = event.target
    let formData
    if (form.classList.contains("prevent")) {
+      console.log('here')
       renderCamerasPrice(form)
+      console.log('after')
       savedFormName = $(form).attr('id')
       return
    }
