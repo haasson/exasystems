@@ -1,0 +1,40 @@
+.product
+  padding: 80px 0 350px
+  &__inner
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__warning
+    text-align: center
+
+  p
+    margin-bottom: 20px
+    font-weight: 600
+
+
+  table
+    border-collapse: collapse
+    width: 100%
+  table, th, td
+    border: 1px solid black
+
+  th
+    text-align: left
+    &.value
+      width: 90px
+
+  th, td
+    padding: 5px
+
+  tr.last
+    font-weight: 600
+
+  td
+    &:last-child
+      text-align: center
+
+@media (max-width: 992px)
+  .product
+    padding: 50px 0
+    table
+      margin-bottom: 30px

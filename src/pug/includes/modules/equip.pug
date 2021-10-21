@@ -33,7 +33,6 @@
 -
   let positions = {
     server: ['server', 'server-parts', 'network', 'print', 'storage', 'protect', 'boxes'],
-    'calculator-page': ['server', 'server-parts', 'network', 'print', 'storage', 'protect', 'boxes'],
     network: ['network', 'server', 'server-parts', 'print', 'storage', 'protect', 'boxes'],
     print: ['print', 'network', 'server', 'server-parts', 'storage', 'protect', 'boxes'],
     storage: ['storage', 'server', 'server-parts', 'network', 'print', 'protect', 'boxes']
@@ -45,7 +44,7 @@
     .equip__inner
       h2.equip__title.section-title Оборудование
       ul.equip__list
-         each item, i in positions[pageType]
+         each item, i in positions[pageType] || positions.server
            - let obj = equipment[item]
            li.equip__item(class=`${item}` style=`background-image: url('assets/img/3equip/${i < 4 ? item : item + '-small'}.png')`)
              h3.equip__name #{obj.title}

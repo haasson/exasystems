@@ -28,13 +28,6 @@
            ...headerFeatures
          ]
       },
-      'calculator-page': {
-         title: 'Надежный поставщик профессиональных серверных решений',
-         features: [
-            'проектирование / аудит IT-инфраструктуры',
-            ...headerFeatures
-         ]
-      },
       network: {
          title: 'Надежный поставщик профессионального сетевого оборудования',
          features: [
@@ -61,7 +54,7 @@
 header.header.multiclass(class=pageType)
    .header__polygon.polygon-block_down-left
       .header__bg-wrap
-         .header__bg(style=`background-image: url('assets/img/1header/hero-${pageType}.png')`)
+         .header__bg(style=`background-image: url('assets/img/1header/hero-${pageTypes[pageType] ? pageType : 'server'}.png')`)
       .wrapper
          .header__topline.topline
             a.topline__logo(href="#")
@@ -92,12 +85,13 @@ header.header.multiclass(class=pageType)
 
 
          .header__hero.hero
-            .hero__title #{pageTypes[pageType].title}
+            - let pageProps = pageTypes[pageType] || pageTypes.server
+            .hero__title #{pageProps.title}
             .hero__content
                .hero__features.features.features_blue
                   .features__title Берем ответственность за полный цикл
                   ul.features__list
-                     each feature in pageTypes[pageType].features
+                     each feature in pageProps.features
                         li.features__item #{feature}
 
                button.hero__btn.btn.btn_arrow(data-modal="full") Отправить запрос на расчет стоимости
