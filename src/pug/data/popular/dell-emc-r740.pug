@@ -1,0 +1,90 @@
+// Технические характеристики
+-
+  let specification = {
+    processor: 'Intel® Xeon® Silver 4114 2.2G, 10C/20T, 9.6GT/s 2UPI, 14M Cache, Turbo, HT (85W) DDR4-2400',
+    operatingSystem: 'No Operating System',
+    memory: '8GB RDIMM, 2667MT/s, Single Rank',
+    drive: {
+       frontDrive: 'До 16 накопителей 2,5" SAS/SATA/SSD, максимум 60 Тбайт До 8 накопителей 3,5" SAS/SATA, максимум 80 Тбайт',
+    },
+    controllersRAID: {
+      internalControllers: 'PERC H330, H730p, H740p, HBA330, программный RAID (SWRAID) S140 ',
+      subsystem: 'HWRAID 2 x M.2, твердотельный накопитель, 120 Гбайт, 240 Гбайт ',
+      externalPerc: 'H840 ',
+      externalAdapters: 'Адаптер главной шины SAS 12 Гбит/с',
+    },
+    supply: 'Titanium 750 Вт, Platinum 495 Вт, 750 Вт, 1100 Вт, 1600 Вт и 2000 Вт 48VDC 1100 Вт, 380HVDC 1100 Вт, 240HVDC 750 Вт (Китай/Япония) Блоки питания с возможностью «горячей» замены с полным резервированием. До 6 вентиляторов с возможностью «горячей» замены с полным резервированием. Доступны высокопроизводительные вентиляторы.',
+    frame: 'Опциональный ЖК-дисплей или защитная фронтальная панель',
+    size: {
+      formFactor: 'Для установки в стойку (2U) Глубина корпуса: 715,5 мм',
+      depth: '715,5 мм',
+    },
+    control: 'Соответствие требованиям IPMI 2.0 iDRAC9 с технологией Lifecycle Controller (Express, Enterprise) Опциональный беспроводной модуль Quick Sync 2 <br>Программное обеспечение OpenManage Enterprise OpenManage Essentials OpenManage Mobile OpenManage Power Center',
+    ports: {
+      child: '4 x 1GE, 2 x 10GE 2 x 1GE, 4 x 10GE или 2 x 25GE',
+      frontPanel: 'Видео, 2 x USB 2.0, доступный USB 3.0, выделенный IDRACDirect Micro-USB',
+      rearPanel: 'Видео, последовательный порт, 2 x USB 3.0, выделенный сетевой порт iDRAC',
+      videoCard: 'VGA',
+      pcle: 'До 8 разъемов Gen3, до 4 x16',
+    },
+    safety: 'Опциональный микрокод с криптографической подписью TPM 1.2/2.0 <br>Безопасная загрузка <br>Блокировка системы <br>Надежное удаление',
+    base: 'PowerEdge R740 Server',
+    HDD: '300GB 15K RPM SAS 12Gbps 512n 2.5in Hot-plug Hard Drive',
+  }
+
+// Модели
+-
+  let models = {
+    'R740-3493': 'DELL PowerEdge R740 2U/ 16SFF/ 1x4110 (8-Core, 2.1 GHz, 85W)/ 1x16GB RDIMM/ 730P 2GB mC/ 1x1.2TB 10K SAS/ 4xGE/ 1x750W/ RC1/ 4 std FAN/ noDVD/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+    'R740-3554': 'DELL PowerEdge R740 2U/ 8LFF/ 1x4114 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P 2GB mC/ 1x1TB 7.2K SATA/ 4xGE/ 1x750W/ RC1/ 4 std FAN/ noDVD/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+    'R740-2929': 'DELL PowerEdge R740 2U/ 16SFF/ 1x4114 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P 2GB mC/ 1x1.2TB 10K SAS/ 4xGE/ 1x750w/ RC1/ 4 std/ iDRAC9 Ent/ noDVD/ Bezel noQS/ Sliding Rails/ noCMA/ 3YPSNBD',
+    'R740-4357': 'DELL PowerEdge R740 2U/ 16SFF/ 1x3204 (6-Core, 1.92 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/ 1 x 1.2 TB 10K 12 SAS/ 4xGE/ 1x750w / RC1/ 4 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+    'R740-4364': 'DELL PowerEdge R740 2U/ 16SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/ 1 x 1.2 TB 10K 12 SAS/ 4xGE/ 1x750w / RC1/ 4 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+    'R7xd-8769': 'DELL PowerEdge R740xd 2U/ 24SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/ 1 x 1.2 TB 10K 12 SAS/ 4xGE/ 1x750w / RC1/ 4 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+    'R740-4395': 'DELL PowerEdge R740 2U/ 8LFF/ 1x3204 (6-Core, 1.92 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/ 1 x 1TB 7.2K SATA/ 4xGE/ 1x750w / RC1/ 4 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+    'R740-4364-11': 'DELL PowerEdge R740 2U/ 16SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/ 6x300GB 15k SAS/ 4xGE/ 1x750w / RC1/ 4 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+    'R740-4364-01': 'DELL PowerEdge R740 2U/ 16SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/16x960GB MU SATA/ 4xGE/ 1x750w / RC1/ 4 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+    'R740-4425-11': 'DELL PowerEdge R740 2U/ 8LFF/ 1x4214 (12-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/8x8Tb NLSAS 7.2k/ 4xGE/ 1x750w / RC1/ 4 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+  }
+
+//  Комплектующие
+-
+  let parts = {
+    '400-AJRK': 'DELL 300GB SFF 2.5"" SAS 15k 12Gbps HDD Hot Plug for G13 servers (analog 400-AEEI, 400-AEEH)',
+    '370-AEQI': 'DELL 32GB (1x32GB) RDIMM Dual Rank 2933MHz - Kit for 14G servers (analog 370-ACNW, 370-ACNS , 370-ADOT)',
+    '400-BDVW': 'DELL 480GB SSD SATA 6Gbps 512e 2.5"" HYB CARR Hot Plug Drive S4610 For 14G Servers',
+    '400-BDWE': 'DELL 480GB SSD SATA 6Gbps 512e 2.5"" Hot Plug Drive S4610 For 14G Servers',
+    '400-ATKL': 'DELL 4TB 7.2K NLSAS 12Gbps 512n 3.5"" Hot-plug For 14G (84KR4)',
+    '400-AJPP': 'DELL 600GB SFF 2.5"" SAS 10k 12Gbps HDD Hot Plug for G13 servers (analog 400-AEEB, 400-AEER, 400-AEES)',
+    '400-ATLJ': 'DELL 800GB Mix Use SATA 6Gbps 512n 2.5"" Hot Plug Hawk-M4E 3 DWPD 4380 TBW For 14G Servers',
+    '400-ATKR': 'DELL 8TB 7.2K NLSAS 12Gbps 512e 3.5"" Hot-plug For 14G (HHRYF)',
+    '400-ATKV': 'DELL 8TB 7.2K SATA 6Gbps 512e 3.5"" Hot-plug For 14G (88MH8)',
+    '400-BDUC': 'DELL 960GB SSD SATA 6Gbps 512e 2.5"" HYB CARR Hot Plug Drive S4610 For 14G Servers',
+    '400-ATLY': 'DELL 960GB LFF (2.5"" in 3.5"" carrier) Read Intensive SSD, SATA 6Gbps, 512n, Hot Plug, PM863a, 1 DWPD, 1752 TBW, For 14G Servers (analog 400-ASFN)',
+    '400-ATLX': 'DELL 960GB Read Intensive SATA 6Gbps 512n 2.5"" Hot Plug PM863a 1 DWPD 1752 TBW For 14G Servers',
+    '470-AAVI': 'DELL Cable SFP+ to SFP+ 10GbE Copper Twinax Direct Attach Cable, 7 Meter - Ki',
+    '403-BBVQ': 'DELL Controller BOSS controller card, full height, Customer Kit (analog 403-BBQB)',
+    '403-BBUC': 'DELL Controller BOSS controller card, low profile, Customer Kit (analog 403-BBQC)',
+    '403-BBMF': 'DELL Controller HBA FC Emulex LPe31002-M6-D Dual Port, 16Gb Fibre Channel, Full Heigh',
+    '403-BBLR': 'DELL Controller HBA FC Emulex LPe31002-M6-D Dual Port, 16Gb Fibre Channel, Low Profile',
+    '406-BBEK': 'DELL NIC QLogic 2562 Dual Port, 8Gb Fibre Channel HBA, Full Height (analog 406-10695)',
+    '405-AANP': 'DELL Controller PERC H330 RAID 0/1/5/10/50, Low Profile (analog 405-AAMV)',
+    '405-AACW': 'DELL Controller PERC H730p RAID 0/1/5/6/10/50/60, 2GB NV Cache, 12Gb/s PCI-E Full Height For 13G/14G (analog 405-AAMY)',
+    '405-AAOE': 'DELL Controller PERC H730P+ RAID 0/1/5/6/10/50/60, 2GB NV Cache, 12Gb/s PCI-E, Low Profile, For 14G (analog 405-AAMY)',
+    '405-AAOD': 'DELL Controller PERC H740P RAID 0/1/5/6/10/50/60, 8GB NV Cache, 12Gb/s PCI-E, Full Height For 14G (analog 405-AAMX)',
+    '405-AANL': 'DELL Controller PERC H740P RAID 0/1/5/6/10/50/60, 8GB NV Cache, 12Gb/s, MiniCard For 14G (4R84R)',
+    '370-AEHZ': 'DELL 16GB SoDIMM (1x16GB) 2666MHz DDR4 Memory , Non ECC for Micro',
+    '401-ABHX': 'DELL 12TB 7.2K NLSAS 12Gbps 512e 3.5"" Hot-plug For 14G (K29Y6)',
+    '401-ABHY': 'DELL 12TB 7.2K SATA 6Gbps 512e 3.5"" Hot-plug For 14G (8VR77)',
+    '400-AUWK': 'DELL 12TB LFF 3.5"" SATA 7.2k 6Gbps HDD Hot Plug for G13 servers 512e',
+    '400-AUWL': 'DELL 1TB SFF 2.5"" SATA 7.2k 6Gbps HDD Hot Plug for For 11G/12G/13G/T440/T640 servers (analog 400-22283 , 400-24973 , 400-AEFD , 400-AEFC)',
+    '400-BCNZ': 'DELL 480GB SSD SAS 12Gbps 512 2.5"" Hot-Plug PM5 MU, 3 DWPD, 2628 TBW, CK',
+    '400-BCNF': 'DELL 480GB SSD SAS 12Gbps 512 2.5"" HYB CARR PM5 MU, CK',
+    '400-ALNY': 'DELL 4TB LFF 3.5"" NLSAS 7.2k 12Gbps HDD Hot Plug for G13 servers 512n(analog 400-AEGI, 400-AEGH)',
+    '400-AEGK': 'DELL 4TB SATA 7.2k 3.5"" HD Hot Plug Fully Assembled Kit for G13 servers R730/R730XD/T430/T630/R430/R530',
+    '400-AMPG': 'DELL 8TB LFF 3.5"" SAS 7.2k 12Gbps HDD Hot Plug for G13 servers (analog 400-AHJD)',
+    '400-BDUS': 'DELL 960GB LFF (2.5"" in 3.5"" carrier) SSD SATA Mix used 6Gbps 512e Hot plug For 11G/12G/13G/T440/T64',
+    '400-BBOU': 'DELL 960Gb SAS Read Intensive 12 Gbps, 512e, 2,5 in, Hot-plug, PX06SR, с/к',
+    '400-BBOH': 'DELL 960Gb SAS Read Intensive 12 Gbps, 512e, 2,5 in, Hot-plug, гибрид. салазки 3,5 in, PX06SR, с/к',
+    '400-BEJS': 'DELL_12TB LFF 3.5"" SAS 7.2k 12Gbps HDD Hot Plug for G13 servers 512e (analog 400-AUTD)',
+  }

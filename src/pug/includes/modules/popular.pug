@@ -1,0 +1,87 @@
+-
+  let popularList = [
+    {
+      name: 'HPE ProLiant DL380 Gen10',
+      text: 'Производительность мирового класса и&nbspневероятная универсальность',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'HPE ProLiant DL360 Gen10',
+      text: 'Стандарт исключительной гибкости и&nbspнепревзойденной расширяемости',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'Dell EMC PowerEdge R640',
+      text: 'Идеальное сочетание плотности и масштабируемости',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'Сервер LENOVO SR630',
+      text: 'УНИВЕРСАЛЬНЫЙ СЕРВЕР ДЛЯ ВАШЕГО БИЗНЕСА',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'Dell EMC PowerEdge R740',
+      text: 'Идеальное сочетание плотности и масштабируемости',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'Сервер LENOVO SR650',
+      text: 'Идеальное сочетание плотности и масштабируемости',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'Dell EMC PowerEdge R440',
+      text: 'Для вычислительных систем высокой плотности с горизонтальным масштабированием',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'LENOVO ThinkSystem SR250 Rack Server',
+      text: 'Доступные и эффективные возможности корпоративного уровня в форм-факторе 1U',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'Dell EMC PowerEdge R540',
+      text: 'Универсальная конструкция',
+      link: '',
+      btn: '',
+    },
+    {
+      name: 'Supermicro SYS&#8209;6029P-TR',
+      text: 'Оптимальное соотношение быстродействия, надежности и стоимости',
+      link: '',
+      btn: '',
+    },
+  ]
+
+
+.popular
+  .wrapper
+    .popular__inner
+      h2.popular__title.section-title Популярные позиции
+      ul.popular__list
+        each popular, i in popularList
+           li.popular__item(class=`${i>3 ? 'collapsed' : ''}`  style=`background-image: url('assets/img/17popular/small/${i+1}.png')`)
+             h3.popular__name !{popular.name}
+             p.popular__text !{popular.text}
+             //a.popular__link(href=`${popular.link}` target="_blank") Подробнее
+             //a.popular__btn.btn(href=`${popular.btn}` target="_blank") Конфигуратор
+      .popular__arrow
+        .popular__expand
+          .expand__text Показать все
+          +svg('list-arrow', 'expand__arrow')
+        .popular__collapse
+          .collapse__text Свернуть
+          +svg('list-arrow', 'collapse__arrow')
+
+
+
+

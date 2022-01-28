@@ -1,0 +1,139 @@
+.popular
+  padding-top: 43px
+  &__inner
+    &.active
+      .popular__item.collapsed
+        display: flex
+      .popular__expand
+        display: none
+      .popular__collapse
+        display: flex
+  &__title
+    margin-bottom: 45px
+  &__list
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+  &__item
+    display: flex
+    flex-direction: column
+    position: relative
+    flex-basis: calc(50% - 9px)
+    flex-shrink: 0
+    min-height: 330px
+    margin-bottom: 12px
+    padding: 37px
+    box-sizing: border-box
+    background-color: $gray-manager
+    background-repeat: no-repeat
+    background-position: bottom 34% right
+    color: $text-color
+    &:hover
+      .popular__btn
+        transform: translateY(0)
+        opacity: 1
+    &.collapsed
+      display: none
+  &__name
+    margin-bottom: 17px
+    font-family: $secondary-font
+    font-size: 30px
+    font-weight: 600
+    color: $blue
+    max-width: 460px
+  &__text
+    font-size: 15px
+    font-weight: 600
+    line-height: 1.5
+    text-transform: uppercase
+    max-width: 255px
+    min-height: 108px
+  &__link
+    margin-top: auto
+    font-size: 15px
+    font-weight: 600
+    color: $blue
+    transition: color .3s
+    &:hover
+      color: darken($blue, 4%)
+  &__btn
+    position: absolute
+    bottom: 57px
+    right: 54px
+    width: auto
+    min-width: 180px
+    padding: 16px 29px
+    clip-path: none
+    color: #FFFFFF
+    line-height: 18px
+    opacity: 0
+    transform: translateY(100%)
+    transition: .3s
+  &__arrow
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-top: 29px
+    font-size: 15px
+    line-height: 1.9
+    font-weight: 600
+    color: $blue
+    cursor: pointer
+  &__expand
+    display: flex
+  &__collapse
+    display: none
+.expand
+  &__arrow
+    width: 6px
+    height: 11px
+    margin-left: 12px
+    margin-top: 9px
+    flex-shrink: 0
+    transform: rotate(90deg)
+.collapse
+  &__arrow
+    width: 6px
+    height: 11px
+    margin-left: 12px
+    margin-top: 9px
+    flex-shrink: 0
+    transform: rotate(-90deg)
+
+@media screen and (max-width: 1367px)
+  .popular
+    &__btn
+      transform: translateY(0)
+      opacity: 1
+
+@media screen and (max-width: 1080px)
+  .popular
+    &__name
+      font-size: 28px
+    &__item
+      background-image: none !important
+    &__btn
+      position: static
+      margin-top: 15px
+
+@media screen and (max-width: 992px)
+  .popular
+    &__name
+      font-size: 26px
+
+@media screen and (max-width: 768px)
+  .popular
+    &__list
+      flex-direction: column
+    &__item:nth-child(n)
+      width: 100%
+      min-height: auto
+      margin: 0 auto 15px
+      max-width: 560px
+    &__arrow
+      margin-top: 0
+
+@media screen and (max-width: 480px)
+  .popular
+    &__item:nth-child(n)
+      padding: 20px 20px

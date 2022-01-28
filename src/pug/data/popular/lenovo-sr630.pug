@@ -1,0 +1,38 @@
+// Технические характеристики
+-
+  let specification = {
+    processor: 'Поддерживается 1 или 2 процессора Intel Xeon Scalable второго поколения, максимально 28 ядер на процессор и 56 ядер на сервер. TDP каждого процессора до 205 Вт.',
+    memory: 'Возможна установка до 24 модулей TruDDR4 DIMM с частотой 2666 или 2933 МГц. Максимальный объем RAM 9 Тб',
+    graphicsAccelerators: 'Поддерживается от 1 до 3 GPU, в зависимости от конфигурации сервера и модели графической платы',
+    controllers: 'Аппаратный RAID-массив (до 16 портов) с кэшем на флеш-накопителях, адаптеры хоста шины HBA до 16 портов',
+    HDD: 'До 12 отсеков (включая 4 отсека AnyBay): 3,5": 4 накопителя SAS/SATA с горячей заменой; 2,5": 4 отсека AnyBay с горячей заменой + 6 отсеков SAS/SATA с горячей заменой + 2 отсека сзади; или 8 отсеков SAS/SATA с горячей заменой; или 10 отсеков U.2 с горячей заменой; плюс до 2 разъемов M.2 с поддержкой загрузки и зеркалирования',
+    blocks: '2 резервируемых блока питания/с возможностью горячей замены: AC 80 PLUS Platinum мощностью 550, 750 или 1100 Вт или AC 80 PLUS Titanium мощностью 750 Вт',
+    size: '1U, глубина 715 мм',
+    safety: 'TPM 1.2/2.0; PFA; высоконадежные или резервируемые накопители, вентиляторы и блоки питания; непрерывная эксплуатация при температуре 45 °C; панель светодиодной диагностики; доступ к средствам диагностики с передней панели через отдельный USB-порт.',
+    control: 'Встроенное средство управления XClarity Controller, централизованное средство управления инфраструктурой XClarity Administrator, подключаемые модули XClarity Integrator и централизованное средство управления электропитанием серверов XClarity Energy Manager.',
+    interface: '2- или 4-портовые модули 1GbE LOM; 2- или 4-портовые модули 10GbE LOM с Base-T или SFP+; 1 выделенный порт управления 1GbE',
+    operatingSystem: 'Microsoft, SUSE, Red Hat, VMware vSphere',
+    slots: 'До 4 разъемов PCIe 3.0 (в двухпроцессорной конфигурации), включая 1 выделенный разъем PCIe для установки RAID-адаптера',
+    warranty: '1- или 3-летняя гарантия на заменяемые заказчиком компоненты и обслуживание на месте установки, обслуживание в режиме 9x5, выезд на следующий рабочий день, улучшение гарантийного обслуживания (приобретается отдельно)',
+  }
+
+// Модели
+-
+  let models = {
+    'R440-7106': 'DELL PowerEdge R440 1U/ 4LFF/ 1x3106 (8-Core, 1.7 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1x1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-7151': 'DELL PowerEdge R440 1U/ 8SFF/ 1x3106 (8-Core, 1.7 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1x1.2TB 10K SAS/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-7113': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4110 (8-Core, 2.1 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1x1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-7168': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4110 (8-Core, 2.1 GHz, 85W)/ 1x16GB RDIMM/ 730P+ 2GB LP/ 1x1.2TB 10K SAS/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-7175': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4114 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P+ 2GB LP/ 1x1.2TB 10K SAS/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-7137': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4114 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P+ 2GB LP/ 1x1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-7243': 'DELL PowerEdge R440 1U/ 8SFF/ 2x6126 (12-Core, 2.6 GHz, 125W)/ 2x32GB RDIMM/ 730P+ 2GB LP/ 1x1.2TB 10K SAS/ 4xGE/ 1x550W/ RC3/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1963': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4216 (16-Core, 2.1 GHz, 100W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1.2 TB 10K 12 SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1956': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4215 (8-Core, 2.5 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1.2 TB 10K 12 SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1918': 'DELL PowerEdge R440 1U/ 8SFF/ 1x3204 (6-Core, 1.92 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1 x 1.2 TB 10K 12 SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1857': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4208 (8-Core, 2.1 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1 x 1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1871': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1888': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4214 (12-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1949': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4214 (12-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1.2 TB 10K 12 SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1871-11': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 4 x 4TB 7.2K NLSAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    'R440-1932-11': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 2 x 900 GB 15K SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+  }

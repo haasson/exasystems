@@ -25,6 +25,7 @@ window.addEventListener('load', function () {
 
    videoHandler()
    dateHandler()
+   arrowPopular()
 
 
    if (document.querySelector('.quiz')) {
@@ -117,3 +118,14 @@ function mapsInit() {
       map.geoObjects.add(Placemark);
    });
 }
+
+function arrowPopular() {
+   let popularInner = document.querySelector(".popular__inner")
+   let toggleButton = document.querySelector(".popular__arrow")
+
+   toggleButton.addEventListener("click", () => {
+      popularInner.classList.toggle("active")
+   })
+}
+
+

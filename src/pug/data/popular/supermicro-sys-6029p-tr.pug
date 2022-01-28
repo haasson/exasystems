@@ -1,0 +1,30 @@
+// Технические характеристики
+-
+  let specification = {
+    processor: 'Поддерживается 1 или 2 процессора Intel Xeon Scalable второго поколения, максимально 28 ядер на процессор и 56 ядер на сервер. TDP каждого процессора до 205 Вт',
+    memory: 'Возможна установка до 24 модулей TruDDR4 DIMM с частотой 2666 или 2933 МГц. Максимальный объем RAM 9 Тб. Поддержка модулей энергонезависимой памяти Intel Optane DC Persistent Memory',
+    controllers: 'Аппаратный RAID-массив (до 24 портов) с кэшем на флеш-накопителях, HBA до 16 портов',
+    HDD: 'До 14 отсеков 3.5" или до 24 отсеков 2.5" с поддержкой «горячей» замены (включая до 12 AnyBay или включая до 24 NVMe); и до 2 разъемов M.2 с поддержкой загрузки и зеркалирования (RAID 1)',
+    safety: 'TPM 1.2/2.0; PFA; высоконадежные или резервируемые накопители, вентиляторы и блоки питания; непрерывная эксплуатация при температуре 45 °C; панель светодиодной диагностики; доступ к средствам диагностики с передней панели через отдельный USB-порт',
+    operatingSystem: 'Microsoft, SUSE, Red Hat, VMware. <br>Встроенное средство управления XClarity Controller, централизованное средство управления инфраструктурой XClarity Administrator, подключаемые модули XClarity Integrator и централизованное средство управления электропитанием серверов XClarity Energy Manager',
+    interface: '2- или 4-портовые модули 1GbE LOM; 2- или 4-портовые модули 10GbE LOM с Base-T или SFP+; 1 выделенный порт управления 1GbE',
+    slots: 'До 7 разъемов PCIe 3.0 (в двухпроцессорной конфигурации), включая 1 выделенный разъем PCIe для установки RAID-адаптера',
+    blocks: '2 блока питания с поддержкой резервирования/горячей замены: Блок питания 80 PLUS Platinum мощностью 550, 750, 1100 или 1600 Вт; или блок питания 80 PLUS Titanium мощностью 750 Вт; или блок питания 80 PLUS Platinum на 48 В постоянного тока',
+    size: '2U, глубина 720 мм',
+    warranty: '1- или 3-летняя гарантия на заменяемые заказчиком компоненты и обслуживание на месте установки, обслуживание в режиме 9x5, выезд на следующий рабочий день, улучшение гарантийного обслуживания (приобретается отдельно)',
+  }
+
+// Модели
+-
+  let models = {
+    '7X06A02WEA': 'Lenovo ThinkSystem SR650 Rack 2U, Xeon Silver 4114 10C (2.2GHz/85W), 16GB/2Rx8/2666MHz/1.2V RDIMM (up to 24), noHDD 2.5"" (up to 8/24), SR 930-8i (2GB Flash), noDVD, 1xfree PCI, 1x750W p/s (up to 2)',
+    '7X06A04DEA': 'Lenovo ThinkSystem SR650 Rack 2U, Xeon Silver 4116 12C (2.1GHz/85W), 16GB/2Rx8/2666MHz/1.2V RDIMM (up to 24), noHDD 2.5"" (up to 8/24), SR 930-8i (2GB Flash), noDVD, 1xfree PCI, 1x750W p/s (up to 2)',
+    '7X06A081EA': 'Lenovo ThinkSystem SR650 Rack 2U Xeon Gold 6134 8C (3.2GHz/130W) 32GB/2666MHz/2Rx4/1.2V RDIMM noHDD 2.5"" (up to 24) SR930-8i (2GB Flash) noDVD 1xfreePCI noGbE 1xpower cord 1x750W p/s XCC Enterprise',
+    '7X06A07YEA': 'Lenovo ThinkSystem SR650 Rack 2U Xeon Silver 4114 10C (2.2GHz/13.75MB/85W) 32GB/2Rx4/2666MHz/1 2V RDIMM noHDD 2.5"" (up to 8/24) SR930-8i (2GB Flash) noDVD noGbE 2x750W 2xpower cord XCC Enterprise',
+    '7X06A08YEA': 'Lenovo TCH ThinkSysten SR650 Rack 2U Xeon Gold 6126 12C (2.6GHz/19.25MB/125W) 16GB/2Rx8/2666MHz/1.2V RDIMM noHDD noRaid noBackplane noDVD noGbE 1xpower cord 1x1100W p/s (up to 2) XCC Enterprise',
+    '7X06A0AWEA': 'Lenovo TCH ThinkSystem SR650 Rack 2U, 1xXeon Silver 4208 8C (2.1GHz/11MB/85W), 1x16GB/2666MHz/2Rx8/1.2V RDIMM, NoHDD, No Backplane, No RAID, noDVD, noGbE, 1x750W p/s (up to 2), XCC Enterprise',
+    '7X06A0HSEA': 'Lenovo TCH ThinkSystem SR650 Rack 2U, 1xXeon Silver 4208 8C(2.1GHz/85W), 16GB/2933MHz/2Rx8/RDIMM, O/B, no HDD SFF(8/upto24), SR 930-8i, no GbE, 1x750W, 1x2, 8m pow/cab, XCC Enterprise',
+    '7X06A0B4EA': 'Lenovo TCH ThinkSystem SR650 Rack 2U, 1xXeon Silver 4210 10C (2.2GHz/13MB/85W), 1x 16GB/2666MHz/2Rx8/1.2V RDIMM, noHDD 2.5"" (upto8/24), SR930-8i(2GBFlash), noDVD, noGbE, 1x750W p/s(upto 2), XCCEnterprise',
+    '7X06A0AZEA': 'Lenovo ThinkSystem SR650 Rack 2U Xeon 4214 12C(2.2GHz/85W) 1x32GB/2666/2R/RDIMM noHDD (upto 12/14 LFF) SR930-16i(4GB Flash) noGbE 1xPCIex8 1x1100W 1x2 8m p/c XCCEnterprise',
+    '7X06A0AVEA': 'Lenovo ThinkSystem SR650 Rack 2U Xeon 4214 12C(2.2GHz/85W) 1x32GB/2666/2R/RDIMM noHDD (upto 8/24 SFF) SR930-8i(2GB Flash) noGbE 1xPCIex8 2x750W 2x2 8m p/c XCCEnterprise',
+  }
