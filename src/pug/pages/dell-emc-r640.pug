@@ -1,0 +1,95 @@
+extends ../layout/main
+
+block variables
+   - let title = 'EXASystems'
+   - let pageType = "popular-page"
+
+   -
+     let mainData = {
+       name: 'Dell EMC PowerEdge R640',
+       slogan: 'Идеальное сочетание плотности и масштабируемости',
+       description: 'Высочайшая производительность и плотность для обеспечения продуктивности и масштабирования центров обработки данных',
+       image: 'proliant-dl380',
+       tabs: ['about', 'specification', 'models', 'configurator']
+     }
+
+   -
+     let about = {
+       base: `
+           <p>PowerEdge R640 — идеальная двухпроцессорная платформа для вычислений и хранения данных в центрах обработки данных с горизонтальным масштабированием высокой плотности.</p>
+           <p>Благодаря универсальности накопителей 2,5" или 3,5" производительность NVMe и встроенные интеллектуальные функции обеспечивают оптимальную производительность приложений в защищенной платформе.</p>
+           <p>С помощью встроенных функций диагностики и технологии SupportAssist R640 обеспечивает максимальное время бесперебойной работы в среде без лишних хлопот.</p>
+         `,
+       loads: ['Программно определяемые системы хранения данных высокой плотности', 'Поставщики услуг: уровня приложений', 'Частное облако с высокой плотностью установки', 'Виртуализация', 'Высокопроизводительные вычисления'],
+       files: [
+         {name: 'Datasheet_DL380_gen10.pdf', link: 'asd'},
+         {name: 'Quickspeck_DL380_gen10.pdf', link: 'asd'},
+       ]
+     }
+
+    // Технические характеристики
+   -
+     let specification = {
+       processor: 'До двух процессоров Intel® Xeon® Scalable, до 28 ядер',
+       operatingSystem: 'Canonical® Ubuntu® LTS, Citrix® XenServer®, Microsoft Windows Server® с Hyper-V Red Hat® Enterprise Linux SUSE® Linux Enterprise Server VMware® ESXi',
+       chip: 'C226',
+       controllersRAID: {
+         internalControllers: 'PERC H330, H730p, H740p, HBA330, программный RAID (SWRAID) S140',
+         subsystem: 'HWRAID 2 x M.2 SSD 120 Гбайт, 240 Гбайт',
+         externalPerc: 'H840 ',
+         externalAdapters: 'Адаптер главной шины SAS 12 Гбит/с',
+       },
+       memory: '24 разъема DDR4 DIMM, поддерживает RDIMM/LRDIMM, скорость до 2 667 MT/с, максимум 1,5 ТБ. <br>До 12 NVDIMM, максимум 192 ГБ. <br>Поддерживает только регистровые модули ECC DDR4 DIMM',
+       supply: 'Titanium 750 Вт, Platinum 495 Вт, 750 Вт, 1 100 Вт и 2 000 Вт 48 В постоянного тока, мощность 1 100 Вт, 380 В постоянного тока высокого напряжения, мощность 1 100 Вт, 240 В постоянного тока высокого напряжения, мощность 750 Вт Блоки питания с возможностью горячей замены с полным резервированием. До 8 вентиляторов с возможностью горячей замены с полным резервированием.',
+       frame: 'Опциональный ЖК-дисплей или фронтальная панель для безопасности',
+       size: {
+         formFactor: 'Для установки в стойку (2U) Глубина корпуса: 715,5 мм',
+         depth: '715,5 мм',
+       },
+       control: 'Соответствие требованиям IPMI 2.0 <br>iDRAC9 с контроллером жизненного цикла (Express, Enterprise), необязательный беспроводной модуль Quick Sync 2 <br>Программное обеспечение OpenManage Enterprise, OpenManage Essentials, OpenManage Mobile, OpenManage Power Center',
+       ports: {
+         child: '4 x 1GE, 2 x 10GE, 2 x 1GE, 4 x 10GE или 2 x 25GE',
+         frontPanel: 'Видео, 1 x USB 2.0, доступный USB 3.0, выделенный IDRAC Direct USB',
+         rearPanel: 'Видео, последовательный порт, 2 x USB 3.0, выделенный сетевой порт iDRAC',
+         videoCard: 'VGA, NVIDIA NVS310, доступна в качестве платы PCIe, до 3 разъемов 3-го поколения, все x16',
+       },
+       safety: 'Опциональный микрокод с криптографической подписью TPM 1.2/2.0 <br>Безопасная загрузка <br>Блокировка системы <br>Надежное удаление',
+       connectionOptions: {
+         integration: 'Microsoft® System Center, VMware® vCenter™, BMC Software',
+         connection: 'Nagios и Nagios XI, Oracle Enterprise Manager, HP Operations Manager, IBM Tivoli Netcool/OMNIbus, IBM Tivoli® Network Manager, CA Network and Systems Management',
+       },
+       infrastructureManagement: 'HPE iLO Standard с функцией Intelligent Provisioning (встроенная), HPE OneView Standard (стандартно, требуется загрузка), HPE iLO Advanced и HPE OneView Advanced (дополнительно; требуются лицензии)',
+       driveBays: {
+         frontBays: 'До 10 накопителей 2,5", до 8 дисков NVMe, SAS/SATA/твердотельных накопителей/NVMe, максимум 58 Тбайт <br>До 4 накопителей SAS/SATA 3,5", максимум 48 Тбайт',
+         rearBays: 'До 2 дисков SAS/SATA/твердотельных накопителей/NVMe 2,5", максимум 12 Тбайт',
+       },
+     }
+
+    // Модели
+   -
+     let models = {
+       'R640-2516': 'DELL PowerEdge R640 1U/ 8SFF/ 2x5115 (10-Core, 2.4 GHz, 85W)/ 2x16GB RDIMM/ 730P 2GB mC/ 1x1.2TB 10K SAS/ 4xGE/ 2x750w/ RC2/ 8 std/ iDRAC9 Ent/ noDVD/ Bezel noQS/ Sliding Rails/ noCMA/ 3YPSNBD',
+       'R640-3455': 'DELL PowerEdge R640 1U/ 8SFF/ 2x6130 (16-Core, 2.1 GHz, 125W)/ 2x32GB RDIMM/ 730P 2GB mC/ 1x1.2TB 10K SAS/ 4xGE/ 2x750w/ RC2/ 8 std FAN/ noDVD/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+       'R640-8561-05': 'HPE ProLiant DL380 Gen10 Bronze 3106 Rack(2U) Xeon8C 1.7GHz(11MB) 1x16GbR2D_2666 S100i(ZM/RAID 0/1/10/5) noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 4x1GbEth EasyRK 1x500w(2up), analog 826681-B21',
+       'R640-8561-05': 'DELL PowerEdge R640 1U/ 8SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/ 1x600GB 15K SAS/ 4xGE/ 1x750w / RC4, 2xLP/ 5 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+       'R640-8585-05': 'DELL PowerEdge R640 1U/ 10SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/ 3x2.4 TB 10K SAS/ 4xGE/ 1x750w / RC4, 2xLP/ 5 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+       'R640-8646-55': 'DELL PowerEdge R640 1U/ 8SFF/ 2x5217/ 2x16 RDIMM/ PERC 740P/ 5x960Gb MU SATA SSD/ BOSS 2x480Gb SSD m.2/ 2x16Gb QLogic 2692/ 4xGE/ 2x750w / RC2, 3xLP/ 8 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+       'R640-8561': 'DELL PowerEdge R640 1U/ 8SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P mC/ 1 x 1.2 TB 10K 12 SAS/ 4xGE/ 1x750w / RC4, 2xLP/ 5 std/ Bezel noQS/ Sliding Rails/ CMA/ 3YPSNBD',
+     }
+
+
+block content
+  include ..//includes/modules/popular/header
+  include ..//includes/modules/popular/content
+
+  //include ..//includes/modules/map
+
+
+  include ..//includes/popups/full
+  include ..//includes/popups/price
+  include ..//includes/popups/popular-price
+  include ..//includes/popups/callback
+  include ..//includes/popups/ok
+
+
+

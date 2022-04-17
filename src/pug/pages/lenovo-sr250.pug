@@ -1,0 +1,75 @@
+extends ../layout/main
+
+block variables
+   - let title = 'EXASystems'
+   - let pageType = "popular-page"
+
+   -
+     let mainData = {
+       name: 'LENOVO ThinkSystem SR250 Rack Server',
+       slogan: 'Доступные и эффективные возможности корпоративного уровня в форм-факторе 1U',
+       description: 'ThinkSystem SR250 — это стоечный односокетный сервер компактного форм-фактора 1U, сочетающий в себе мощность, надежность и гибкость — все что нужно в гибридном облаке.',
+       image: 'proliant-dl380',
+       tabs: ['about', 'specification', 'models']
+     }
+
+   -
+     let about = {
+       base: `
+                       <p>Однопроцессорный стоечный сервер Lenovo ThinkSystem SR250 сочетает в себе мощность, надежность, гибкость и безопасность. Это устройство в корпусе компактного форм-фактора 1U подходит для предприятий малого и среднего бизнеса.</p>
+                       <p>SR250 отличается прекрасным отношением цены и качества, высокой скоростью обработки данных и надежностью. В сервере используются процессоры Intel® Xeon® E-2100 нового поколения, также он поддерживает ряд конфигураций СХД</p>
+                       <p>Сервер достаточно гибкий, чтобы справляться с рабочими нагрузками, связанными, в частности, с сайтами, виртуализацией, облаками начального уровня и приложениями для анализа данных. В то же время встроенный набор кодов инструкций Intel Software Guard Extensions (SGX) обеспечит безопасность SR250 для блокчейн-приложений.</p>
+                     `,
+       files: [
+         {name: 'Datasheet_DL380_gen10.pdf', link: 'asd'},
+         {name: 'Quickspeck_DL380_gen10.pdf', link: 'asd'},
+       ]
+     }
+
+      // Технические характеристики
+   -
+     let specification = {
+       processor: 'Поддерживается 1 процессор Intel Xeon E-2100, Core i3, Pentium Gold, Celeron G. Максимально 6 ядер, TDP до 95 Вт',
+       memory: 'Возможна установка до 4 модулей TruDDR4 ECC UDIMM с частотой 2666 МГц. Максимальный объем RAM 64 Гб',
+       controllers: 'Поддержка программного RAID-массива с возможностью стандартной и «горячей» замены. Множественные конфигурации RAID (общие с ThinkSystem)',
+       HDD: 'До 4 накопителей SATA (3,5 дюйма) с возможностью стандартной или «горячей» замены, или до 4 накопителей SATA/SAS (2,5 дюйма) с возможностью стандартной замены, или до 10 накопителей SATA/SAS/SSD (2,5 дюйма) с возможностью «горячей» замены, или до 8 накопителей SATA/SAS/SSD (2,5 дюйма) с возможность «горячей» замены + 2 NVMe накопителя (2,5 дюйма)',
+       ports: {
+         frontPanel: '1 USB 2.0, 1 USB 3.1 1-го поколения, поддержка контроллера XCC для мобильных устройств',
+         rearPanel: '2 USB 3.1 1-го поколения, 1 последовательный COM, 1 VGA',
+       },
+       safety: 'TPM 1.2/2.0; PFA; высоконадежные или резервируемые накопители, вентиляторы и блоки питания; непрерывная эксплуатация при температуре 45 °C; панель светодиодной диагностики; доступ к средствам диагностики с передней панели через отдельный USB-порт',
+       operatingSystem: 'Microsoft Windows Server, SUSE Linux, Red Hat Entreprise Linux, VMware ESXi. <br>Встроенное средство управления XClarity Controller, XClarity Administrator, подключаемые модули XClarity Integrator и XClarity Energy Manager.',
+       interface: '2 встроенных порта 1GbE',
+       slots: '1 специальный разъем управления 1GbE. <br>1 слот PCIe x16 3.0 или 2 слота PCIe x8 3.0, 1 слот x4 PCIe 3-го поколения, внутренний слот x8 для RAID-массивов',
+       blocks: 'Основной блок питания 300 Вт уровня эффективности Gold, резервный с двойным выходом переменного тока (450 Вт, уровень эффективности Platinum)',
+       size: '1U, глубина 498 мм',
+       warranty: '1- или 3-летняя гарантия',
+     }
+
+      // Модели
+   -
+     let models = {
+       '7Y51A026EA': 'Lenovo TCH ThinkSystem SR250 Rack 1U 1xIntel Xeon E-2124 4C (3.3GHz/71W) 8GB/1Rx8/2666MHz/1.2V UDIMM noHDD 3.5"" (up to 4) SW RD noDVD 2xGbE 1xpower cord 1x450W p/s (up to 2) XCC Standa',
+       '7Y51A02YEA': 'Lenovo ThinkSystem SR250 Rack 1U 1xIntel Xeon E-2124 4C (3.3GHz/71W) 1x16GB/2Rx8/2666MHz/1.2V UDIMM 2x2TB 3.5"" HDD (up to 2) SW RD noDVD 2xGbE 1xpower cable 1x300W XCC Standa',
+       '7Y51A029EA': 'Lenovo TCH ThinkSystem SR250 Rack 1U, 1xIntel Xeon E-2146G 6C (3.5GHz/80W), 16GB/2666MHz/2Rx8/1.2V ECC UDIMM, noHDD 2.5"" (up to 8/10), 1xSATA RAID(SW), 2x1GbE, 1x450W p/s (up to 2), 1xp/c, XCC Standa',
+     }
+
+
+
+
+
+block content
+  include ..//includes/modules/popular/header
+  include ..//includes/modules/popular/content
+
+  //include ..//includes/modules/map
+
+
+  include ..//includes/popups/full
+  include ..//includes/popups/price
+  include ..//includes/popups/popular-price
+  include ..//includes/popups/callback
+  include ..//includes/popups/ok
+
+
+

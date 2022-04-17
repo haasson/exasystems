@@ -1,0 +1,428 @@
+extends ../layout/main
+
+block variables
+   - let title = 'EXASystems'
+   - let pageType = "popular-page"
+   -
+     let mainData = {
+       name: 'HPE ProLiant DL380 Gen10',
+       slogan: 'Производительность мирового класса и невероятная универсальность',
+       description: 'Серверы HPE ProLiant DL380 Gen10 предназначены для решения сложных ресурсоемких задач, включая виртуализацию и облачную работы, рекомендуются к использованию средними и крупными компаниями с развитой инфраструктурой.',
+       image: 'proliant-dl380',
+       tabs: ['about', 'specification', 'models', 'parts', 'configurator']
+     }
+
+   -
+     let about = {
+       base: `
+                <p>Сервер HPE ProLiant DL380 Gen10 предназначен для сокращения расходов и упрощения работы.</p>
+                <p>Масштабируемое семейство процессоров Intel® Xeon® 1-го и 2-го поколения позволяют повысить производительность на 60 %1 и использовать на 27 % больше ядер2. Кроме того, поддерживается 3 Тбайт памяти HPE DDR4 SmartMemory с быстродействием 2933 млн транзакций/с. Он поддерживает устройства SAS 12 Гбит/с и до 20 накопителей NVMe, а также большой выбор различных вычислительных решений.</p>
+                <p>Исключительный уровень производительности и отказоустойчивости для баз данных и аналитических рабочих нагрузок благодаря энергонезависимой памяти HPE Persistent Memory.</p>
+                <p>Сервер очень прост в развертывании и подходит для обслуживания как базовых, так и критически важных приложений.</p>
+              `,
+       files: [
+         {name: 'Datasheet_DL380_gen10.pdf', link: 'asd'},
+         {name: 'Quickspeck_DL380_gen10.pdf', link: 'asd'},
+       ]
+     }
+
+   // Технические характеристики
+   -
+     let specification = {
+       processor: 'Intel',
+       processorFamily: 'Intel® Xeon® Scalable серии 8100/8200 Intel® Xeon® Scalable серии 6100/6200 Intel® Xeon® Scalable серии 5100/5200 Intel® Xeon® Scalable серии 4100/4200 Intel® Xeon® Scalable серии 3100/3200',
+       processorCores: '4–28 ядер в зависимости от модели',
+       processorCache: '8,25–38,5 Мбайт L3, в зависимости от модели процессора',
+       memoryMax: '3 Тбайт с модулями DDR4 128 Гбайт, в зависимости от модели процессора; 6 Тбайт с комплектом модулей энергонезависимой памяти HPE Persistent Memory 2666 512 Гбайт, в зависимости от модели процессора',
+       memorySlots: '24 слота DIMM',
+       memoryType: 'Память HPE DDR4 SmartMemory и энергонезависимая память HPE Persistent Memory, в зависимости от модели',
+       nvdimmType: 'HPE NVDIMM-N<br><span>*Доступно только в 1-м поколении масштабируемых процессоров Intel® Xeon® Scalable</span>',
+       nvdimmRank: 'Одноранговый',
+       nvdimmCapacity: '16 Гбайт',
+       storage: '8 или 12 дисков SAS/SATA/твердотельных накопителей большого форм-фактора, 8, 10, 16, 18 или 24 диска SAS/SATA/твердотельных накопителя малого форм-фактора; 2 твердотельных накопителя M.2 SATA (стандартно) в основной переходной плате, в зависимости от конфигурации; 6 дополнительных накопителей малого форм-фактора или 3 большого форм-фактора в заднем отсеке и 2 дополнительных накопителя малого форм-фактора или 2 накопителя форм-фактора Dual UFF в заднем отсеке; 20 дополнительных накопителей NVMe малого форм-фактора; поддержка NVMe через Express Bay с ограничением максимального объема накопителя',
+       controller: 'Ethernet-адаптер HPE 331i, 1 Гбит/с, 4 порта на контроллер и/или дополнительный адаптер HPE FlexibleLOM (в зависимости от модели)',
+       infrasrtuctureManaging: 'HPE iLO Standard с функцией Intelligent Provisioning (встроенная), HPE OneView Standard (стандартно, требуется загрузка), HPE iLO Advanced и HPE OneView Advanced (дополнительно; требуются лицензии)',
+       fanFunctions: 'Резервные вентиляторы с возможностью горячей замены в стандартной комплектаци',
+       extendedSlots: '8',
+       storageController: '1 контроллер HPE Smart Array S100i и/или 1 контроллер HPE Smart Array P408i-a и/или 1 HPE Smart Array P816i-a и/или 1 контроллер HPE Smart Array E208i-a, в зависимости от модели',
+       warranty: 'Гарантия на сервер 3/3/3 — по три года на комплектующие, работу и обслуживание на месте. Подробные сведения о международной ограниченной гарантии и технической поддержке см. по адресу: http://h20564.www2.hpe.com/hpsc/wc/public/home.. Компания HPE предлагает приобрести дополнительную поддержку и обслуживание в вашем регионе. Информацию о дополнительном обслуживании и его стоимости см. на веб-сайте HPE http://www.hpe.com/support',
+       processorModel: 'Intel',
+       processorCount: '1 или 2',
+       processorSpeed: '3,9 ГГц (максимум), в зависимости от процессора',
+       memoryVolume: '3 Тбайт (24 X 128 Гбайт) LRDIMM; 6 Тбайт (12 X 512 Гбайт) энергонезависимой памяти HPE Persistent Memory',
+       safety: 'Дополнительный комплект запирающихся панелей, комплект для обнаружения вторжений и HPE TPM 2.0',
+       formFactor: '2U',
+       weight_en: '32.6 lb',
+       weight_ru: '14,76 кг',
+       size_en: '17,54 x 28,75 x 3,44 дюйма',
+       size_ru: '44,55 x 73,03 x 8,74 см',
+     }
+
+   -
+     let models = {
+       '875670-425': 'HPE ProLiant DL380 Gen10 Bronze 3106 Rack(2U) Xeon8C 1.7GHz(11MB) 1x16GbR2D_2666 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) 2x300GB_10K(8 24+6up)SFF UMB+DVDRW iLOstd 4HPFans 4x1GbEth EasyRK 1x500w(2up)',
+       '868709-B21': '868709-B21\tHPE ProLiant DL380 Gen10 Bronze 3106 Rack(2U) Xeon8C 1.7GHz(11MB) 1x16GbR2D_2666 S100i(ZM/RAID 0/1/10/5) noHDD(8)LFF noDVD iLOstd 4HPFans 4x1GbEth EasyRK 1x500w(2up)',
+       '826564-B21': 'HPE ProLiant DL380 Gen10 Bronze 3106 Rack(2U) Xeon8C 1.7GHz(11MB) 1x16GbR2D_2666 S100i(ZM/RAID 0/1/10/5) noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 4x1GbEth EasyRK 1x500w(2up), analog 826681-B21',
+       '875671-425': 'HPE ProLiant DL380 Gen10 Silver 4110 Rack(2U) Xeon8C 2.1GHz(11MB) 1x16GbR2D_2666 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) 3x300GB_10K(8 24+6up)SFF UMB+DVDRW iLOstd 4HPFans 4x1GbEth EasyRK 1x500w(2up)',
+       '826565-B21': 'HPE ProLiant DL380 Gen10 Silver 4114 Rack(2U) Xeon10C 2.2GHz(13.75MB) 2x16GbR2D_2666 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 4x1GbEth EasyRK+CMA 1x500w(2up)',
+       '868710-B21': 'HPE ProLiant DL380 Gen10 Silver 4110 Rack(2U) Xeon8C 2.1GHz(11MB) 2x16GbR2D_2666 P816i-aFBWC(4Gb/RAID 0/1/10/5/50/6/60) noHDD(12)LFF noDVD iLOstd 4HPFans 4x1GbEth EasyRK+CMA 2x800w',
+       '826566-B21': 'HPE ProLiant DL380 Gen10 Gold 5118 Rack(2U) 2xXeon12C 2.3GHz(16.5MB) 2x32GbR2D_2666 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF DVDRW iLOadv 6HPFans 4x1GbEth 2x10 25GbSFP EasyRK+CMA 2x800w',
+       '826567-B21': 'HPE ProLiant DL380 Gen10 Gold 6130 Rack(2U) 2xXeon16C 2.1GHz(22MB) 2x32GbR2D_2666 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF DVDRW iLOadv 6HPFans 4x1GbEth 2x10 25Gb640SFP EasyRK+CMA 2x800w',
+       '879938-B21': 'HPE ProLiant DL380 Gen10 Gold 6130 Rack(2U) 2xXeon16C 2.1GHz(22MB) 2x32GbR2D_2666 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF DVDRW iLOadv 6HPFans 4x1GbEth 2x10 25Gb631SFP EasyRK+CMA 2x800w',
+       'P20182-B21': 'HPE Proliant DL380 Gen10 Bronze 3204 Rack(2U) Xeon6C 1.9GHz(8,25MB) 1x16GbR2D_2933 S100i(ZM/RAID/0/1/10/5) noHDD(8)LFF noDVD iLOstd 6HPFans 4x1GbEth EasyRK 1x500w(2up) analog 868709-B21',
+       'P20245-B21': 'HPE Proliant DL380 Gen10 Gold 6242 Rack(2U) Xeon16C 2.8GHz(22MB) HPHS 1x32GbR2D_2933 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 2x10 25Gb640FLR-SFP EasyRK+CMA 1x800wPlat(2up)',
+       'P20248-B21': 'HPE Proliant DL380 Gen10 Gold 5220 Rack(2U) Xeon18C 2.2GHz(24.75MB) 1x32GbR2D_2933 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 2x10 25Gb640FLR-SFP EasyRK+CMA 1x800wPlat(2up)',
+       'P20249-B21': 'HPE Proliant DL380 Gen10 Gold 5218 Rack(2U) Xeon16C 2.3GHz(22MB) 1x32GbR2D_2933 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 6HPFans 4x1GbEth EasyRK+CMA 1x800wPlat(2up)',
+       'P20174-B21': 'HPE Proliant DL380 Gen10 Silver 4210 Rack(2U) Xeon10C 2.2GHz(14MB) 1x32GbR2D_2933 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 4x1GbEth EasyRK+CMA 1x500wPlat(2up)',
+       'P20172-B21': 'HPE Proliant DL380 Gen10 Silver 4208 Rack(2U) Xeon8C 2.1GHz(11MB) 1x32GbR2D_2933 P816i-aFBWC(4Gb/RAID/0/1/10/5/50/6/60) noHDD(12up)LFF noDVD iLOstd 6HPFans 4x1GbEth EasyRK+CMA 2x800wPla',
+       'R0Q38A': 'HPE MSA 1.92TB SAS 12G Read Intensive LFF (3.5in) 3yr Wty SSD',
+       '868710R-B21': 'HPE ProLiant DL380 Gen10 Silver4110 Rack(2U) Xeon8C 2.1GHz(11MB) 2x16GbR2D_2666 P816i-aFBWC(4Gb/RAID 0/1/10/5/50/6/60) noHDD(12)LFF noDVD iLOstd 6HPFans_HighPerf 4x1GbEth EasyRK+CMA 2x800wReman,868710-B21',
+       '826567R-B21': 'HPE ProLiant DL380 Gen10 Gold 6130 Rack(2U) 2xXeon16C 2.1GHz(22MB) 2x32GbR2D2666 P408i-aFBWC(2GB) noHDD(8 24+6up)SFF DVDRW iLOadv 6HPFans 4x1GbEth 2x10 25Gb640SFP EasyRK+CMA 2x800w Reman,analog 826567-B21',
+       'P24848-B21': 'HPE ProLiant DL380 Gen10 Silver 4215R Rack(2U) Xeon8C 3.2GHz(11MB) HPHS 1x32GbR2D_2933 S100i(ZM/RAID 0/1/10/5)noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 2x10GbFLR-SFP+ EasyRK+CMA 1x800wPlat(2up)',
+       'P24842-B21': 'HPE ProLiant DL380 Gen10 Silver 4214R Rack(2U) Xeon12C 2.4GHz(16.5MB) 1x32GbR2D_2933 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 4x1GbEthFLR EasyRK+CMA 1x800wPlat(2up)',
+       'P24840-B21': 'HPE ProLiant DL380 Gen10 Silver 4210R Rack(2U) Xeon10C 2.4GHz(13.75MB) 1x32GbR2D_2933 P408i-aFBWC+Exp(2Gb/RAID 0/1/10/5/50/6/60) noHDD(24 +6up)SFF noDVD iLOstd 4HPFans 4x1GbEthFLR EasyRK+CMA 1x800wPlat(2up)',
+       'P24841-B21': 'HPE ProLiant DL380 Gen10 Silver 4210R Rack(2U) Xeon10C 2.4GHz(13.75MB) 1x32GbR2D_2933 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 4x1GbEthFLR EasyRK+CMA 1x800wPlat(2up)',
+       'P24850-B21': 'HPE ProLiant DL380 Gen10 Gold 6250 Rack(2U) Xeon8C 3.9GHz(35.75MB) HPHS 1x32GbR2D_2933 S100i(ZM/RAID 0/1/10/5)noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 2x10GbFLR-SFP+ EasyRK+CMA 1x800wPlat(2up)',
+       'P24849-B21': 'HPE ProLiant DL380 Gen10 Gold 6248R Rack(2U) Xeon24C 3.0GHz(35.75MB) HPHS 1x32GbR2D_2933 S100i(ZM/RAID 0/1/10/5)noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 2x10GbFLR-SFP+ EasyRK+CMA 1x800wPlat(2up)',
+       'P24847-B21': 'HPE ProLiant DL380 Gen10 Gold 6234 Rack(2U) Xeon8C 3.3GHz(24.75MB) HPHS 1x32GbR2D_2933 S100i(ZM/RAID 0/1/10/5)noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 2x10GbFLR-SFP+ EasyRK+CMA 1x800wPlat(2up)',
+       'P24846-B21': 'HPE ProLiant DL380 Gen10 Gold 6226R Rack(2U) Xeon16C 2.9GHz(22MB) HPHS 1x32GbR2D_2933 S100i(ZM/RAID 0/1/10/5)noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 2x10GbFLR-SFP+ EasyRK+CMA 1x800wPlat(2up)',
+       'P24845-B21': 'HPE ProLiant DL380 Gen10 Gold 5222 Rack(2U) Xeon4C 3.8GHz(16.5MB) HPHS 1x32GbR2D_2933 S100i(ZM/RAID 0/1/10/5)noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 2x10GbFLR-SFP+ EasyRK+CMA 1x800wPlat(2up)',
+       'P24844-B21': 'HPE ProLiant DL380 Gen10 Gold 5218R Rack(2U) Xeon20C 2.1GHz(27.5MB) 1x32GbR2D_2933 S100i(ZM/RAID 0/1/10/5)noHDD(8 24+6up)SFF noDVD iLOstd 4HPFans 2x10GbFLR-SFP+ EasyRK+CMA 1x800wPlat(2up)',
+       'P40409-B21': 'HPE ProLiant DL360 Gen10 Silver 4215R Rack(1U) Xeon8C 3.2GHz(11 MB) HPHS 1x32GbR2D_2933 S100i( ZM/RAID 0/1/10/5) noHDD(8 10+1up)SFF noDVD iLOstd 2x10GbFLR-T_BCM57416 EasyRK 1x800wPlat(2up)',
+       'P39380-B21': 'HPE ProLiant DL380 Gen10 Gold 5220 Rack(2U) Xeon18C 2.2GHz(24.75MB) HPHS 1x32GbR2D_2933 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 2x10FLR-SFP_MCX4121A-ACFT EasyRK 1x800wPlat(2up)',
+       'P40422-B21': 'HPE ProLiant DL380 Gen10 Gold 5222 Rack(2U) Xeon4C 3.8GHz(16.5MB) HPHS 1x32GbR2D_2933 S100i( ZM/RAID 0/1/10/5) noHDD(8 24+6up)SFF noDVD iLOstd 2x10FLR-SFP_BCM57414 EasyRK 1x800wPlat(2up)',
+       'P40423-B21': 'HPE ProLiant DL380 Gen10 Gold 6226R Rack(2U) Xeon16C 2.9GHz(22MB) HPHS 1x32GbR2D_2933 S100i( ZM/RAID 0/1/10/5) noHDD(8 24+6up)SFF noDVD iLOstd 2x10FLR-SFP_BCM57414 EasyRK 1x800wPlat(2up)',
+       'P40424-B21': 'HPE ProLiant DL380 Gen10 Gold 6234 Rack(2U) Xeon8C 3.3GHz(24.75MB) HPHS 1x32GbR2D_2933 S100i( ZM/RAID 0/1/10/5) noHDD(8 24+6up)SFF noDVD iLOstd 2x10FLR-SFP_BCM57414 EasyRK 1x800wPlat(2up)',
+       'P40428-B21': 'HPE ProLiant DL380 Gen10 Gold 6242 Rack(2U) Xeon16C 2.8GHz(22MB) HPHS 1x32GbR2D_2933 P408i-aFBWC(2Gb/RAID 0/1/10/5/50/6/60) noHDD(8 24+6up)SFF noDVD iLOstd 2x10 25GbFLR-SFP_BCM57414 EasyRK 1x800wPlat(2up)',
+       'P40426-B21': 'HPE ProLiant DL380 Gen10 Gold 6248R Rack(2U) Xeon24C 3.0GHz(35.75MB) PHS 1x32GbR2D_2933 S100i( ZM/RAID 0/1/10/5) noHDD(8 24+6up)SFF noDVD iLOstd 2x10FLR-SFP_BCM57414 EasyRK 1x800wPlat(2up)',
+       'P40427-B21': 'HPE ProLiant DL380 Gen10 Gold 6250 Rack(2U) Xeon8C 3.9GHz(35.75MB) PHS 1x32GbR2D_2933 S100i( ZM/RAID 0/1/10/5) noHDD(8 24+6up)SFF noDVD iLOstd 2x10FLR-SFP_BCM57414 EasyRK 1x800wPlat(2up)',
+       'P40425-B21': 'HPE ProLiant DL380 Gen10 Silver 4215R Rack(2U) Xeon8C 3.2GHz(11MB) HPHS 1x32GbR2D_2933 S100i( ZM/RAID 0/1/10/5) noHDD(8 24+6up)SFF noDVD iLOstd 2x10FLR-SFP_BCM57414 EasyRK 1x800wPlat(2up)',
+     }
+
+
+    // Комплектующие
+
+
+   -
+     let servers = {
+         '875670-425': 'Сервер HPE Proliant DL380Gen10 3106 (1.7GHz-11MB) 8-Core (2 max) / 1x16GB (DDR4-2666) RDIMM / P408i-a (2Gb) FBWC / HP-SATA/SAS 2x300 10K (8/24 SFF max) / 4 RJ-45 / DVD-RW / 1(2) 500W HotPlug RPS Platinum Halogen / 3-3-3 war',
+         '826565-B21': 'Сервер HPE Proliant DL380Gen10 4114 (2.2GHz-13.75MB) 10-Core (2 max) / 2x16GB (DDR4-2666) RDIMM / P408i-a (2Gb) FBWC / HP-SATA/SAS no HDD (8/24 SFF max) / 4 RJ-45 / DVD-RW / 1(2) 500W HotPlug RPS Platinum Halogen / 3-3-3 war',
+         '826566-B21': 'Сервер HPE Proliant DL380Gen10 2x5118 (2.3GHz-16.5MB) 12-Core (2 max) / 2x32GB (DDR4-2666) RDIMM / P408i-a (2Gb) FBWC / HP-SATA/SAS no HDD (8/24 SFF max) / 4 RJ-45 / DVD-RW / 2(2) 800W HotPlug RPS Platinum Halogen / 3-3-3 war',
+         '826567-B21': 'Сервер HPE Proliant DL380Gen10 2x6130 (2.1GHz-22MB) 16-Core (2 max) / iLO Adv / 2x32GB (DDR4-2666) RDIMM / P408i-a (2Gb) FBWC / HP-SAS/SATA (8/24 SFF max) / 4 RJ-45 2x10/25Gb (640FLR) / DVD-RW / 2(2) 800W HotPlug RPS Platinum Halogen / 3-3-3 war',
+         'Q9F02A': 'Сервер HPE Proliant DL380 GEN10, 1(UP2)X 3106 XEON-B 8C 1.7GHZ, 1X16GB-R DDR4, P816I-A/4GB (RAID 1+0/5/5+0/6/6+0/1+0 ADM) 2X1TB 6G SATA 7.2K HP (12 LFF 3.5\'\' HP) 1X800W (UP2), 4X1GB/S, NODVD, ILO5, RACK2U, 3-3-3',
+         '843557-425': 'Сервер HPE Proliant HPE DL380 Gen9, 1(up2)x E5-2620v4 8C 2.1GHz, 1x16GB-R DDR4-2400T, P440ar/2G (RAID 1+0/5/5+0) 3x300GB 12G SAS 10K (8/16 SFF 2.5" HP) 1x500W (up2), 4x1Gb/s,DVDRW,iLO4.2, Rack2U + cable man. arm, 3-3-3',
+         'P06419-B21	': 'Сервер HPE Proliant DL380 Gen10, 1(up2)x 3104 Xeon-B 6C 1.7GHz, 1x16GB-R DDR4, S100i/ZM (RAID 0,1,5,10) noHDD (8 LFF 3.5" HP) 1x500W (up2), 4x1Gb/s, noDVD, iLO5, Rack2U, 3-3-3',
+         '868709-B21': 'Сервер HPE Proliant DL380 Gen10, 1(up2)x 3106 Xeon-B 8C 1.7GHz, 1x16GB-R DDR4, S100i/ZM (RAID 0,1,5,10) noHDD (8 LFF 3.5\'\' HP) 1x500W (up2), 4x1Gb/s, noDVD, iLO5, Rack2U, 3-3-3',
+         '826564-B21': 'Сервер HPE Proliant DL380 Gen10, 1(up2)x 3106 Xeon-B 8C 1.7GHz, 1x16GB-R DDR4, S100i/ZM (RAID 0,1,5,10) noHDD (8/24 SFF 2.5" HP) 1x500W (up2), 4x1Gb/s, noDVD, iLO5, Rack2U, 3-3-3',
+         '875671-425': 'Сервер HPE Proliant DL380Gen10 1(up2)x4110 XeonS 8C 2.1GHz 1x16GB-R DDR4 P408i-a/2GB (RAID 1+0/5/5+0/6/6+0/1+0 ADM) 3x300GB SAS 10K 12G (8/24 SFF 2.5 HP) 1x500w, 4x1Gb/s, noDVD, iLO5, Rack2U, 3-3-3',
+         'P06420-B21': 'Сервер HPE Proliant DL380 Gen10, 1(up2)x 4110 Xeon-S 8C 2.1GHz, 1x16GB-R DDR4, P408i-a/2GB (RAID 1+0/5/5+0/6/6+0/1+0 ADM) noHDD (8/24 SFF 2.5" HP) 1x500W (up2), 4x1Gb/s, noDVD, iLO5, Rack2U + cable man. arm, 3-3-3',
+         'P05524-B21': 'Сервер HPE Proliant DL380 Gen10, 1(up2)x 3106 Xeon-B 8C 1.7GHz, 1x16GB-R DDR4, S100i/ZM (RAID 0,1,5,10) noHDD (8/24 SFF 2.5" HP) 1x500W (up2), 4x1Gb/s, noDVD, iLO5, Rack2U, 3-3-3',
+         'P06421-B21': 'Сервер HPE Proliant DL380 Gen10, 1(up2)x 4114 Xeon-S 10C 2.2GHz, 1x32GB-R DDR4, P408i-a/2GB (RAID 1+0/5/5+0/6/6+0/1+0 ADM) noHDD (8/24 SFF 2.5" HP) 1x800W (up2), 4x1Gb/s, noDVD, iLO5, Rack2U + cable man. arm, 3-3-3',
+         '868710-B21': 'Сервер HPE Proliant DL380 Gen10, 1(up2)x 4110 Xeon-S 8C 2.1GHz, 2x16GB-R DDR4, P816i-a/4GB (RAID 1+0/5/5+0/6/6+0/1+0 ADM) noHDD (12 LFF 3.5\'\' HP) 2x800W, 4x1Gb/s, noDVD, iLO5, Rack2U, 3-3-3',
+         'P06422-B21': 'Сервер HPE Proliant DL380 Gen10, 1(up2)x 5118 Xeon-G 12C 2.3GHz, 2x32GB-R DDR4, P408i-a/2GB (RAID 1+0/5/5+0/6/6+0/1+0 ADM) noHDD (8/24 SFF 2.5" HP) 2x800W), 4x1Gb/s, noDVD, iLO5, Rack2U + cable man. arm, 3-3-3',
+       }
+
+   -
+     let processors = {
+       '874752-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8180M (2.5GHz/28-core/205W) Processor Kit',
+       '871619-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8180 (2.5GHz/28-core/205W) Processor Kit',
+       '874754-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8180 (2.5GHz/28-core/205W) Processor Kit',
+       '871618-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8176 (2.1GHz/28-core/165W) Processor Kit',
+       '874756-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8170M (2.1GHz/26-core/165W) Processor Kit',
+       '871617-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8170 (2.1GHz/26-core/165W) Processor Kit',
+       '869089-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8168 (2.7GHz/24-core/205W) Processor Kit',
+       '874758-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8160M (2.1GHz/24-core/145W) Processor Kit',
+       '869090-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8158 (3.0GHz/12-core/150W) Processor Kit',
+       '871616-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8156 (3.6GHz/4-core/105W) Processor Kit',
+       '826890-B21': 'HPE DL380 Gen10 Intel® Xeon-Platinum 8153 (2.0GHz/16-core/125W) Processor Kit',
+       '826888-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6154 (3.0GHz/18-core/200W) Processor Kit',
+       '826886-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6152 (2.1GHz/22-core/140W) Processor Kit',
+       '826884-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6150 (2.7GHz/18-core/165W) Processor Kit',
+       '826882-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6148 (2.4GHz/20-core/150W) Processor Kit',
+       '874760-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6142M (2.6GHz/16-core/150W) Processor Kit',
+       '826880-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6142 (2.6GHz/16-core/150W) Processor Kit',
+       '874762-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6140M (2.3GHz/18-core/135W) Processor Kit',
+       '826878-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6140 (2.3GHz/18-core/150W) Processor Kit',
+       '826876-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6138 (3.2GHz/20-core/125W) Processor Kit',
+       '826874-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6136 (3.0GHz/12-core/150W) Processor Kit',
+       '873645-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6134M (3.2GHz/8-core/130W) Processor Kit',
+       '826872-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6134 (3.2GHz/8-core/130W) Processor Kit',
+       '826870-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6132 (2.6GHz/14-core/140W) Processor Kit',
+       '826866-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6130 (2.1GHz/16-core/120W) Processor Kit',
+       '826864-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6128 (3.4GHz/6-core/115W) Processor Kit',
+       '826862-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 6126 (2.6GHz/12-core/120W) Processor Kit',
+       '826858-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 5122 (3.6GHz/4-core/105W) Processor Kit',
+       '826856-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 5120 (2.2GHz/14-core/105W) Processor Kit',
+       '826854-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 5118 (2.3GHz/12-core/105W) Processor Kit',
+       '876562-B21': 'HPE DL380 Gen10 Intel® Xeon-Gold 5115 (2.4GHz/10-core/85W) Processor Kit',
+       '826852-B21': 'HPE DL380 Gen10 Intel® Xeon-Silver 4116 (2.1GHz/12-core/85W) Processor Kit',
+       '826850-B21': 'HPE DL380 Gen10 Intel® Xeon-Silver 4114 (2.2GHz/10-core/85W) Processor Kit',
+       '873647-B21': 'HPE DL380 Gen10 Intel® Xeon-Silver 4112 (2.6GHz/4-core/85W) Processor Kit',
+       '826846-B21': 'HPE DL380 Gen10 Intel® Xeon-Silver 4110 (2.1GHz/8-core/85W) Processor Kit',
+       '826848-B21': 'HPE DL380 Gen10 Intel® Xeon-Silver 4108 (1.8GHz/8-core/85W) Processor Kit',
+       '873643-B21': 'HPE DL380 Gen10 Intel® Xeon-Bronze 3106 (1.7GHz/8-core/85W) Processor Kit',
+       '873641-B21': 'HPE DL380 Gen10 Intel® Xeon-Bronze 3104 (1.7GHz/6-core/85W) Processor Kit',
+     }
+
+   -
+     let memory = {
+       '815100-B21': 'HPE 32GB (1x32GB) Dual Rank x4 DDR4-2666 CAS-19-19-19 Registered Memory Kit',
+       '835955-B21': 'HPE 16GB (1x16GB) Dual Rank x8 DDR4-2666 CAS-19-19-19 Registered Memory Kit',
+       '815098-B21': 'HPE 16GB (1x16GB) Single Rank x4 DDR4-2666 CAS-19-19-19 Registered Memory Kit',
+       '815097-B21': 'HPE 8GB (1x8GB) Single Rank x8 DDR4-2666 CAS-19-19-19 Registered Memory Kit',
+       '815101-B21': 'HPE 64GB (1x64GB) Quad Rank x4 DDR4-2666 CAS-19-19-19 Load Reduced Memory Kit',
+       '815102-B21': 'HPE 128GB (1x128GB) Octal Rank x4 DDR4-2666 CAS-22-19-19 3DS Load Reduced Memory Kit',
+     }
+
+   -
+     let HDD = {
+       '870753-B21': 'HPE 300GB SAS 12G Enterprise 15K SFF (2.5in) SC 3yr Wty Digitally Signed Firmware HDD',
+       '872475-B21': 'HPE 300GB SAS 12G Enterprise 10K SFF (2.5in) SC 3yr Wty Digitally Signed Firmware HDD',
+       '870757-B21': 'HPE 600GB SAS 12G Enterprise 15K SFF (2.5in) SC 3yr Wty Digitally Signed Firmware HDD',
+       '870763-B21': 'HPE 600GB SAS 12G Enterprise 15K SFF (2.5in) SC 3yr Wty 512e Digitally Signed Firmware HDD',
+       '872477-B21': 'HPE 600GB SAS 12G Enterprise 10K SFF (2.5in) SC 3yr Wty Digitally Signed Firmware HDD',
+       '870759-B21': 'HPE 900GB SAS 12G Enterprise 15K SFF (2.5in) SC 3yr Wty Digitally Signed Firmware HDD',
+       '870765-B21': 'HPE 900GB SAS 12G Enterprise 15K SFF (2.5in) SC 3yr Wty 512e Digitally Signed Firmware HDD',
+       '785069-B21': 'HPE 900GB SAS 12G Enterprise 10K SFF (2.5in) SC 3yr Wty HDD',
+       '872479-B21': 'HPE 1.2TB SAS 12G Enterprise 10K SFF (2.5in) SC 3yr Wty Digitally Signed Firmware HDD',
+       '872481-B21': 'HPE 1.8TB SAS 12G Enterprise 10K SFF (2.5in) SC 3yr Wty 512e Digitally Signed Firmware HDD',
+       '861691-B21': 'HPE 1TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty HDD',
+       '861676-B21': 'HPE 2TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty HDD',
+       '872489-B21': 'HPE 2TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty Digitally Signed Firmware HDD',
+       '861693-B21': 'HPE 3TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty Digitally Signed Firmware HDD',
+       '861678-B21': 'HPE 4TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty HDD',
+       '861752-B21': 'HPE 4TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty 512e HDD',
+       '872491-B21': 'HPE 4TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty Digitally Signed Firmware HDD',
+       '846510-B21': 'HPE 6TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty Digitally Signed Firmware HDD',
+       '861750-B21': 'HPE 6TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty 512e HDD',
+       '819203-B21': 'HPE 8TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty 512e Digitally Signed Firmware HDD',
+       '861594-B21': 'HPE 8TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty Helium 512e Digitally Signed Firmware HDD',
+       '857648-B21': 'HPE 10TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty Helium 512e Digitally Signed Firmware HDD',
+       '765453-B21': 'HPE 1TB SATA 6G Midline 7.2K SFF (2.5in) SC 1yr Wty 512e Digitally Signed Firmware HDD',
+       '655710-B21': 'HPE 1TB SATA 6G Midline 7.2K SFF (2.5in) SC 1yr Wty Digitally Signed Firmware HDD',
+       '765455-B21': 'HPE 2TB SATA 6G Midline 7.2K SFF (2.5in) SC 1yr Wty 512e Digitally Signed Firmware HDD',
+       '846524-B21': 'HPE 1TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty HDD',
+       '818365-B21': 'HPE 2TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty HDD',
+       '872485-B21': 'HPE 2TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty Digitally Signed Firmware HDD',
+       '846528-B21': 'HPE 3TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty HDD',
+       '818367-B21': 'HPE 4TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty HDD',
+       '861756-B21': 'HPE 4TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty 512e HDD',
+       '872487-B21': 'HPE 4TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty Digitally Signed Firmware HDD',
+       '846514-B21': 'HPE 6TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty HDD',
+       '861754-B21': 'HPE 6TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty 512e HDD',
+       '819201-B21': 'HPE 8TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty 512e HDD',
+       '861590-B21': 'HPE 8TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty 512e HDD',
+       '857644-B21': 'HPE 10TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty 512e HDD',
+       '832514-B21': 'HPE 1TB SAS 12G Midline 7.2K SFF (2.5in) SC 1yr Wty HDD',
+       '765464-B21': 'HPE 1TB SAS 12G Midline 7.2K SFF (2.5in) SC 1yr Wty 512e HDD',
+       '765466-B21': 'HPE 2TB SAS 12G Midline 7.2K SFF (2.5in) SC 1yr Wty 512e HDD',
+       '872390-B21': 'HPE 960GB SAS 12G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872392-B21': 'HPE 1.92TB SAS 12G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872394-B21': 'HPE 3.84TB SAS 12G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872374-B21': 'HPE 1TB SAS 12G Midline 7.2K SFF (2.5in) SC 1yr Wty HDD',
+       '872376-B21': 'HPE 800GB SAS 12G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872382-B21': 'HPE 1.6TB SAS 12G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872386-B21': 'HPE 3.2TB SAS 12G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872378-B21': 'HPE 800GB SAS 12G Mixed Use LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '736936-B21': 'HPE 400GB NVMe x4 Lanes Write Intensive SFF (2.5in) SCN 3yr Wty SSD',
+       '736939-B21': 'HPE 800GB NVMe x4 Lanes Write Intensive SFF (2.5in) SCN 3yr Wty SSD',
+       '764892-B21': 'HPE 1.6TB NVMe x4 Lanes  Write Intensive SFF (2.5in) SCN 3yr Wty SSD',
+       '764894-B21': 'HPE 2TB NVMe x4 Lanes Write Intensive SFF(2.5in) SCN 3yr Wty SSD',
+       '872355-B21': 'HPE 400GB 6G SATA Write Intensive-2 SFF (2.5-inch) SC SSD',
+       '872359-B21': 'HPE 800GB 6G SATA Write Intensive-2 SFF (2.5-inch) SC SSD',
+       '872363-B21': 'HPE 1.6TB 6G SATA Write Intensive-2 SFF (2.5-inch) SC SSD',
+       '872357-B21': 'HPE 400GB 6G SATA Write Intensive-2 LFF (3.5-inch) SCC SSD',
+       '872361-B21': 'HPE 800GB 6G SATA Write Intensive-2 LFF (3.5-inch) SCC SSD',
+       '872365-B21': 'HPE 1.6TB 6G SATA Write Intensive-2 LFF (3.5-inch) SCC SSD',
+       '869374-B21': 'HPE 150GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '868814-B21': 'HPE 480GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '869376-B21': 'HPE 240GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '868818-B21': 'HPE 480GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '869378-B21': 'HPE 480GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '868822-B21': 'HPE 960GB 6G SATA Read Intensive SFF (2.5-inch) SC DS SSD',
+       '869384-B21': 'HPE 960GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '869386-B21': 'HPE 1.6TB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '868826-B21': 'HPE 1.92TB 6G SATA Read Intensive SFF (2.5-inch) SC DS SSD',
+       '868830-B21': 'HPE 3.84TB 6G SATA Read Intensive SFF (2.5-inch) SC DS SSD',
+       '869380-B21': 'HPE 480GB SATA 6G Read Intensive LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '869388-B21': 'HPE 1.6TB SATA 6G Read Intensive LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '765034-B21': 'HPE 400GB NVMe x4 Lanes Mixed Use SFF (2.5in) SCN 3yr Wty SSD',
+       '765036-B21': 'HPE 800GB NVMe x4 Lanes Mixed Use SFF (2.5in) SCN 3yr Wty SSD',
+       '765038-B21': 'HPE 1.6TB NVMe x4 Lanes Mixed Use SFF (2.5in) SCN 3yr Wty SSD',
+       '765044-B21': 'HPE 2TB NVMe x4 Lanes Mixed Use SFF (2.5in) SCN 3yr Wty SSD',
+       '872344-B21': 'HPE 480GB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872348-B21': 'HPE 960GB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872352-B21': 'HPE 1.92TB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '872346-B21': 'HPE 480GB SATA 6G Mixed Use LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '872350-B21': 'HPE 960GB SATA 6G Mixed Use LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '815605-B21': 'HPE 340GB SATA 6G Read Intensive uFF 3yr Wty Dual M.2 Kit',
+       '815606-B21': 'HPE 340GB SATA 6G Read Intensive uFF 3yr Wty M.2 Kit',
+       '835565-B21': 'HPE 340GB SATA 6G Read Intensive 3yr Wty Dual M.2 Kit',
+       '835563-B21': 'HPE 340GB SATA 6G Read Intensive 3yr Wty M.2 Kit',
+       '875317-B21': 'HPE 150GB SATA 6G Read Intensive M.2 2280 3yr Wty Digitally Signed Firmware SSD',
+       '777264-B21': 'HPE 340GB SATA 6G Read Intensive M.2 2280 3yr Wty Solid State Drive',
+       '875319-B21': 'HPE 480GB SATA 6G Read Intensive M.2 2280 3yr Wty Digitally Signed Firmware SSD',
+       '765424-B21': 'HPE 600GB SAS 12G Enterprise 15K LFF (3.5in) SC 3yr Wty HDD',
+       '737261-B21': 'HPE 300GB SAS 12G Enterprise 15K LFF (3.5in) SCC 3yr Wty HDD',
+       '881779-B21': 'HPE 12TB SAS 12G Midline 7.2K LFF (3.5in) SC 1yr Wty Helium 512e Digitally Signed Firmware HDD',
+       '881785-B21': 'HPE 12TB SATA 6G Midline 7.2K LFF (3.5in) SC 1yr Wty Helium 512e Digitally Signed Firmware HDD',
+       '875480-B21': 'HPE 1.92TB SATA 6G Mixed Use LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '881457-B21': 'HPE 2.4TB SAS 12G Enterprise 10K SFF (2.5in) SC 3yr Wty 512e Digitally Signed Firmware HDD',
+       '870144-B21': 'HPE 7.68TB SAS 12G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875330-B21': 'HPE 3.84TB SAS 12G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875326-B21': '875326-B21\tHPE 1.92TB SAS 12G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875313-B21': 'HPE 960GB SAS 12G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875311-B21': 'HPE 480GB SAS 12G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '873357-B21': 'HPE 1.6TB SAS 12G Write Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '873355-B21': 'HPE 800GB SAS 12G Write Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '873351-B21': 'HPE 400GB SAS 12G Write Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '873367-B21': 'HPE 3.2TB SAS 12G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '873365-B21': 'HPE 1.6TB SAS 12G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '873363-B21': 'HPE 800GB SAS 12G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '873359-B21': 'HPE 400GB SAS 12G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '877788-B21': 'HPE 1.92TB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875478-B21': 'HPE 1.92TB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '877782-B21': 'HPE 960GB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875474-B21': 'HPE 960GB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '877776-B21': 'HPE 480GB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875470-B21': 'HPE 480GB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '880295-B21': 'HPE 240GB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875483-B21': 'HPE 240GB SATA 6G Mixed Use SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '877790-B21': 'HPE 1.92TB SATA 6G Mixed Use LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '877784-B21': 'HPE 960GB SATA 6G Mixed Use LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '875476-B21': 'HPE 960GB SATA 6G Mixed Use LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '875472-B21': 'HPE 480GB SATA 6G Mixed Use LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '875492-B21': 'HPE 960GB SATA 6G Mixed Use M.2 2280 3yr Wty Digitally Signed Firmware SSD',
+       '875490-B21': 'HPE 480GB SATA 6G Mixed Use M.2 2280 3yr Wty Digitally Signed Firmware SSD',
+       '875488-B21': 'HPE 240GB SATA 6G Mixed Use M.2 2280 3yr Wty Digitally Signed Firmware SSD',
+       '877760-B21': 'HPE 1.92TB SATA 6G Read Intensive LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '877754-B21': 'HPE 960GB SATA 6G Read Intensive LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '877748-B21': 'HPE 480GB SATA 6G Read Intensive LFF (3.5in) SCC 3yr Wty Digitally Signed Firmware SSD',
+       '877764-B21': 'HPE 3.84TB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '877758-B21': 'HPE 1.92TB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875513-B21': 'HPE 1.92TB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '877752-B21': 'HPE 960GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875511-B21': 'HPE 960GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '877746-B21': 'HPE 480GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875509-B21': 'HPE 480GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '877740-B21': 'HPE 240GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875503-B21': 'HPE 240GB SATA 6G Read Intensive SFF (2.5in) SC 3yr Wty Digitally Signed Firmware SSD',
+       '875500-B21': 'HPE 960GB SATA 6G Read Intensive M.2 2280 3yr Wty Digitally Signed Firmware SSD',
+       '875498-B21': 'HPE 480GB SATA 6G Read Intensive M.2 2280 3yr Wty Digitally Signed Firmware SSD',
+       '875591-B21': 'HPE 1.92TB NVMe x4 Lanes Read Intensive SFF (2.5in) SCN 3yr Wty Digitally Signed Firmware SSD',
+       '875589-B21': 'HPE 960GB NVMe x4 Lanes Read Intensive SFF (2.5in) SCN 3yr Wty Digitally Signed Firmware SSD',
+       '875587-B21': 'HPE 480GB NVMe x4 Lanes Read Intensive SFF (2.5in) SCN 3yr Wty Digitally Signed Firmware SSD',
+       '875597-B21': 'HPE 1.6TB NVMe x4 Lanes Mixed Use SFF (2.5in) SCN 3yr Wty Digitally Signed Firmware SSD',
+       '875595-B21': 'HPE 800GB NVMe x4 Lanes Mixed Use SFF (2.5in) SCN 3yr Wty Digitally Signed Firmware SSD',
+       '875593-B21': 'HPE 400GB NVMe x4 Lanes Mixed Use SFF (2.5in) SCN 3yr Wty Digitally Signed Firmware SSD',
+     }
+
+   -
+     let drives = {
+       '726536-B21': 'HP 9.5mm SATA DVD-ROM JackBlack Gen9 Optical Drive',
+       '726537-B21': 'HP 9.5mm SATA DVD-RW JackBlack G9 Optical Drive',
+     }
+
+   -
+     let blocks = {
+       '865408-B21': 'HPE 500W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit',
+       '865438-B21': 'HPE 800W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit',
+       '865414-B21': 'HPE 800W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit',
+       '830272-B21': 'HPE 1600W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit',
+       '865428-B21': 'HPE 800W Flex Slot Universal Hot Plug Low Halogen Power Supply Kit',
+       '815102-B21': 'HPE ML350 Gen10 Flex Slot Redundant Power Supply Cage Kit with Power Distribution Board',
+     }
+
+   -
+     let options = {
+       '869083-B21': 'HPE Smart Array P816i-a SR Gen10 (16 Int Lanes/4GB Cache/SmartCache) 12G SAS Modular LH Controller',
+       '869081-B21': 'HPE Smart Array P408i-a SR Gen10 (8 Internal Lanes/2GB Cache) 12G SAS Modular LH Controller',
+       '804405-B21': 'HPE Smart Array P408e-p SR Gen10 (8 External Lanes/4GB Cache) 12G SAS PCIe Plug-in Controller',
+       '804398-B21': 'HPE Smart Array E208e-p SR Gen10 (8 External Lanes/No Cache) 12G SAS PCIe Plug-in Controller',
+       '869079-B21': 'HPE Smart Array E208i-a SR Gen10 (8 Internal Lanes/No Cache) 12G SAS Modular LH Controller',
+       '804338-B21': 'HPE Smart Array P816i-a SR Gen10 (16 Internal Lanes/4GB Cache/SmartCache) 12G SAS Modular Controlle',
+       '804331-B21': 'HPE Smart Array P408i-a SR Gen10 (8 Internal Lanes/2GB Cache) 12G SAS Modular Controller',
+       '804326-B21': 'HPE Smart Array E208i-a SR Gen10 (8 Internal Lanes/No Cache) 12G SAS Modular Controller',
+       '870658-B21': 'HPE Smart Array P824i-p MR Gen10 (24 Internal Lanes/4GB Cache/CacheCade) 12G SAS PCIe Controller',
+       '830824-B21': 'HPE Smart Array P408i-p SR Gen10 (8 Internal Lanes/2GB Cache) 12G SAS PCIe Plug-in Controller',
+       '804394-B21': 'HPE Smart Array E208i-p SR Gen10 (8 Internal Lanes/No Cache) 12G SAS PCIe Plug-in Controller',
+       'P01366-B21': 'HPE 96W Smart Storage Battery (up to 20 Devices) with 145mm Cable Kit',
+     }
+
+   -
+     let adapters = {
+       '647594-B21': 'HPE Ethernet 1Gb 4-port 331T Adapter',
+       '811546-B21': 'HPE Ethernet 1Gb 4-port 366T Adapter',
+       '615732-B21': 'HPE Ethernet 1Gb 2-port 332T Adapter',
+       '652497-B21': 'HPE Ethernet 1Gb 2-port 361T Adapter',
+       '656596-B21': 'HPE Ethernet 10Gb 2-port 530T Adapter',
+       '813661-B21': 'HPE Ethernet 10Gb 2-port 535T Adapter',
+       '652503-B21': 'HPE Ethernet 10Gb 2-port 530SFP Adapter',
+       '867707-B21': 'HPE Ethernet 10Gb 2-port 521T Adapter',
+       '817738-B21': 'HPE Ethernet 10Gb 2-port 562T Adapter',
+       '727055-B21': 'HPE Ethernet 10Gb 2-port 562SFP+ Adapter',
+       '817718-B21': 'HPE Ethernet 10/25Gb 2-port 631SFP28 Adapter',
+       '817753-B21': 'HPE Ethernet 10/25Gb 2-port 640SFP28 Adapter',
+       '867328-B21': 'HPE Ethernet 10/25Gb 2-port 621SFP28 Adapter',
+     }
+
+   -
+     let warranty = {
+       'C6N27A': 'HP Insight Control including 1yr 24x7 Technical Support and Updates Single Server License',
+       'C6N28ABE': 'HP Insight Control including 1yr 24x7 Technical Support and Updates Electronic License',
+       'C6N36A': 'HP Insight Control including 1yr 24x7 Support ProLiant ML/DL/BL-bundle Single Server FIO License',
+       '512485-B21': 'HP iLO Advanced including 1yr 24x7 Technical Support and Updates Single Server License',
+       'BD505A': 'HP iLO Advanced 1 Server License with 3yr 24x7 Tech Support and Updates',
+       'BD506AAE': 'HP iLO Advanced Electronic License with 3yr 24x7 Tech Support and Updates',
+       'E6U59ABE': 'HP iLO Advanced including 1yr 24x7 Technical Support and Updates E-LTU',
+       'E6U64ABE': 'HP iLO Advanced including 3yr 24x7 Technical Support and Updates E-LTU',
+       'TA850AAE': 'HP iLO Advanced including 1yr 24x7 Technical Support and Updates Electronic License',
+       'E6U61ABE': 'HP Integrated Lights-Out Essentials including 3yr 24x7 Technical Support and Updates E-LTU',
+       'BD774A': 'HP Integrated Lights-Out Essentials including 3yr 24x7 Tech Support and Updates Single Svr Licens',
+       'BD774AAE': 'HP Integrated Lights-Out Essentials including 3yr 24x7 Tech Support and Updates E-LTU',
+       'BD775A': 'HP Integrated Lights-Out Essentials including 1yr 24x7 Tech Support and Updates Single Svr License',
+       'BD775AAE': 'HP Integrated Lights-Out Essentials including 1yr 24x7 Tech Support and Updates E-LTU',
+       'E6U62ABE': 'HP Integrated Lights-Out Essentials including 1yr 24x7 Technical Support and Updates E-LTU',
+       'BD776A': 'HP Integrated Lights-Out Scale-Out 3yr 24x7 Tech Support and Updates Flex Quantity License',
+       'BD777A': 'HP Integrated Lights-Out Scale-Out including 3yr 24x7 Tech Support and Updates Tracking License',
+       'BD776AAE': 'HP Integrated Lights-Out Scale-Out including 3yr 24x7 Tech Support and Updates Flex Qty E-LTU',
+       'BD778A': 'HP Integrated Lights-Out Scale-Out 1yr 24x7 Tech Support and Updates Flex Quantity License',
+       'BD778AAE': 'HP Integrated Lights-Out Scale-Out including 1yr 24x7 Tech Support and Updates Flex Qty E-LTU',
+       'BD779A': 'HP Integrated Lights-Out Scale-Out including 1yr 24x7 Tech Support and Updates Tracking License',
+       'Q7E31A': 'HPE iLO Advanced Premium Security Edition License with 1yr Support on Licensed Features',
+       'Q7E32A': 'HPE iLO Advanced Premium Security Flex Qty License with 1yr Support on Licensed Features',
+       'Q7E12AAE': 'HPE iLO Advanced Premium Security Upgrade Electronic License with 3yr Support on Licensed Features',
+       'Q7E33A	': 'HPE iLO Advanced Premium Security Edition License with 3yr Support on Licensed Features',
+       'Q7E34A	': 'HPE iLO Advanced Premium Security Flex Qty License with 3yr Support on Licensed Features',
+       'Q7E34AAE': 'HPE iLO Advanced Premium Security Edition Electronic License with 3yr Support on Licensed Features',
+       'Q7E36A': 'HPE iLO Advanced Premium Security AKA Tracking License with 3yr Support on Licensed Features',
+     }
+
+   -
+     let parts = {
+        servers,
+       processors,
+       memory,
+       HDD,
+       drives,
+       blocks,
+       options,
+       adapters,
+       warranty,
+     }
+
+block content
+  include ..//includes/modules/popular/header
+  include ..//includes/modules/popular/content
+
+  //include ..//includes/modules/map
+
+
+  include ..//includes/popups/full
+  include ..//includes/popups/price
+  include ..//includes/popups/popular-price
+  include ..//includes/popups/callback
+  include ..//includes/popups/ok
+
+
+

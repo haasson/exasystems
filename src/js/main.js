@@ -25,7 +25,9 @@ window.addEventListener('load', function () {
 
    videoHandler()
    dateHandler()
-   arrowPopular()
+   togglePopular()
+   tabsHandler()
+   accordionHandler()
 
 
    if (document.querySelector('.quiz')) {
@@ -119,13 +121,62 @@ function mapsInit() {
    });
 }
 
-function arrowPopular() {
+function togglePopular() {
    let popularInner = document.querySelector(".popular__inner")
    let toggleButton = document.querySelector(".popular__arrow")
+   if (!popularInner) return
 
    toggleButton.addEventListener("click", () => {
       popularInner.classList.toggle("active")
    })
+}
+
+function tabsHandler() {
+   const tabsHolder = document.querySelector('.tabs-holder')
+   if (!tabsHolder) return
+   const controls = tabsHolder.querySelector('.tabs-controls')
+   const tabs = tabsHolder.querySelector('.tabs-content')
+
+   controls.addEventListener('click', e => {
+      const control = e.target.dataset.control
+      const tab = tabs.querySelector(`[data-tab="${control}"]`)
+
+      const controlsChildren = [...controls.children]
+      controlsChildren.forEach(ctrl => {
+         ctrl.classList.remove('active')
+      })
+      e.target.classList.add('active')
+
+      const tabsChildren = [...tabs.children]
+      tabsChildren.forEach(tab => {
+         tab.classList.add('hide')
+      })
+      tab.classList.remove('hide')
+   })
+
+   // Open configurator tab
+   const query = window.location.search
+   let queryParams = query.slice(1).split('&').map(el => el.split('='))
+   queryParams = Object.fromEntries(queryParams)
+
+   if (queryParams.hasOwnProperty('configurator')) {
+      const tab = controls.querySelector('[data-control="configurator"]')
+      tab.click()
+   }
+}
+
+function accordionHandler() {
+   const accordions = document.querySelectorAll('.accordion-item');
+   if (!accordions) return
+
+   [...accordions].forEach(accordion => {
+      const trigger = accordion.querySelector('.trigger')
+
+      trigger.addEventListener('click', () => {
+         accordion.classList.toggle('open')
+      })
+   })
+
 }
 
 

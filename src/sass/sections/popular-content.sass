@@ -1,0 +1,168 @@
+.popular-content
+  &__inner
+    padding-top: 45px
+    background-color: $gray-manager
+    font-weight: 400
+  &__header
+    display: flex
+    justify-content: space-between
+    padding: 0 62px
+    font-size: 14px
+    font-weight: 400
+    color: $blue
+    margin-bottom: 17px
+  &__header-left
+    display: flex
+    align-items: center
+  &__icon-back
+    width: 10px
+    height: 10px
+    color: $blue
+    flex-shrink: 0
+    margin-right: 12px
+    transform: rotate(180deg)
+  &__position
+    border-bottom: 1px solid $blue
+  &__question
+    border-bottom: 1px solid $blue
+    margin-right: 25px
+  &__btn
+    margin-right: 24px
+  &__icon-close
+    width: 12px
+    height: 12px
+    flex-shrink: 0
+  &__top
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    padding-left: 62px
+  &__name
+    font-size: 34px
+    font-weight: 600
+    margin-bottom: 30px
+  &__slogan
+    font-size: 14px
+    font-weight: 400
+    text-transform: uppercase
+    max-width: 245px
+    margin-bottom: 38px
+  &__description
+    font-size: 14px
+    font-weight: 400
+    max-width: 341px
+
+  &__tabs
+    margin-top: 55px
+    font-size: 14px
+  &__controls
+    display: flex
+    padding: 0 62px
+  &__control
+    padding: 15px 25px
+    color: $blue
+    text-decoration: underline
+    border-bottom: 1px solid transparent
+    cursor: pointer
+    &.active
+      background-color: #fff
+      text-decoration: none
+    &:hover:not(.active)
+      border-bottom: 1px solid $blue
+
+  &__tab-content
+    padding: 30px 62px
+    background-color: #fff
+    h3
+      margin-bottom: 32px
+
+    .list
+      margin-bottom: 35px
+      .list-item
+        display: flex
+        align-items: center
+        padding: 15px 0
+        border-top: 1px solid #eee
+        .key
+          width: 270px
+          margin-right: 20px
+          flex-shrink: 0
+          font-weight: 600
+
+    .accordion
+      .accordion-item
+        border-bottom: 1px solid #dadada
+        .trigger
+          display: flex
+          align-items: center
+          padding: 17px 0
+          font-weight: 600
+          cursor: pointer
+          .icon-caret
+            margin-right: 15px
+            width: 13px
+            height: 13px
+            fill: $blue
+            flex-shrink: 0
+            transform: rotate(90deg)
+        .content
+          display: none
+
+        &.open
+          .trigger
+            .icon-caret
+              transform: rotate(270deg)
+          .content
+            display: block
+
+    [data-tab='about']
+      .loads
+        .loads-item
+          margin-bottom: 15px
+          &:last-child
+            margin-bottom: 0
+        .icon-check
+          width: 15px
+          height: 10px
+          margin-right: 10px
+          fill: $blue
+      .files
+        display: flex
+        .file-item
+          display: flex
+          align-items: center
+          margin-right: 30px
+          color: $blue
+          &:last-child
+            margin-right: 0
+          a
+            text-decoration: underline
+        .icon-download
+          width: 15px
+          height: 20px
+          margin-right: 8px
+          fill: $blue
+
+    [data-tab='specification']
+
+    [data-tab='models'],
+    [data-tab='parts'],
+      .list
+        .key
+          text-align: center
+          font-weight: 400
+          color: $blue
+          text-decoration: underline
+
+
+
+
+  &__tab-block
+    margin-bottom: 32px
+    &:last-child
+      margin-bottom: 0
+
+    p
+      margin-bottom: 25px
+      &:last-child
+        margin-bottom: 0

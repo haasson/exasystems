@@ -1,0 +1,113 @@
+extends ../layout/main
+
+block variables
+   - let title = 'EXASystems'
+   - let pageType = "popular-page"
+
+   -
+      let mainData = {
+        name: 'Dell EMC PowerEdge R540',
+        slogan: 'Универсальная конструкция',
+        description: '',
+        image: 'proliant-dl380',
+        tabs: ['about', 'specification', 'models', 'parts', 'configurator']
+      }
+
+   -
+      let about = {
+        base: `
+                  <p>PowerEdge R640 — идеальная двухпроцессорная платформа для вычислений и хранения данных в центрах обработки данных с горизонтальным масштабированием высокой плотности.</p>
+                  <p>Благодаря универсальности накопителей 2,5" или 3,5" производительность NVMe и встроенные интеллектуальные функции обеспечивают оптимальную производительность приложений в защищенной платформе.</p>
+                  <p>С помощью встроенных функций диагностики и технологии SupportAssist R640 обеспечивает максимальное время бесперебойной работы в среде без лишних хлопот.</p>
+                `,
+        loads: ['Программно определяемые системы хранения данных высокой плотности', 'Поставщики услуг: уровня приложений', 'Частное облако с высокой плотностью установки', 'Виртуализация', 'Высокопроизводительные вычисления'],
+        files: [
+          {name: 'Datasheet_DL380_gen10.pdf', link: 'asd'},
+          {name: 'Quickspeck_DL380_gen10.pdf', link: 'asd'},
+        ]
+      }
+
+    // Технические характеристики
+   -
+      let specification = {
+        systemFunctions: {
+          formFactor: '1RU',
+        },
+        control: {
+          consoles: 'OpenManage Enterprise (выпуск в ближайшее время) <br>OpenManage Essentials <br>OpenManage Power Center',
+          mobility: 'OpenManage Mobile',
+          tools: 'iDRAC Service Module <br>OpenManage Server Administrator <br>OpenManage Storage Services <br>Dell EMC Repository Manager <br>Dell EMC System Update <br>Служебная программа Dell EMC Server Update <br>Каталоги обновлений Dell EMC',
+          integration: 'Microsoft® Systems Center <br>VMware® vCenter™ <br>BMC software (доступно на странице BMC)',
+          controls: 'iDRAC9 с Lifecycle Controller (Express, Enterprise) <br>iDRAC Direct <br>iDRAC REST API с Redfish <br>Модуль Quick Sync 2, беспроводной/Bluetooth LE',
+        },
+        size: {
+          small: '728,23 мм от фронтальной панели до задней ручки блока питания <br>714,58 мм от передней стенки (без фронтальной панели) до задней ручки блока питания',
+          average: '677,45 мм от фронтальной панели до задней ручки блока питания <br>676,92 мм от передней стенки (без фронтальной панели) до задней ручки блока питания',
+          big: '728,23 мм от фронтальной панели до задней ручки блока питания <br>714,58 мм от передней стенки (без фронтальной панели) до задней ручки блока питания',
+        },
+        ports: {
+          networkSettings: '2 адаптера LOM 1GbE <br>(опционально) OCP, 2 модуля 10GbE SFP+ или BaseT или 2 модуля 1GbE',
+          frontPanel: 'Видео, 1 порт USB 2.0, свободный порт USB 3.0, выделенный порт USB для iDRAC Direct',
+          rearPanel: 'Видео, последовательный порт, 2 порта USB 3.0, выделенный сетевой порт iDRAC',
+          pcle: 'До 2 разъемов Gen 3, все х16',
+        },
+        processor: 'Intel® Xeon® Silver 4114 2.2G, 10C/20T, 9.6GT/s 2UPI, 14M Cache, Turbo, HT (85W) DDR4-2400',
+        memory: '16 разъемов для модулей DDR4 DIMM, поддержка RDIMM/LRDIMM, скорость до 2 666 MT/с, емкость до 512 Гбайт. Поддерживаются только регистровые модули DDR4 DIMM с ECC',
+        drive: 'Передние отсеки дисководов: до 10 дисков SAS/SATA 2,5" (жестких дисков или твердотельных накопителей) и до 4 твердотельных накопителей NVMe макс. емкостью 48 Тбайт или до 4 жестких дисков SAS/SATA 3,5" макс. емкостью 56 Тбайт <br>Опциональный дисковод DVD-ROM, DVD RW',
+        controllers: 'Внутренние контроллеры: PERC H330, H730p, H740p, HBA330, программный RAID (SWRAID) S140 <br>Подсистема хранения данных с оптимизацией загрузки: аппаратный RAID, 2 твердотельных накопителя M.2, 120 Гбайт, 240 Гбайт <br>Внешний контроллер PERC (RAID): H840 <br>Внешние адаптеры главной шины (без RAID): адаптер главной шины SAS 12 Гбит/с <br>Опциональный дисковод DVD-ROM, DVD RW',
+        blocks: 'Gold 450 Вт, Platinum 550 Вт',
+        fans: 'Источники питания с возможностью горячей замены и опциональным полным резервированием',
+        frontPanel: 'Опциональная фронтальная панель с ЖК-дисплеем или фронтальная панель для безопасности',
+        safety: 'Модуль TPM 1.2/2.0 (опционально) <br>Микрокод с криптографической подписью <br>Безопасная загрузка <br>Блокировка системы <br>Безопасное стирание',
+        operatingSystem: 'Canonical® Ubuntu® LTS <br>Citrix® XenServer® <br>Microsoft Windows Server® с Hyper-V <br>Red Hat® Enterprise Linux <br></br>SUSE® Linux Enterprise Server <br></br>VMware® ESXi',
+        support: 'Dell ProSupport Plus для критически важных систем или аппаратная и программная поддержка Dell ProSupport класса Premium для решения PowerEdge.',
+    }
+
+   // Модели
+   -
+    let models = {
+      'R440-7106': 'DELL PowerEdge R440 1U/ 4LFF/ 1x3106 (8-Core, 1.7 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1x1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-7151': 'DELL PowerEdge R440 1U/ 8SFF/ 1x3106 (8-Core, 1.7 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1x1.2TB 10K SAS/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-7113': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4110 (8-Core, 2.1 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1x1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-7168': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4110 (8-Core, 2.1 GHz, 85W)/ 1x16GB RDIMM/ 730P+ 2GB LP/ 1x1.2TB 10K SAS/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-7175': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4114 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P+ 2GB LP/ 1x1.2TB 10K SAS/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-7137': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4114 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ 730P+ 2GB LP/ 1x1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-7243': 'DELL PowerEdge R440 1U/ 8SFF/ 2x6126 (12-Core, 2.6 GHz, 125W)/ 2x32GB RDIMM/ 730P+ 2GB LP/ 1x1.2TB 10K SAS/ 4xGE/ 1x550W/ RC3/ iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1963': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4216 (16-Core, 2.1 GHz, 100W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1.2 TB 10K 12 SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1956': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4215 (8-Core, 2.5 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1.2 TB 10K 12 SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1918': 'DELL PowerEdge R440 1U/ 8SFF/ 1x3204 (6-Core, 1.92 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1 x 1.2 TB 10K 12 SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1857': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4208 (8-Core, 2.1 GHz, 85W)/ 1x16GB RDIMM/ H330+ LP/ 1 x 1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1871': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1888': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4214 (12-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1TB 7.2K SATA/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1949': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4214 (12-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 1 x 1.2 TB 10K 12 SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1871-11': 'DELL PowerEdge R440 1U/ 4LFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 4 x 4TB 7.2K NLSAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+      'R440-1932-11': 'DELL PowerEdge R440 1U/ 8SFF/ 1x4210 (10-Core, 2.2 GHz, 85W)/ 1x16GB RDIMM/ H730P+ LP/ 2 x 900 GB 15K SAS/ 2xGE/ 1x550W/ RC1, 1xFH / iDRAC9 Ent/ DVDRW/ Bezel noQS/ Sliding Rails/ noCMA/ 3YBWNBD',
+    }
+
+    //  Комплектующие
+   -
+    let parts = {
+      '400-BEII': 'DELL 14TB 7.2K SATA 6Gbps 512e 3.5in Hot-plug, For 14G',
+      '400-BEKM': 'DELL 14TB 7.2K SATA 6Gbps 512e 3.5in Hot-plug, For 14G',
+      '400-AXTV': 'DELL 480GB SFF 2.5"" Read Intensive SSD SATA 6Gbps Hot Plug Drive, 1 DWPD, 876 TBW, For 14G Servers (analog 400-ATGX , 400-BDPQ)',
+      '400-AZUN': 'DELL 480GB LFF (2.5"" in 3.5"" carrier) Mix Use SSD SATA 6Gbps 512, 3 DWPD, 2 628 TBW Hot Plug Drive For 14G Servers (analog 400-BDVW, 400-ATGN , 400-ATHB)',
+      '400-AVSS': 'DELL 480Gb SATA M.2 Drive For BOSS Intel S3520 (9NF27)',
+    }
+
+
+
+block content
+  include ..//includes/modules/popular/header
+  include ..//includes/modules/popular/content
+
+  //include ..//includes/modules/map
+
+
+  include ..//includes/popups/full
+  include ..//includes/popups/price
+  include ..//includes/popups/popular-price
+  include ..//includes/popups/callback
+  include ..//includes/popups/ok
+
+
+

@@ -1,0 +1,136 @@
+-
+   let tabsNamesMap = {
+      about: 'Описание',
+     specification: 'Технические характеристики',
+     models: 'Модели',
+     parts: 'Комплектующие',
+     configurator: 'Конфигуратор',
+   }
+
+-
+  let specificationNamesMap = {
+    controller: 'Сетевой контроллер',
+    extendedSlots: 'Слоты расширения',
+    infrasrtuctureManaging: 'Управление инфраструктурой',
+    memoryMax: 'Максимальный объем памяти',
+    memorySlots: 'Слоты для памяти',
+    memoryType: 'Тип памяти',
+    memoryVolume: 'Стандартный объем памяти',
+    nvdimmType: 'Тип модуля NVDIMM',
+    nvdimmRank: 'Ранг модуля NVDIMM',
+    nvdimmCapacity: 'Емкость модуля NVDIMM',
+    processor: 'Тип процессора',
+    processorFamily: 'Семейство процессоров',
+    processorCores: 'Количество ядер процессора',
+    processorCache: 'Кэш процессора',
+    processorModel: 'Модель процессора',
+    processorCount: 'Количество процессоров',
+    processorSpeed: 'Быстродействие процессора',
+    safety: 'Безопасность',
+    size_en: 'Габариты продукта (английская система) (H x B x T)',
+    size_ru: 'Габариты продукта (метрическая система) (H x B x T)',
+    storage: 'Поддерживаемый накопитель',
+    storageController: 'Контроллер хранилища',
+    fanFunctions: 'Функции системных вентиляторов',
+    formFactor: 'Форм-фактор',
+    warranty: 'Гарантия',
+    weight_en: 'Вес (английская система)',
+    weight_ru: 'Масса (метрическая система)',
+  }
+
+.popular-content
+  .wrapper
+    .popular-content__inner
+      .popular-content__header
+        .popular-content__header-left
+          +svg('arrow', 'popular-content__icon-back')
+          a.popular-content__position(href="javascript:history.back()") Популярные позиции
+        .popular-content__header-right
+          a.popular-content__question Задать вопрос
+          button.btn.popular-content__btn Запросить цену
+          a(href="javascript:history.back()")
+            +svg('close', 'popular-content__icon-close')
+      .popular-content__top
+        .popular-content__text
+          h2.popular-content__name !{mainData.name}
+          p.popular-content__slogan !{mainData.slogan}
+          p.popular-content__description !{mainData.description}
+        .popular-content__images
+          img(src=`./assets/img/18content/${mainData.image}.png`)
+
+      .popular-content__tabs.tabs-holder
+        .popular-content__controls.tabs-controls
+          each tab, index in mainData.tabs
+           .popular-content__control(class=index === 0 ? 'active' : '' data-control=tab) !{tabsNamesMap[tab]}
+
+        .popular-content__tab-content.tabs-content
+          if (about)
+            .popular-content__tab-item(data-tab="about")
+              if (about.base)
+                .popular-content__tab-block
+                  h3 Описание
+                  .popular-content__tab-description !{about.base}
+              if (about.loads)
+                .popular-content__tab-block
+                  h3 Идеальные нагрузки
+                  ul.loads
+                    each item in about.loads
+                      li.loads-item
+                        +svg('check', 'icon-check')
+                        span !{item}
+              if (about.files)
+                .popular-content__tab-block
+                  h3 Файлы для скачивания
+                  ul.files
+                    each file in about.files
+                      li.file-item
+                        +svg('download', 'icon-download')
+                        a(href=file.link download) !{file.name}
+
+          if (specification)
+            .popular-content__tab-item.hide(data-tab="specification")
+              h3 Технические характеристики
+              ul.list
+                each value, key in specification
+                  li.list-item
+                    //.key !{specificationNamesMap[key] || 'no key'}
+                    .key !{key}
+                    .value !{value}
+              p Intel и Intel Xeon являются товарными знаками Intel Corporation в США и других странах. Microsoft и Azure являются зарегистрированными товарными знаками Microsoft Corporation в США и других странах. Все прочие товарные знаки являются собственностью соответствующих владельцев.
+
+          if (models)
+            .popular-content__tab-item.hide(data-tab="models")
+              h3 Модели
+              ul.list
+                 each value, key in models
+                   li.list-item
+                     .key !{key}
+                     .value !{value}
+
+          if (parts)
+            .popular-content__tab-item.hide(data-tab="parts")
+              h3 Комплектующие
+              ul.accordion
+                 each part, partKey in parts
+                   li.accordion-item
+                      .trigger
+                        +svg('arrow', 'icon-caret')
+                        span !{partKey}
+                      .content
+                        ul.list
+                          each value, key in part
+                            li.list-item
+                              .key !{key}
+                              .value !{value}
+
+          if (true)
+            .popular-content__tab-item.hide(data-tab="configurator")
+              span configurator
+
+
+
+
+
+
+
+
